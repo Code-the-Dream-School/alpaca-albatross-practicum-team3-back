@@ -17,8 +17,7 @@ const getList = async (req, res) => {
     _id: listId,
     owner: userId,
   });
-  if (!list)
-    throw new NotFoundError(`No to-do list found with ID no. ${listId}`);
+  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
   res.status(StatusCodes.OK).json({list});
 };
 
@@ -34,13 +33,13 @@ const updateList = async (req, res) => {
     user: {userId},
     params: {id: listId},
   } = req;
-  if (title === "") throw new BadRequestError("title field cannot be empty");
+  if (title === "") throw new BadRequestError("Title field cannot be empty");
   const list = await ToDoList.findOneAndUpdate(
     {_id: listId, owner: userId},
     req.body,
     {new: true, runValidators: true}
   );
-  if (!list) throw new NotFoundError(`No list found with ID no. ${listId}`);
+  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
   res.status(StatusCodes.OK).json({list});
 };
 
@@ -53,7 +52,7 @@ const deleteList = async (req, res) => {
     _id: listId,
     owner: userId,
   });
-  if (!list) throw new NotFoundError(`No list found with ID no. ${listId}`);
+  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
   const deletedTodos = await ToDo.deleteMany({
     list: listId,
     owner: userId,

@@ -1,5 +1,5 @@
-const ToDo = require("../models/ToDo");
 const ToDoList = require("../models/ToDoList");
+const ToDo = require("../models/ToDo");
 const {StatusCodes} = require("http-status-codes");
 const {BadRequestError, NotFoundError} = require("../errors");
 
@@ -17,13 +17,18 @@ const getTodo = async (req, res) => {
     _id: todoId,
     owner: userId,
   });
-  if (!todo) throw new NotFoundError(`No to do found with ID no. ${todoId}`);
+  if (!todo) throw new NotFoundError(`No entry found with ID no. ${todoId}`);
   res.status(StatusCodes.OK).json({todo});
 };
 
 const createTodo = async (req, res) => {
   req.body.owner = req.user.userId;
+  const listId = req.body.list;
   // request body must include {list: listId}
+  if (listId === "") throw new BadRequestError("List field cannot be empty.");
+  const list = await ToDoList.findById(listId);
+  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
+
   const todo = await ToDo.create(req.body);
   res.status(StatusCodes.CREATED).json({todo});
 };
@@ -40,7 +45,7 @@ const updateTodo = async (req, res) => {
     req.body,
     {new: true, runValidators: true}
   );
-  if (!todo) throw new NotFoundError(`No to do found with ID no. ${todoId}.`);
+  if (!todo) throw new NotFoundError(`No entry found with ID no. ${todoId}`);
   res.status(StatusCodes.OK).json({todo});
 };
 
@@ -53,7 +58,7 @@ const deleteTodo = async (req, res) => {
     _id: todoId,
     owner: userId,
   });
-  if (!todo) throw new NotFoundError(`No to do found with ID no. ${todoId}.`);
+  if (!todo) throw new NotFoundError(`No entry found with ID no. ${todoId}`);
   res
     .status(StatusCodes.OK)
     .json({msg: `To do ID no. ${todoId} has been deleted.`});
