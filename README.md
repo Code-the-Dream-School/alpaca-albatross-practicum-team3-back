@@ -9,7 +9,7 @@
 
 ## About
 
-This repo is for the Code the Dream, Alpaca-Albatross Practicum - Team 3's server-side code. Please visit the project's [representative repo](https://github.com/Code-the-Dream-School/alpaca-albatross-practicum-team3-front) for its front-end code and README.
+This repo is for the Code the Dream, Alpaca-Albatross Practicum - Team 3's development work. Please visit the project's [representative repo](https://github.com/Code-the-Dream-School/alpaca-albatross-practicum-team3-front) for its production code and README.
 
 ### Contributors
 
