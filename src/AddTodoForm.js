@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import InputWithLabel from './InputWithLabel';
 
-// Form component: Adds list item to list onSubmit. Uses new Date().getTime() to create unique key for each child.
-
 const AddTodoForm = ({ onAddTodo }) => {
     const [todoTitle, setTodoTitle] = useState("")
 
@@ -13,20 +11,18 @@ const AddTodoForm = ({ onAddTodo }) => {
 
     const handleAddTodo = (e) => {
         e.preventDefault();
-        onAddTodo({ title: todoTitle, id: new Date().getTime() });
+        onAddTodo({ title: todoTitle, id: Date.now() });
         setTodoTitle("");
     };
 
     return (
-        
         <form onSubmit={handleAddTodo}>
-                <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>Task
-                </InputWithLabel>
+            <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>Title</InputWithLabel>
             <button type="submit">Add</button>
-            </form>
-    
+        </form>
     );
 };
 
 export default AddTodoForm;
+
 
