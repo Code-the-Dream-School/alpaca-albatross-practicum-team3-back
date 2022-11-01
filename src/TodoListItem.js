@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
-import AddTodoForm from "./AddTodoForm";
-import InputWithLabel from "./InputWithLabel";
+import AddTodoForm from "./Forms.js/AddTodoForm";
+import InputWithLabel from "./Forms.js/AddTodoLabel";
 
 //Function creates list item with remove button. Add checkbox, edit, favorite here.
 

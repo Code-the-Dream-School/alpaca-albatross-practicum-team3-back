@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import InputWithLabel from './InputWithLabel';
+import InputWithLabel from './AddTodoLabel';
 
 const AddTodoForm = ({ onAddTodo, onAddInputChange }) => {
     const [todoTitle, setTodoTitle] = useState("")
@@ -17,7 +17,7 @@ const AddTodoForm = ({ onAddTodo, onAddInputChange }) => {
         if (todoTitle !== "") {
             setTodoTitle([{
               id: Date.now(),
-              text: todoTitle.trim()
+              title:todoTitle
             }]);
             ;
           };

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import AddTodoForm from './AddTodoForm';
+import AddTodoForm from './Forms.js/AddTodoForm';
 import TodoList from './TodoList';
-import EditForm from "./EditForm";
+import EditForm from "./Forms.js/EditForm";
 
 
 // Function to preserve list upon refresh. Works with local storage.
@@ -39,24 +39,11 @@ function App() {
     setTodoList(e.target.value);
   };
 
-  const handleEditInputChange = (e) => {
-    setCurrentTodo({ ...currentTodo, title: e.target.value });
-    console.log(currentTodo);
-  };
 
 
-  const handleEditFormSubmit = (e) => {
-    e.preventDefault();
-    handleUpdateTodo(currentTodo.title, currentTodo);
-  };
-  
-  const handleUpdateTodo = (todoTitle, updatedTodo) => {
-    const updatedItem = todoTitle.map((todo) => {
-      return todo.title === todo.title ? updatedTodo : todo;
-    });
-    setIsEditing(false);
-    setTodoList(updatedItem);
-  };
+
+
+ 
 
   const handleEditClick = (todoTitle) => {
     setIsEditing(true);
@@ -72,8 +59,7 @@ function App() {
         <EditForm
           currentTodo={currentTodo}
           setIsEditing={setIsEditing}
-          onEditInputChange={handleEditInputChange}
-          onEditFormSubmit={handleEditFormSubmit}
+          setCurrentTodo={setCurrentTodo}
         />
       ) : (
           <AddTodoForm
