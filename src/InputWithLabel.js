@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 //Function for reusable id with focused input field
 
-const InputWithLabel = ({ children, todoTitle, onAddInputChange }) => {
+const InputWithLabel = ({ children, todoTitle, handleTitleChange }) => {
     const inputRef = useRef();
     useEffect(() => {
         inputRef.current.focus();
@@ -18,7 +18,7 @@ const InputWithLabel = ({ children, todoTitle, onAddInputChange }) => {
                 name="title"
                 id="todoTitle"
                 value={todoTitle}
-                onChange={onAddInputChange} />
+                onChange={handleTitleChange} />
         </>
     );
 };

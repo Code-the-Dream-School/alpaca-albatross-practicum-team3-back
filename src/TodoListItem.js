@@ -6,7 +6,7 @@ import InputWithLabel from "./InputWithLabel";
 //Function creates list item with remove button. Add checkbox, edit, favorite here.
 
 const TodoListItem = ({ todo, onRemoveTodo, onEditClick}) => {
-  console.log(todo);
+  console.log(todo.id);
   return (
       
     <li key={todo.id}>
