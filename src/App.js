@@ -22,7 +22,6 @@ const useSemiPersistentState = () => {
 function App() {
 
   const [todoList, setTodoList] = useSemiPersistentState();
-  const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
 
   const addTodo = (newTodo) => {
@@ -45,33 +44,23 @@ function App() {
 
  
 
-  const handleEditClick = (todoTitle) => {
-    setIsEditing(true);
-    setCurrentTodo({ ...todoTitle });
-  };
 
 
   return (
     <>
       <h1>Todo List Title</h1>
-
-      {isEditing ? (
-        <EditForm
-          currentTodo={currentTodo}
-          setIsEditing={setIsEditing}
-          setCurrentTodo={setCurrentTodo}
-        />
-      ) : (
-          <AddTodoForm
+      
+        <AddTodoForm
             onAddTodo={addTodo}
             onAddInputChange={handleAddInputChange}
           />
-      )}
+    
 
         <TodoList
           todoList={todoList}
           onRemoveTodo={removeTodo}
-          onEditClick={handleEditClick}
+          setCurrentTodo={setCurrentTodo}
+          currentTodo={currentTodo}  
         />
       
     </>
