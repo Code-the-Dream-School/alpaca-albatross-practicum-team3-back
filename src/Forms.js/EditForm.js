@@ -25,6 +25,7 @@ const EditForm = ({ setTodoList, setCurrentTodo, currentTodo, setIsEditing }) =>
             <h2>Edit Todo</h2>
             <label htmlFor="updateTodo"> UpdateTodo: </label>
             <input
+                autoFocus="autoFocus"
                 name="updateTodo"
                 type="text"
                 value={currentTodo.title}
