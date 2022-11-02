@@ -25,11 +25,23 @@ const EditForm = ({ setTodoList, setCurrentTodo, currentTodo, setIsEditing }) =>
             <h2>Edit Todo</h2>
             <label htmlFor="updateTodo"> UpdateTodo: </label>
             <input
-                autoFocus="autoFocus"
-                name="updateTodo"
+                autoFocus="autofocus"
                 type="text"
-                value={currentTodo.title}
-                onChange={handleEditInputChange}
+                value={currentTodo.Title}
+                onChange={(e) => {
+                    this.cursor = e.target.selectionStart;
+                    this.setState({value: e.target.value});
+                  }
+                }
+                onFocus={(e) => {
+                    e.target.selectionStart = this.cursor;
+                  }
+                }
+              
+                // name="updateTodo"
+                // type="text"
+                // value={currentTodo.title}
+                // onChange={handleEditInputChange}
             />
             <button type="submit" onClick={handleEditFormSubmit}>Update</button>
             <button onClick={() => setIsEditing(false)}>Cancel</button>
