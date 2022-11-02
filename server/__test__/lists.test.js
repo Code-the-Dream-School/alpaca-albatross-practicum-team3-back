@@ -51,6 +51,44 @@ describe("ToDoList", () => {
       );
     });
 
+    it("should not create a todo list entry with only white space charachers", async () => {
+      const response = await request(baseURL)
+        .post("/lists")
+        .set("Authorization", `Bearer ${token}`)
+        .send({title: "   "});
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "A to do list cannot be all white spaces."
+      );
+    });
+
+    it("should not create a todo list entry with less than 3 charachers", async () => {
+      const response = await request(baseURL)
+        .post("/lists")
+        .set("Authorization", `Bearer ${token}`)
+        .send({title: "hi"});
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "Path `title` (`hi`) is shorter than the minimum allowed length (3)."
+      );
+    });
+
+    it("should not create a todo list entry with more than 50 charachers", async () => {
+      const response = await request(baseURL)
+        .post("/lists")
+        .set("Authorization", `Bearer ${token}`)
+        .send({
+          title: "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+        });
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "Path `title` (`hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh`) is longer than the maximum allowed length (50)."
+      );
+    });
+
     it("should create a todo list entry with valid input", async () => {
       const response = await request(baseURL)
         .post("/lists")
@@ -115,7 +153,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${listId.slice(1)}`
+        "No todo list is found that matches your request."
       );
     });
 
@@ -157,7 +195,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${listId.slice(1)}`
+        "No todo list is found that matches your request."
       );
     });
 
@@ -206,7 +244,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${listId.slice(1)}`
+        "No todo list is found that matches your request."
       );
     });
 
@@ -218,7 +256,7 @@ describe("ToDoList", () => {
       expect(response.status).toEqual(200);
       // 0 to-do items if database has no data
       expect(response.body.msg).toEqual(
-        `List ID no. ${listId} and 0 to-do item(s) have been deleted`
+        `The todo list and 0 to-do item(s) have been deleted`
       );
     });
   });

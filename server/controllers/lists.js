@@ -17,7 +17,8 @@ const getList = async (req, res) => {
     _id: listId,
     owner: userId,
   });
-  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
+  if (!list)
+    throw new NotFoundError("No todo list is found that matches your request.");
   res.status(StatusCodes.OK).json({list});
 };
 
@@ -39,7 +40,8 @@ const updateList = async (req, res) => {
     req.body,
     {new: true, runValidators: true}
   );
-  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
+  if (!list)
+    throw new NotFoundError("No todo list is found that matches your request.");
   res.status(StatusCodes.OK).json({list});
 };
 
@@ -52,13 +54,14 @@ const deleteList = async (req, res) => {
     _id: listId,
     owner: userId,
   });
-  if (!list) throw new NotFoundError(`No entry found with ID no. ${listId}`);
+  if (!list)
+    throw new NotFoundError("No todo list is found that matches your request.");
   const deletedTodos = await ToDo.deleteMany({
     list: listId,
     owner: userId,
   });
   res.status(StatusCodes.OK).json({
-    msg: `List ID no. ${listId} and ${deletedTodos.deletedCount} to-do item(s) have been deleted`,
+    msg: `The todo list and ${deletedTodos.deletedCount} to-do item(s) have been deleted`,
   });
 };
 

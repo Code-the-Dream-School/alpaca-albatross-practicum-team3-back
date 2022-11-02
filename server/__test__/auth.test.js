@@ -132,18 +132,16 @@ describe("User", () => {
     });
   });
 
-  describe("Deactivate", () => {
-    describe("POST /api/v1/auth/deactivate", () => {
+  describe("CloseAccount", () => {
+    describe("POST /api/v1/auth/close", () => {
       beforeEach(() => {
         user.username = "Mike Johnson";
         user.password = "San#3Lung?";
       });
 
-      it("should not deactivate account without a username", async () => {
+      it("should not close the account without a username", async () => {
         user.username = "";
-        const response = await request(baseURL)
-          .post("/auth/deactivate")
-          .send(user);
+        const response = await request(baseURL).post("/auth/close").send(user);
 
         expect(response.status).toEqual(400);
         expect(response.body.msg).toEqual(
@@ -151,21 +149,19 @@ describe("User", () => {
         );
       });
 
-      it("should not deactivate account if the username does not exist", async () => {
+      it("should not close the account if the username does not exist", async () => {
         user.username = "Happy Mary";
-        const response = await request(baseURL)
-          .post("/auth/deactivate")
-          .send(user);
+        const response = await request(baseURL).post("/auth/close").send(user);
 
         expect(response.status).toEqual(401);
-        expect(response.body.msg).toEqual("Invalid credentials. No such user.");
+        expect(response.body.msg).toEqual(
+          "Invalid credentials. Please try again."
+        );
       });
 
-      it("should not deactivate account without user password", async () => {
+      it("should not close the account without user password", async () => {
         user.password = "";
-        const response = await request(baseURL)
-          .post("/auth/deactivate")
-          .send(user);
+        const response = await request(baseURL).post("/auth/close").send(user);
 
         expect(response.status).toEqual(400);
         expect(response.body.msg).toEqual(
@@ -173,22 +169,18 @@ describe("User", () => {
         );
       });
 
-      it("should not deactivate account if the password is incorrect", async () => {
+      it("should not close the account if the password is incorrect", async () => {
         user.password = "#3Dragons?";
-        const response = await request(baseURL)
-          .post("/auth/deactivate")
-          .send(user);
+        const response = await request(baseURL).post("/auth/close").send(user);
 
         expect(response.status).toEqual(401);
         expect(response.body.msg).toEqual(
-          "Invalid credentials. Incorrect password."
+          "Invalid credentials. Please try again."
         );
       });
 
-      it("should deactivate user account with valid input", async () => {
-        const response = await request(baseURL)
-          .post("/auth/deactivate")
-          .send(user);
+      it("should close the user account with valid input", async () => {
+        const response = await request(baseURL).post("/auth/close").send(user);
 
         expect(response.status).toEqual(200);
         expect(response.body.msg).toEqual(

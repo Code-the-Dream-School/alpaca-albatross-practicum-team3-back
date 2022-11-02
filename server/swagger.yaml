@@ -56,12 +56,12 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /auth/deactivate:
+  /auth/close:
     post:
       tags:
         - Auth
-      summary: Deactivate User
-      operationId: DeactivateUser
+      summary: Close Account
+      operationId: CloseAccount
       parameters: []
       requestBody:
         description: Username and password
@@ -75,7 +75,7 @@ paths:
         required: true
       responses:
         "200":
-          description: User deactivated
+          description: Account closed
           headers: {}
       deprecated: false
       security: []

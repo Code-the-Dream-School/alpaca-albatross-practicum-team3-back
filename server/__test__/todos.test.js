@@ -53,19 +53,6 @@ describe("Todo", () => {
       expect(response.body.msg).toEqual("Authentication invalid.");
     });
 
-    it("should not create a todo item with invalid listId", async () => {
-      reqBody.list = "123456789";
-      const response = await request(baseURL)
-        .post("/todos")
-        .set("Authorization", `Bearer ${token}`)
-        .send(reqBody);
-
-      expect(response.status).toEqual(404);
-      expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${reqBody.list}`
-      );
-    });
-
     it("should not create a todo item without a listId", async () => {
       reqBody.list = "";
       const response = await request(baseURL)
@@ -74,7 +61,20 @@ describe("Todo", () => {
         .send(reqBody);
 
       expect(response.status).toEqual(400);
-      expect(response.body.msg).toEqual(`List field cannot be empty.`);
+      expect(response.body.msg).toEqual("List field cannot be empty.");
+    });
+
+    it("should not create a todo item with an invalid listId", async () => {
+      reqBody.list = "123456789";
+      const response = await request(baseURL)
+        .post("/todos")
+        .set("Authorization", `Bearer ${token}`)
+        .send(reqBody);
+
+      expect(response.status).toEqual(404);
+      expect(response.body.msg).toEqual(
+        "No todo list is found that matches your request."
+      );
     });
 
     it("should not create a todo item without a title", async () => {
@@ -87,6 +87,46 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(400);
       expect(response.body.msg).toEqual("Please describe what's to be done.");
+    });
+
+    it("should not create a todo item with only white space characters", async () => {
+      reqBody.title = "   ";
+      const response = await request(baseURL)
+        .post("/todos")
+        .set("Authorization", `Bearer ${token}`)
+        .send(reqBody);
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "A to do item cannot be all whitespaces."
+      );
+    });
+
+    it("should not create a todo item with less than 3 characters", async () => {
+      reqBody.title = "hi";
+      const response = await request(baseURL)
+        .post("/todos")
+        .set("Authorization", `Bearer ${token}`)
+        .send(reqBody);
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "Path `title` (`am`) is shorter than the minimum allowed length (3)."
+      );
+    });
+
+    it("should not create a todo item with more than 150 characters", async () => {
+      reqBody.title =
+        "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+      const response = await request(baseURL)
+        .post("/todos")
+        .set("Authorization", `Bearer ${token}`)
+        .send(reqBody);
+
+      expect(response.status).toEqual(400);
+      expect(response.body.msg).toEqual(
+        "Path `title` (`hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh`) is longer than the maximum allowed length (150)."
+      );
     });
 
     it("should create a todo item with valid input", async () => {
@@ -155,7 +195,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${todoId.slice(1)}`
+        "No todo item is found that matches your request."
       );
     });
 
@@ -197,7 +237,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${todoId.slice(1)}`
+        "No todo item is found that matches your request."
       );
     });
 
@@ -249,7 +289,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        `No entry found with ID no. ${todoId.slice(1)}`
+        "No todo item is found that matches your request."
       );
     });
 
@@ -259,9 +299,7 @@ describe("Todo", () => {
         .set("Authorization", `Bearer ${token}`);
 
       expect(response.status).toEqual(200);
-      expect(response.body.msg).toEqual(
-        `To do ID no. ${todoId} has been deleted.`
-      );
+      expect(response.body.msg).toEqual("The todo item has been deleted.");
     });
   });
 });

@@ -5,7 +5,9 @@ const ToDoListSchema = new mongoose.Schema(
     title: {
       type: String,
       required: [true, "Please provide a title for the to-do list."],
+      minLength: 3,
       maxLength: 50,
+      match: [/^.*(\S+).*$/, "A to do list cannot be all white spaces."],
     },
     owner: {
       type: mongoose.Types.ObjectId,
