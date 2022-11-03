@@ -1,6 +1,6 @@
 import {useState} from "react";
 import InputWithLabel from "../form/InputWithLabel";
-import CustomButton from "../form/CustomButton";
+import SubmitButton from "../form/SubmitButton";
 
 const SignupForm = ({onSignUp, onSetMessage}) => {
   const [username, setUsername] = useState("");
@@ -37,7 +37,7 @@ const SignupForm = ({onSignUp, onSetMessage}) => {
         <InputWithLabel
           type='password'
           name='password'
-          placeholder='Passowrd'
+          placeholder='Password'
           value={password}
           onSetValue={setPassword}>
           &#128274;
@@ -50,7 +50,7 @@ const SignupForm = ({onSignUp, onSetMessage}) => {
           onSetValue={setPassword1}>
           &#128274;
         </InputWithLabel>
-        <CustomButton type='submit'>Sign up</CustomButton>
+        <SubmitButton>Sign up</SubmitButton>
       </form>
     </>
   );

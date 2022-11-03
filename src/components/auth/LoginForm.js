@@ -1,6 +1,6 @@
 import {useState} from "react";
 import InputWithLabel from "../form/InputWithLabel";
-import CustomButton from "../form/CustomButton";
+import SubmitButton from "../form/SubmitButton";
 
 const LoginForm = ({onLogin, onSetMessage}) => {
   const [username1, setUsername1] = useState("");
@@ -36,7 +36,7 @@ const LoginForm = ({onLogin, onSetMessage}) => {
           onSetValue={setPassword2}>
           &#128274;
         </InputWithLabel>
-        <CustomButton type='submit'>Login</CustomButton>
+        <SubmitButton>Login</SubmitButton>
       </form>
     </>
   );

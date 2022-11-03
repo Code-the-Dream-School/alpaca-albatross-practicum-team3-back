@@ -16,7 +16,7 @@ const InputWithLabel = ({
     if (isFocused && inputRef.current) {
       inputRef.current.focus();
     }
-  });
+  }, [isFocused]);
 
   return (
     <div>
