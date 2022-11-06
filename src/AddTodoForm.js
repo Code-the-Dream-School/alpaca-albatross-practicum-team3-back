@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import AddTodoLabel from './AddTodoLabel';
 
+
+// This function assembles form with input field--sb 
+
 const AddTodoForm = ({ addTodo }) => {
     const [todoTitle, setTodoTitle] = useState("")
 

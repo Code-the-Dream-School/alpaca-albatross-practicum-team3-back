@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom"
 
 const Header = () => {
+
+// add avatar, dark/light toggle, Settings, and Calendar?--sb
+
+
     return (
         <nav>
         <ol> 

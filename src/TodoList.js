@@ -11,7 +11,7 @@ const TodoList = ({ useSemiPersistentState, todoTitle }) => {
   const [checked, setChecked] = useState([]);
  
 
-  // Checkbox. Add Strikethrough in css. Can use: const isChecked = (todo) =>checked.includes(todo) ? "checked-todo" : "not-checked-todo"; <span className={isChecked(item)}>{item}</span> .checked-item {text-decoration: line-through;}
+  // Checkbox. Add Strikethrough in css. Can use: const isChecked = (todo) =>checked.includes(todo) ? "checked-todo" : "not-checked-todo"; <span className={isChecked(item)}>{item}</span> .checked-item {text-decoration: line-through;}--sb
 
 const handleCheck = (e) => {
   let updatedList = [...checked];
@@ -24,21 +24,12 @@ const handleCheck = (e) => {
   };
   
 
-  // This function sends todo to list
+  // This function sends todo to list--sb
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo])
   };
 
-
-
-// handleStar event goes here. Should copy starred todo/key and add to faveList
-  //  const [faveList, setFaveList] = useSemiPersistentState();
-  // const handleStar = (e) => {
-// todoList.push(todo)
-  // };
-
-
-
+  // This function deletes todo--sb
   const removeTodo = (id) => {
     const newTodoList = todoList.filter((todo) =>
       id !== todo.id);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-//Function for focused input field
+//Function for focused input field and the prop types it would accept--sb
 
 const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
     const inputRef = useRef();
