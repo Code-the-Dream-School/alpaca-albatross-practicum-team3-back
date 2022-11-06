@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
-import EditForm from "./EditForm";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import FavoritesPage from './FavePage/FavoritesPage';
 
 
@@ -22,21 +20,24 @@ const useSemiPersistentState = () => {
 };
 
 function App() {
-
-
   return (
       <BrowserRouter>
         <Routes>
         
+        {/* home */}
           <Route path="/" element={
-  <>            
-      <h1>Todo List Title</h1>
-        <TodoList useSemiPersistentState={useSemiPersistentState}/>
+  <>        
+            <Link to="/favorites" type="button">Favorites</Link>    
+            <h1>Todo List Title</h1>
+            <TodoList useSemiPersistentState={useSemiPersistentState}/>
   </>     
         }></Route>
 
+        
+        {/* FavePage */}
           <Route path="/Favorites" element={
   <>
+            <Link to="/" type="button">Home</Link> 
             <h1>Favorites</h1>
             <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
   </>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import FaveItem from "./FaveItem.js";
+import AddTodoLabel from "../AddTodoLabel";
 
 
 
-const FavoritesPage = ({ useSemiPersistentState, todoList, FaveItem }) => {
+
+const FavoritesPage = ({ useSemiPersistentState, todoList, handleTitleChange, todoTitle, handleAddTodo  }) => {
 
   const [faveList, setFaveList] = useSemiPersistentState();
   const [starStatus, setStarStatus] = useState([]);
@@ -21,8 +22,7 @@ const FavoritesPage = ({ useSemiPersistentState, todoList, FaveItem }) => {
       setStarStatus(starList);
       };
   
-  
-    // unchecking Star button removes todo from list. 
+    // tapping Star button removes todo from list. 
   
       const removeStar = (id) => {
       const newFaveList = todoList.filter((todo) =>
@@ -30,20 +30,33 @@ const FavoritesPage = ({ useSemiPersistentState, todoList, FaveItem }) => {
       setFaveList(newFaveList)
     };
   
-    return (
-      <>      
-      <ul >
-          {faveList.map((todo) => (
-            <FaveItem
-            key={todo.id}
-            todo={todo.title}
-            handleStar={handleStar}
-            removeStar={removeStar}
-            />
-          ))} 
-        </ul>
-      </>
+  return (
+     <> 
+      <form onSubmit={handleAddTodo}>
+            <AddTodoLabel
+                todoTitle={todoTitle}
+                handleTitleChange={handleTitleChange}>
+                Title
+            </AddTodoLabel>
+            <button type="submit">Add</button>
+    </form>
+    
+ </>
     );
   };
   
+
+//   <>      
+//       <ul >
+//           {faveList.map((todo) => (
+//             <FaveItem
+//             key={todo.id}
+//             todo={todo.title}
+//             handleStar={handleStar}
+//             removeStar={removeStar}
+//             />
+//           ))} 
+//         </ul>
+// </>
+      
   export default FavoritesPage;

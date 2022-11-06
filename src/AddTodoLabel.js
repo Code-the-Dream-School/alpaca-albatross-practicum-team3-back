@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-//Function for reusable id with focused input field
+//Function for focused input field
 
 const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
     const inputRef = useRef();
