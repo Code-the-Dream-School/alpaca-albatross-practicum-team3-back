@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import TodoList from './TodoList';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import FavoritesPage from './FavePage/FavoritesPage';
+import Header from './Header';
 
 
 // Function to preserve list upon refresh. Works with local storage.
@@ -27,7 +28,7 @@ function App() {
         {/* home */}
           <Route path="/" element={
   <>        
-            <Link to="/favorites" type="button">Favorites</Link>    
+            <Header />
             <h1>Todo List Title</h1>
             <TodoList useSemiPersistentState={useSemiPersistentState}/>
   </>     
@@ -37,7 +38,7 @@ function App() {
         {/* FavePage */}
           <Route path="/Favorites" element={
   <>
-            <Link to="/" type="button">Home</Link> 
+            <Header />
             <h1>Favorites</h1>
             <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
   </>

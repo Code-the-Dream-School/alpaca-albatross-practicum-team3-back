@@ -3,12 +3,13 @@ import AddTodoForm from "./AddTodoForm";
 import TodoListItem from "./TodoListItem"
 
 
-//function to assemble and dissemble list.
+//function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = ({ useSemiPersistentState }) => {
+const TodoList = ({ useSemiPersistentState, todoTitle }) => {
 
   const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
+ 
 
   // Checkbox. Add Strikethrough in css. Can use: const isChecked = (todo) =>checked.includes(todo) ? "checked-todo" : "not-checked-todo"; <span className={isChecked(item)}>{item}</span> .checked-item {text-decoration: line-through;}
 
@@ -22,9 +23,21 @@ const handleCheck = (e) => {
   setChecked(updatedList);
   };
   
+
+  // This function sends todo to list
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo])
   };
+
+
+
+// handleStar event goes here. Should copy starred todo/key and add to faveList
+  //  const [faveList, setFaveList] = useSemiPersistentState();
+  // const handleStar = (e) => {
+// todoList.push(todo)
+  // };
+
+
 
   const removeTodo = (id) => {
     const newTodoList = todoList.filter((todo) =>

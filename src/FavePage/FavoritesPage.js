@@ -4,23 +4,24 @@ import AddTodoLabel from "../AddTodoLabel";
 
 
 
-const FavoritesPage = ({ useSemiPersistentState, todoList, handleTitleChange, todoTitle, handleAddTodo  }) => {
+const FavoritesPage = ({ useSemiPersistentState, todoList, handleTitleChange, todoTitle, handleAddTodo, addTodo, setFaveList }) => {
 
-  const [faveList, setFaveList] = useSemiPersistentState();
+ 
   const [starStatus, setStarStatus] = useState([]);
    
   
     //this function receives the todo.id and key and populates them into faveList
+    
   
-    const handleStar = (e) => {
-      let starList = [...starStatus];
-      if (e.target.starStatus) {
-        starList = [...starStatus, e.target.value];
-      } else {
-        starList.filter(starStatus.indexOf(e.target.value), 1);
-      }
-      setStarStatus(starList);
-      };
+    // const handleStar = (e) => {
+    //   let starList = [...starStatus];
+    //   if (e.target.starStatus) {
+    //     starList = [...starStatus, e.target.value];
+    //   } else {
+    //     starList.filter(starStatus.indexOf(e.target.value), 1);
+    //   }
+    //   setStarStatus(starList);
+    //   };
   
     // tapping Star button removes todo from list. 
   
@@ -31,7 +32,9 @@ const FavoritesPage = ({ useSemiPersistentState, todoList, handleTitleChange, to
     };
   
   return (
-     <> 
+     
+    // Testing with AddTodoLabel Component
+    <> 
       <form onSubmit={handleAddTodo}>
             <AddTodoLabel
                 todoTitle={todoTitle}
