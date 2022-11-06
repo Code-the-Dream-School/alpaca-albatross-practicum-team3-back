@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import EditForm from "./Forms.js/EditForm";
+import EditForm from "./EditForm";
 
 //Function creates list item with remove button. Add checkbox, edit, favorite here.
 
-const TodoListItem = ({ todo, onRemoveTodo, setCurrentTodo, currentTodo, setTodoList }) => {
+const TodoListItem = ({ todo, onRemoveTodo, setCurrentTodo, currentTodo, setTodoList, handleCheck }) => {
   
   const [isEditing, setIsEditing] = useState(false);
 
@@ -12,25 +12,14 @@ const TodoListItem = ({ todo, onRemoveTodo, setCurrentTodo, currentTodo, setTodo
     setCurrentTodo({ ...todoTitle });
   };
   
-  console.log(todo.id);
   return (
       
     <li key={todo.id}>
-      
+      <input value={todo.title} type="checkbox" onChange={handleCheck} />
       {todo.title}
 
-      {!isEditing ?
-        <button type="button" onClick={() => handleEditClick(todo.title)}>Edit</button>
-        :
-        <EditForm
-          setTodoList={setTodoList}
-          setCurrentTodo={setCurrentTodo}
-          currentTodo={currentTodo}
-          setIsEditing={setIsEditing} 
-          />
-      }
-
-      
+      <button type="button">Favorite</button>
+      <button type="button" onClick={() => handleEditClick(todo.title)}>Edit</button>
       <button type="button" onClick={() => onRemoveTodo(todo.id)}>Remove Button</button>
       
     </li>       

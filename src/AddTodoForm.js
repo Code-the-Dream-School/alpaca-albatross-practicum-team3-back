@@ -14,13 +14,7 @@ const AddTodoForm = ({ addTodo, onAddInputChange }) => {
         addTodo({ title: todoTitle, id: Date.now() });
         setTodoTitle("");
 
-        if (todoTitle !== "") {
-            setTodoTitle([{
-              id: Date.now(),
-              title:todoTitle
-            }]);
-            ;
-          };
+        
           setTodoTitle("");
     };
 

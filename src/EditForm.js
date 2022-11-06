@@ -2,10 +2,7 @@ import React from "react";
 
 const EditForm = ({ setTodoList, setCurrentTodo, currentTodo, setIsEditing }) => {
 
-    const handleEditInputChange = (e) => {
-        setCurrentTodo({ ...currentTodo, title: e.target.value });
-        console.log(currentTodo);
-    };
+   
     
     const handleEditFormSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +40,7 @@ const EditForm = ({ setTodoList, setCurrentTodo, currentTodo, setIsEditing }) =>
                 // value={currentTodo.title}
                 // onChange={handleEditInputChange}
             />
-            <button type="submit" onClick={handleEditFormSubmit}>Update</button>
+            <button type="submit" onClick={handleUpdateTodo}>Update</button>
             <button onClick={() => setIsEditing(false)}>Cancel</button>
         </form>
     );

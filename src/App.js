@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import AddTodoForm from './Forms.js/AddTodoForm';
+import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
-import EditForm from "./Forms.js/EditForm";
+import EditForm from "./EditForm";
 
 
 // Function to preserve list upon refresh. Works with local storage.
