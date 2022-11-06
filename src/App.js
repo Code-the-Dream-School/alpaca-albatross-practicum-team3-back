@@ -26,26 +26,27 @@ function App() {
 
   return (
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-          element={
+      <Routes>
+        
+          <Route path="/" element={
   <>            
       <h1>Todo List Title</h1>
-        <TodoList
-          useSemiPersistentState={useSemiPersistentState}
-          />
+        <TodoList useSemiPersistentState={useSemiPersistentState}/>
   </>     
-          }></Route>
+        }></Route>
+
+        <Route path="/Favorites" element={
+          <>
+            <h1>Favorites</h1>
+            <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
+          </>
+        }></Route>
         
-        <Route
-          path="/FavoritesPage."
-          element={<FavoritesPage />}>
-        </Route>
+       
 
 
-
-          </Routes>
+        
+      </Routes>
       </BrowserRouter>
   
       );
