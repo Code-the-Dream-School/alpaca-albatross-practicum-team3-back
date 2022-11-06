@@ -3,7 +3,7 @@ import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
 import EditForm from "./EditForm";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import FavoritesPage from './FavoritesPage';
+import FavoritesPage from './FavePage/FavoritesPage';
 
 
 // Function to preserve list upon refresh. Works with local storage.
@@ -26,7 +26,7 @@ function App() {
 
   return (
       <BrowserRouter>
-      <Routes>
+        <Routes>
         
           <Route path="/" element={
   <>            
@@ -35,18 +35,14 @@ function App() {
   </>     
         }></Route>
 
-        <Route path="/Favorites" element={
-          <>
+          <Route path="/Favorites" element={
+  <>
             <h1>Favorites</h1>
             <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
-          </>
+  </>
         }></Route>
         
-       
-
-
-        
-      </Routes>
+        </Routes>
       </BrowserRouter>
   
       );

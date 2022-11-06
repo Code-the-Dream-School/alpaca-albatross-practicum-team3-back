@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import TodoListItem from "./TodoListItem";
+import FaveItem from "./FaveItem.js";
 
 
-const FavoritesPage = ({ useSemiPersistentState, todoList }) => {
+
+const FavoritesPage = ({ useSemiPersistentState, todoList, FaveItem }) => {
 
   const [faveList, setFaveList] = useSemiPersistentState();
   const [starStatus, setStarStatus] = useState([]);
    
   
-    //When star clicked on list, this function receives the todo and key and populates them into their own list that only has a star icon to check and uncheck.
+    //this function receives the todo.id and key and populates them into faveList
+  
     const handleStar = (e) => {
       let starList = [...starStatus];
       if (e.target.starStatus) {
@@ -20,7 +22,7 @@ const FavoritesPage = ({ useSemiPersistentState, todoList }) => {
       };
   
   
-    // unchecking Star button removes todo from list
+    // unchecking Star button removes todo from list. 
   
       const removeStar = (id) => {
       const newFaveList = todoList.filter((todo) =>
@@ -30,13 +32,13 @@ const FavoritesPage = ({ useSemiPersistentState, todoList }) => {
   
     return (
       <>      
-      <ul>
+      <ul >
           {faveList.map((todo) => (
-            <TodoListItem
-              key={todo.id}
-              todo={todo}
-              handleStar={handleStar}
-              removeStar={removeStar}
+            <FaveItem
+            key={todo.id}
+            todo={todo.title}
+            handleStar={handleStar}
+            removeStar={removeStar}
             />
           ))} 
         </ul>
