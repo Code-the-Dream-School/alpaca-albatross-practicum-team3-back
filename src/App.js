@@ -20,6 +20,8 @@ const useSemiPersistentState = () => {
   return [todoList, setTodoList];
 };
 
+
+
 function App() {
   return (
       <BrowserRouter>
@@ -33,7 +35,7 @@ function App() {
             <TodoList useSemiPersistentState={useSemiPersistentState}/>
   </>     
         }></Route>
-
+        
         
         {/* FavePage */}
           <Route path="/Favorites" element={
