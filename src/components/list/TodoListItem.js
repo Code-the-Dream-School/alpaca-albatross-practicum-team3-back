@@ -1,14 +1,10 @@
-import React from "react";
-
-//Function creates list item with remove button.
+import PlainButton from "../form/PlainButton";
 
 const TodoListItem = ({todo, onRemoveTodo}) => {
   return (
-    <li key={todo.id}>
+    <li>
       {todo.title}{" "}
-      <button type='button' onClick={() => onRemoveTodo(todo.id)}>
-        Remove Button
-      </button>
+      <PlainButton onClicked={() => onRemoveTodo(todo._id)}>Remove</PlainButton>
     </li>
   );
 };

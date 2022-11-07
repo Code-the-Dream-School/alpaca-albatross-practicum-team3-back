@@ -1,27 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Routes, Route, Navigate, useNavigate} from "react-router-dom";
+import {v4 as uuidv4} from "uuid";
 import useSessionPersistentState from "./persistState";
 import AuthPane from "./components/auth/AuthPane";
 import ListPane from "./components/list/ListPane";
 import NotFound from "./components/layout/NotFound";
 
-// Function to preserve list upon refresh. Works with local storage.
-
-const useSemiPersistentState = () => {
-  const [todoList, setTodoList] = useState(
-    JSON.parse(localStorage.getItem("savedTodoList")) || []
-  );
-  useEffect(() => {
-    localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-  }, [todoList]);
-  return [todoList, setTodoList];
-};
-
 const App = () => {
   const [token, setToken] = useSessionPersistentState("token", null);
   const [user, setUser] = useSessionPersistentState("user", null);
+  const [todoList, setTodoList] = useSessionPersistentState("todos", []);
   const [message, setMessage] = useState("");
-  const [todoList, setTodoList] = useSemiPersistentState();
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   let navigate = useNavigate();
 
@@ -96,12 +85,16 @@ const App = () => {
   };
 
   const addTodo = (newTodo) => {
-    setTodoList([...todoList, newTodo]);
+    const newItem = {
+      _id: uuidv4(),
+      title: newTodo,
+    };
+    setTodoList([...todoList, newItem]);
   };
 
   const removeTodo = (id) => {
-    const newTodoList = todoList.filter((todo) => id !== todo.id);
-    setTodoList(newTodoList);
+    const newList = todoList.filter((todo) => id !== todo._id);
+    setTodoList(newList);
   };
 
   return (

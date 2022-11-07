@@ -1,17 +1,12 @@
-import React from 'react';
-import TodoListItem from "./TodoListItem"
+import TodoListItem from "./TodoListItem";
 
 //function to assemble and dissemble list.
 
-const TodoList = ({ todoList, onRemoveTodo }) => {
+const TodoList = ({todoList, onRemoveTodo}) => {
   return (
     <ul>
       {todoList.map((todo) => (
-        <TodoListItem
-          key={todo.id}
-          todo={todo}
-          title={todo.title}
-          onRemoveTodo={onRemoveTodo} />
+        <TodoListItem key={todo._id} todo={todo} onRemoveTodo={onRemoveTodo} />
       ))}
     </ul>
   );

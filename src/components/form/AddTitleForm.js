@@ -4,13 +4,13 @@ import SubmitButton from "./SubmitButton";
 
 // Form component: Adds list item to list onSubmit.
 
-const AddTodoForm = ({onAddTodo}) => {
-  const [todoTitle, setTodoTitle] = useState("");
+const AddTitleForm = ({placeholder, onAddTodo}) => {
+  const [title, setTitle] = useState("");
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    onAddTodo(todoTitle);
-    setTodoTitle("");
+    onAddTodo(title);
+    setTitle("");
   };
 
   return (
@@ -18,14 +18,14 @@ const AddTodoForm = ({onAddTodo}) => {
       <InputWithLabel
         type='text'
         name='todo-title'
-        placeholder='Add task'
-        value={todoTitle}
-        onSetValue={setTodoTitle}>
-        Task
+        placeholder={placeholder}
+        value={title}
+        onSetValue={setTitle}>
+        &#65291;
       </InputWithLabel>
       <SubmitButton>Add</SubmitButton>
     </form>
   );
 };
 
-export default AddTodoForm;
+export default AddTitleForm;

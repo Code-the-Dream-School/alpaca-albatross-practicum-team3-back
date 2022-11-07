@@ -1,4 +1,4 @@
-const LogOutButton = ({onClicked, children}) => (
+const PlainButton = ({onClicked, children}) => (
   <>
     <button type='button' onClick={(e) => onClicked()}>
       {children}
@@ -6,4 +6,4 @@ const LogOutButton = ({onClicked, children}) => (
   </>
 );
 
-export default LogOutButton;
+export default PlainButton;
