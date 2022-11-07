@@ -4,7 +4,7 @@ const ToDo = require("../models/ToDo");
 const {StatusCodes} = require("http-status-codes");
 const {BadRequestError, UnauthenticatedError} = require("../errors");
 
-const checkUsernameAndPassword = async () => {
+const checkUsernameAndPassword = async (req) => {
   const {username, password} = req.body;
 
   if (!username || !password) {
@@ -18,6 +18,7 @@ const checkUsernameAndPassword = async () => {
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError("Invalid credentials. Please try again.");
   }
+  return user;
 };
 
 const register = async (req, res) => {
@@ -29,20 +30,20 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  await checkUsernameAndPassword();
+  const user = await checkUsernameAndPassword(req);
 
   const token = user.createJWT();
   res.status(StatusCodes.OK).json({user: {username: user.username}, token});
 };
 
 const closeAccount = async (req, res) => {
-  await checkUsernameAndPassword();
+  const user = await checkUsernameAndPassword(req);
 
   const deletedTodos = await ToDo.deleteMany({owner: user._id});
   const deletedLists = await ToDoList.deleteMany({owner: user._id});
   await user.remove();
   res.status(StatusCodes.OK).json({
-    msg: `User ${username} and ${deletedLists.deletedCount} to-do list(s) and ${deletedTodos.deletedCount} to-do item(s) have been deleted`,
+    msg: `User ${user.username} and ${deletedLists.deletedCount} to-do list(s) and ${deletedTodos.deletedCount} to-do item(s) have been deleted`,
   });
 };
 

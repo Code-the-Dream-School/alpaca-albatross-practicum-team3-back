@@ -100,7 +100,9 @@ describe("User", () => {
         const response = await request(baseURL).post("/auth/login").send(user);
 
         expect(response.status).toEqual(401);
-        expect(response.body.msg).toEqual("Invalid credentials. No such user.");
+        expect(response.body.msg).toEqual(
+          "Invalid credentials. Please try again."
+        );
       });
 
       it("should not login the user without user password", async () => {
@@ -119,7 +121,7 @@ describe("User", () => {
 
         expect(response.status).toEqual(401);
         expect(response.body.msg).toEqual(
-          "Invalid credentials. Incorrect password."
+          "Invalid credentials. Please try again."
         );
       });
 

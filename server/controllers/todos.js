@@ -3,8 +3,15 @@ const ToDo = require("../models/ToDo");
 const {StatusCodes} = require("http-status-codes");
 const {BadRequestError, NotFoundError} = require("../errors");
 
-const getAllTodos = async (req, res) => {
-  const todos = await ToDo.find({owner: req.user.userId}).sort("createdAt");
+const getTodos = async (req, res) => {
+  const {
+    user: {userId},
+    query: {list: listId},
+  } = req;
+  const todos = await ToDo.find({
+    owner: userId,
+    list: listId,
+  }).sort("createdAt");
   res.status(StatusCodes.OK).json({todos, count: todos.length});
 };
 
@@ -67,7 +74,7 @@ const deleteTodo = async (req, res) => {
 };
 
 module.exports = {
-  getAllTodos,
+  getTodos,
   getTodo,
   createTodo,
   updateTodo,

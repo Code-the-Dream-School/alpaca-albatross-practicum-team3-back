@@ -22,7 +22,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/RegisterUserRequest"
             example:
               username: Chung Kao
               password: San#3Dragons?
@@ -45,7 +45,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/LoginUserRequest"
             example:
               username: Chung Kao
               password: San#3Dragons?
@@ -68,7 +68,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/RemoveUserRequest"
             example:
               username: Chung Kao
               password: San#3Dragons?
@@ -91,7 +91,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/CreateTodoListRequest"
             example:
               title: Prep for Job Interview
         required: true
@@ -128,14 +128,7 @@ paths:
         - ToDoLists
       summary: Get Single List
       operationId: GetSingleList
-      parameters:
-        - name: id
-          in: path
-          description: The to do list ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       responses:
         "200":
           description: Fetched to do list
@@ -148,20 +141,13 @@ paths:
         - ToDoLists
       summary: Update List
       operationId: UpdateList
-      parameters:
-        - name: id
-          in: path
-          description: The to do list ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       requestBody:
         description: A title is required
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/UpdateTodoListRequest"
             example:
               title: Prepare for Job Interview
         required: true
@@ -177,14 +163,7 @@ paths:
         - ToDoLists
       summary: Delete List
       operationId: DeleteList
-      parameters:
-        - name: id
-          in: path
-          description: The to do list ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       responses:
         "200":
           description: Deleted to do list
@@ -204,7 +183,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/CreateTodoRequest"
             example:
               list: 6353ff31a9265ef454a027f6
               title: Study data structure and algorithm and understand Big O theory and time and memory complexity
@@ -216,15 +195,22 @@ paths:
       deprecated: false
       security:
         - bearer: []
+  /todos/:
     get:
       tags:
         - ToDos
-      summary: Get All ToDos
-      operationId: GetAllToDos
-      parameters: []
+      summary: Get Listful ToDos
+      operationId: GetToDos
+      parameters:
+        - in: query
+          name: list
+          schema:
+            type: string
+            required: true
+            description: The list ID
       responses:
         "200":
-          description: Fetched all to do items
+          description: Fetched listful to do items
           headers: {}
       deprecated: false
       security:
@@ -242,17 +228,10 @@ paths:
         - ToDos
       summary: Get Single ToDo
       operationId: GetSingleToDo
-      parameters:
-        - name: id
-          in: path
-          description: The to do ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       responses:
         "200":
-          description: Fetched to do
+          description: Fetched single to do
           headers: {}
       deprecated: false
       security:
@@ -262,20 +241,13 @@ paths:
         - ToDos
       summary: Update ToDo
       operationId: UpdateToDo
-      parameters:
-        - name: id
-          in: path
-          description: The to do ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       requestBody:
         description: A title is required
         content:
           application/json:
             schema:
-              $ref: ""
+              $ref: "#/components/schemas/UpdateTodoRequest"
             example:
               title: Study data structure and algorithm and understand Big O theory and time complexity and call stack
         required: true
@@ -291,14 +263,7 @@ paths:
         - ToDos
       summary: Delete ToDo
       operationId: DeleteToDo
-      parameters:
-        - name: id
-          in: path
-          description: The to do ID
-          required: true
-          style: simple
-          schema:
-            type: string
+      parameters: []
       responses:
         "200":
           description: Deleted to do item
@@ -307,6 +272,113 @@ paths:
       security:
         - bearer: []
 components:
+  schemas:
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+        - username
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        password:
+          type: string
+      example:
+        name: Alex Wong
+        password: secret
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+        - username
+        - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      example:
+        username: Alex Wong
+        password: secret
+    RemoveUserRequest:
+      title: RemoveUserRequest
+      required:
+        - username
+        - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      example:
+        username: Alex Wong
+        password: secret
+    CreateTodoListRequest:
+      title: CreateTodoListRequest
+      required:
+        - title
+        - owner
+      type: object
+      properties:
+        title:
+          type: string
+        owner:
+          type: string
+      example:
+        title: Prep for Job Interview
+        owner: a-very-long-random-alphanumerals
+    UpdateTodoListRequest:
+      title: UpdateTodoListRequest
+      required:
+        - title
+        - owner
+      type: object
+      properties:
+        title:
+          type: string
+        owner:
+          type: string
+      example:
+        title: Prepare for Job Interview
+        owner: a-very-long-random-alphanumerals
+    CreateTodoRequest:
+      title: CreateTodoRequest
+      required:
+        - title
+        - owner
+        - list
+      type: object
+      properties:
+        title:
+          type: string
+        owner:
+          type: string
+        list:
+          type: string
+      example:
+        title: Prep for Job Interview
+        owner: a-very-long-random-alphanumerals
+        list: a-very-long-random-alphanumerals
+    UpdateTodoRequest:
+      title: UpdateTodoRequest
+      required:
+        - title
+        - owner
+        - list
+      type: object
+      properties:
+        title:
+          type: string
+        owner:
+          type: string
+        owner:
+          list: string
+      example:
+        title: Prepare for Job Interview
+        owner: a-very-long-random-alphanumerals
+        list: a-very-long-random-alphanumerals
   securitySchemes:
     bearer:
       type: http

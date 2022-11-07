@@ -13,7 +13,7 @@ describe("ToDoList", () => {
   });
 
   afterAll(async () => {
-    await request(baseURL).post("/auth/deactivate").send({
+    await request(baseURL).post("/auth/close").send({
       username: "Mike Johnson",
       password: "San#3Lung?",
     });
@@ -153,7 +153,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo list is found that matches your request."
+        `No entry found with ID no. ${listId.slice(1)}.`
       );
     });
 
@@ -195,7 +195,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo list is found that matches your request."
+        `No entry found with ID no. ${listId.slice(1)}.`
       );
     });
 
@@ -244,7 +244,7 @@ describe("ToDoList", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo list is found that matches your request."
+        `No entry found with ID no. ${listId.slice(1)}.`
       );
     });
 

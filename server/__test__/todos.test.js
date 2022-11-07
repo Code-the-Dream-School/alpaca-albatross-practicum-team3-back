@@ -21,9 +21,9 @@ describe("Todo", () => {
 
   afterAll(async () => {
     await request(baseURL)
-      .delete("/lists/${listId}")
+      .delete(`/lists/${listId}`)
       .set("Authorization", `Bearer ${token}`);
-    await request(baseURL).post("/auth/deactivate").send({
+    await request(baseURL).post("/auth/close").send({
       username: "Mike Johnson",
       password: "San#3Lung?",
     });
@@ -73,7 +73,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo list is found that matches your request."
+        `No entry found with ID no. 123456789.`
       );
     });
 
@@ -111,7 +111,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(400);
       expect(response.body.msg).toEqual(
-        "Path `title` (`am`) is shorter than the minimum allowed length (3)."
+        "Path `title` (`hi`) is shorter than the minimum allowed length (3)."
       );
     });
 
@@ -144,9 +144,9 @@ describe("Todo", () => {
     });
   });
 
-  describe("GET /todos", () => {
+  describe("GET /todos/?list=list_id", () => {
     it("should require authentication with JWT-token", async () => {
-      const response = await request(baseURL).get("/todos");
+      const response = await request(baseURL).get(`/todos/?list=${listId}`);
 
       expect(response.status).toEqual(401);
       expect(response.body.msg).toEqual("Authentication invalid.");
@@ -154,16 +154,27 @@ describe("Todo", () => {
 
     it("should not fetch the todo items if JWT-token is invalid", async () => {
       const response = await request(baseURL)
-        .get("/todos")
+        .get(`/todos/?list=${listId}`)
         .set("Authorization", `Bearer ${token.slice(1)}`);
 
       expect(response.status).toEqual(401);
       expect(response.body.msg).toEqual("Authentication invalid.");
     });
 
-    it("should fetch all the todo items when authenticated", async () => {
+    it("should not fetch the todo items if query listId is invalid", async () => {
       const response = await request(baseURL)
-        .get("/todos")
+        .get(`/todos/?list=${listId.slice(1)}`)
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.status).toEqual(404);
+      expect(response.body.msg).toEqual(
+        `No entry found with ID no. ${listId.slice(1)}.`
+      );
+    });
+
+    it("should fetch one list of todo items when authenticated", async () => {
+      const response = await request(baseURL)
+        .get(`/todos/?list=${listId}`)
         .set("Authorization", `Bearer ${token}`);
 
       expect(response.status).toEqual(200);
@@ -195,7 +206,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo item is found that matches your request."
+        `No entry found with ID no. ${todoId.slice(1)}.`
       );
     });
 
@@ -237,7 +248,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo item is found that matches your request."
+        `No entry found with ID no. ${todoId.slice(1)}.`
       );
     });
 
@@ -289,7 +300,7 @@ describe("Todo", () => {
 
       expect(response.status).toEqual(404);
       expect(response.body.msg).toEqual(
-        "No todo item is found that matches your request."
+        `No entry found with ID no. ${todoId.slice(1)}.`
       );
     });
 
