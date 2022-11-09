@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import TodoList from './TodoList';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import FavoritesPage from './FavePage/FavoritesPage';
-import Header from './Header';
-
+import React, {useEffect, useState} from "react";
+import TodoList from "./TodoList";
+import {Routes, Route} from "react-router-dom";
+import FavoritesPage from "./FavePage/FavoritesPage";
+import Header from "./Header";
 
 // Function to preserve list upon refresh. Works with local storage.--sb
 
 const useSemiPersistentState = () => {
-  
   const [todoList, setTodoList] = useState(
     JSON.parse(localStorage.getItem("savedTodoList")) || []
   );
@@ -20,28 +18,26 @@ const useSemiPersistentState = () => {
   return [todoList, setTodoList];
 };
 
-
-
 function App() {
   return (
-      <BrowserRouter>
-        <Routes>
-        <Header />
-        
+    <>
+      <Header />
+      <Routes>
         {/* home */}
-          <Route path="/" element={
-            <TodoList useSemiPersistentState={useSemiPersistentState} />}>
-          </Route>
-        
-        
+        <Route
+          path='/'
+          element={
+            <TodoList useSemiPersistentState={useSemiPersistentState} />
+          }></Route>
+
         {/* FavePage */}
-          <Route path="/Favorites" element={
-            <FavoritesPage useSemiPersistentState={useSemiPersistentState} />}>
-          </Route>
-        
-        </Routes>
-      </BrowserRouter>
-  
-      );
-};
+        <Route
+          path='/Favorites'
+          element={
+            <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
+          }></Route>
+      </Routes>
+    </>
+  );
+}
 export default App;
