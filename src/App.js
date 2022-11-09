@@ -26,25 +26,18 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
+        <Header />
         
         {/* home */}
           <Route path="/" element={
-  <>        
-            <Header />
-            <h1>Todo List Title</h1>
-            <TodoList useSemiPersistentState={useSemiPersistentState}/>
-  </>     
-        }></Route>
+            <TodoList useSemiPersistentState={useSemiPersistentState} />}>
+          </Route>
         
         
         {/* FavePage */}
           <Route path="/Favorites" element={
-  <>
-            <Header />
-            <h1>Favorites</h1>
-            <FavoritesPage useSemiPersistentState={useSemiPersistentState} />
-  </>
-        }></Route>
+            <FavoritesPage useSemiPersistentState={useSemiPersistentState} />}>
+          </Route>
         
         </Routes>
       </BrowserRouter>

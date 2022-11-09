@@ -38,6 +38,7 @@ const handleCheck = (e) => {
 
   return (
     <>
+      <h1>Todo List</h1>
       <AddTodoForm addTodo={addTodo}/>
       
     <ul>

@@ -9,8 +9,10 @@ const FavoritesPage = () => {
       
   
   return (
+    <>
+     <h1>Favorites</h1>
      <h3>This will be a list of faveTodos with star "removeFave" icon</h3>
-    
+    </>
     );
   };
   
