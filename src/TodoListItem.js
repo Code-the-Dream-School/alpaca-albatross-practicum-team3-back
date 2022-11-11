@@ -6,13 +6,13 @@ import React from "react";
 const TodoListItem = ({ todo, onRemoveTodo, handleCheck, handleStar }) => {
   return (
       
-    <li key={todo.id}>
+    <li className="TodoListItem" key={todo.id}>
 
       <input value={todo.title} type="checkbox" onChange={handleCheck} />
       {todo.title}
       <button type="button" onClick={handleStar}>Favorite</button>
       <button type="button" >Edit</button>
-      <button type="button" onClick={() => onRemoveTodo(todo.id)}>Remove Button</button>
+      <button type="button" onClick={() => onRemoveTodo(todo.id)}>Remove</button>
       
     </li>       
   );
