@@ -4,7 +4,7 @@ import axios from 'axios';
 //const API_URL = `${process.env.REACT_APP_BASE_URL}`;
 //Function creates list item with checkbox, todo.title, star, edit, remove.--sb
 
-const TodoListItem = ({ todo, onRemoveTodo, handleCheck, handleStar }) => {
+const TodoListItem = ({ todo, removeTodo, handleCheck, handleStar }) => {
   /* const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState();
 
@@ -59,7 +59,7 @@ const TodoListItem = ({ todo, onRemoveTodo, handleCheck, handleStar }) => {
       <button type='button'>Edit</button>
       <button
         type='button'
-        onClick={() => onRemoveTodo(todo._id)}
+        onClick={() => removeTodo(todo.id)}
         // onEditTodo={editTodo}
       >
         Remove Button
