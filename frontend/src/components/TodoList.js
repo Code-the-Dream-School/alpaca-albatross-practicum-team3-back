@@ -5,7 +5,7 @@ import TodoListItem from './TodoListItem';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = ({ todoTitle }) => {
+const TodoList = () => {
   //const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
@@ -63,10 +63,10 @@ const TodoList = ({ todoTitle }) => {
       <ul>
         {todoList.map((todo) => (
           <TodoListItem
-            key={todo._id}
+            key={todo.id}
             todo={todo}
             handleCheck={handleCheck}
-            onRemoveTodo={removeTodo}
+            removeTodo={removeTodo}
           />
         ))}
       </ul>

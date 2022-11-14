@@ -1,8 +1,8 @@
 import React from 'react';
-import TodoList from './TodoList';
+import TodoList from "./components/TodoList";
 import { Routes, Route } from 'react-router-dom';
-import FavoritesPage from './FavePage/FavoritesPage';
-import Header from './Header';
+import FavoritesPage from './pages/FavoritesPage';
+import Header from './components/Header';
 
 // Function to preserve list upon refresh. Works with local storage.--sb
 
