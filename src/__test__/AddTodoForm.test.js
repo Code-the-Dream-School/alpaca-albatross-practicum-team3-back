@@ -3,7 +3,8 @@ import '@testing-library/jest-dom'
 import AddTodoForm from '../AddTodoForm'
 import { BrowserRouter } from 'react-router-dom';
 import { todoList } from '../TodoList';
-import { userEvent } from '@testing-library/user-event'
+import TodoList from '../TodoList';
+import userEvent from '@testing-library/user-event'
 
 const MockAddTodoForm = () => {
     return (
@@ -12,6 +13,14 @@ const MockAddTodoForm = () => {
         </BrowserRouter>
     )
    };
+
+const MockTodoList = () => {
+    return (
+        <BrowserRouter>
+            <TodoList />
+        </BrowserRouter>
+    )
+};
 
 // test('we create a entry', async() => {
 //     render(<App />);
@@ -23,14 +32,22 @@ const MockAddTodoForm = () => {
 //     })`
 
 
-test('clicking add button renders new item in list', async() => {
-    render(<MockAddTodoForm />);
-    const inputField = await screen.getByAltText(/input/i);
-    const addButton = await screen.getByText(/add/i);
-    userEvent.type(inputField, 'test input');
-    expect(inputField.value.toBe('test input'))
-    // userEvent.click(addButton);
-    // expect(todoList.length.toBe(1));
-        // userEvent.click(addButton);
-        // expect(todoList.length().toBe(2));
+test('able to type in input field', async() => {
+    render( <MockAddTodoForm /> );
+    const inputField = await screen.findByAltText(/input/i);
+    await userEvent.type(inputField, 'test input');
+    expect(inputField.value).toBe('test input')
 });
+
+// test('clicking add button renders new item in list', async() => {
+//     render(<MockAddTodoForm />);
+//     const inputField = await screen.findByAltText(/input/i);
+//     const addButton = await screen.findByText(/add/i);
+//     await userEvent.type(inputField, 'test input');
+//     await userEvent.click(addButton);
+//     render(<MockTodoList />)
+//     const list = await screen.findByTestId('ul');
+//     expect(list).toContain('test input');
+//         // userEvent.click(addButton);
+//         // expect(todoList.length().toBe(2));
+// });
