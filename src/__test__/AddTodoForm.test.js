@@ -6,10 +6,12 @@ import { todoList } from '../TodoList';
 import TodoList from '../TodoList';
 import userEvent from '@testing-library/user-event'
 
+const mockAddTodo = jest.fn();
+
 const MockAddTodoForm = () => {
     return (
         <BrowserRouter>
-            <AddTodoForm />
+            <AddTodoForm mockAddTodo={mockAddTodo}/>
         </BrowserRouter>
     )
    };
