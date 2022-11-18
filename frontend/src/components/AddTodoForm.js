@@ -13,7 +13,8 @@ const AddTodoForm = ({ addTodo }) => {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    addTodo({ id: Date.now(), title: todoTitle }); // Id here must be removed because DB has its own id
+    console.log(todoTitle);
+    addTodo({ /*id: Date.now(),*/ title: todoTitle }); // Id here must be removed because DB has its own id
     setTodoTitle('');
   };
 

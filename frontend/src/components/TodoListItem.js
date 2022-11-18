@@ -59,7 +59,7 @@ const TodoListItem = ({ todo, removeTodo, handleCheck, handleStar }) => {
       <button type='button'>Edit</button>
       <button
         type='button'
-        onClick={() => removeTodo(todo.id)}
+        onClick={() => removeTodo(todo._id)}
         // onEditTodo={editTodo}
       >
         Remove Button
