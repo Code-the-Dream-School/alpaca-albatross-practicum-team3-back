@@ -15,7 +15,7 @@ This repo is for the Code the Dream, Alpaca-Albatross Practicum - Team 3's devel
 
 [![Chung]](https://github.com/Sanlung)
 [![Anna]](https://github.com/lis-anna)
-[![Dahlek]]()
+[![Dahlak]] (https://github.com/Dahlak76)
 [![Danielle]](https://github.com/dow-mp)
 [![Nelly]](https://github.com/Nelly-OP)
 [![Sherose]](https://github.com/essbee23)
