@@ -24,8 +24,8 @@ paths:
             schema:
               $ref: "#/components/schemas/RegisterUserRequest"
             example:
-              username: Chung Kao
-              password: San#3Dragons?
+              username: Bart Simpson
+              password: ElBarto?
         required: true
       responses:
         "201":
@@ -47,8 +47,8 @@ paths:
             schema:
               $ref: "#/components/schemas/LoginUserRequest"
             example:
-              username: Chung Kao
-              password: San#3Dragons?
+              username: Bart Simpson
+              password: ElBarto?
         required: true
       responses:
         "200":
@@ -70,8 +70,8 @@ paths:
             schema:
               $ref: "#/components/schemas/RemoveUserRequest"
             example:
-              username: Chung Kao
-              password: San#3Dragons?
+              username: Bart Simpson
+              password: ElBarto?
         required: true
       responses:
         "200":
