@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
-const Login=()=>{
+const LogInPage = () => {
+    const[userName,setUserName]=useState(""); 
+    const [password, setPassword] = useState("");
+    const [dataInput, setDataInput] = useState(""); 
+    
+    const submitLogIn = () => {
+        const userInfo = { userName: userName, password: password };
+        setDataInput([userInfo]);
+    }
 	return(
-		<div>
-			<form action=""> 
+		<>
+			<form action="" onSubmit={submitLogIn}> 
 				<div> 
-					<label htmlFor="email">Email</label>
-					<input type="text" name="email" id="email"/> 
+					<label htmlFor="user name">User Name</label>
+					<input type="text" name="user name" id="user name" value={userName} onChange={(e)=>setUserName(e.target.value)}/> 
 				</div> 
 				<div> 
-					<label htmlFor="passw">Password</label>
-					<input type="text" name="passw" id="passw"/> 
+					<label htmlFor="password">Password</label>
+					<input type="text" name="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/> 
 				</div>  
 				<button type="submit">Login</button>
 			</form>
-		</div>
+		</>
 	)
 }
 
-export default Login    
+export default LogInPage;
