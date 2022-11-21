@@ -5,7 +5,7 @@
 
 ![react version](./frontend/assets/react-version.svg) ![node version](./frontend/assets/node-version.svg) ![express version](./frontend/assets/express-version.svg) ![mongoose version](./frontend/assets/mongoose-version.svg) ![mit license](./frontend/assets/mit-license.svg)
 
-<p align="left"><img width="150" src="./assets/ctd-logo.jpeg" /></p>
+<p align="left"><img width="150" src="./frontend/assets/ctd-logo.jpeg" /></p>
 
 ## About
 
