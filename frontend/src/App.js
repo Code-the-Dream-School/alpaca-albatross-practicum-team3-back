@@ -3,7 +3,7 @@ import TodoList from "./components/TodoList";
 import { Routes, Route } from 'react-router-dom';
 import FavoritesPage from './pages/FavoritesPage';
 import Header from './components/Header';
-
+import Login from './pages/logInPage';
 // Function to preserve list upon refresh. Works with local storage.--sb
 
 /*const useSemiPersistentState = () => {
@@ -23,6 +23,11 @@ function App() {
     <>
       <Header />
       <Routes>
+
+        {/* Log In */}
+        <Route path="/login" element ={<Login/>}>
+        </Route>
+        
         {/* home */}
         <Route path='/' element={<TodoList />}></Route>
 
