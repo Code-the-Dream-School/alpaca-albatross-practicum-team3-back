@@ -23,7 +23,7 @@ const AddTodoForm = ({ addTodo }) => {
       <AddTodoLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>
         Title
       </AddTodoLabel>
-      <button type='submit'>Add</button>
+      <button className='Addbtn' type='submit'>Add</button>
     </form>
   );
 };

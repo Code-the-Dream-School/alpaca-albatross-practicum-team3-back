@@ -7,10 +7,10 @@ const Header = () => {
 
 
     return (
-        <nav>
-        <ol> 
-        <Link to="/" type="button" style={{ marginRight: 10 }}>Home</Link> 
-        <Link to="/favorites" type="button" style={{ marginRight: 10 }}>Favorites</Link> 
+        <nav className='nav-bar'>
+        <ol>  
+        <Link className='home_link' to="/" type="button" style={{ marginRight: 10 }}>Home</Link> 
+        <Link className='favorite_link' to="/favorites" type="button" style={{ marginRight: 10 }}>Favorites</Link> 
         </ol>           
       </nav>
     );

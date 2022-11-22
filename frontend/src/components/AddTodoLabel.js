@@ -11,8 +11,8 @@ const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
     
     return (
         <>
-            <label htmlFor="todoTitle">{children} </label>
-            <input
+            <label className='title' htmlFor="todoTitle">{children} </label>
+            <input className='todo-input'
                 ref={inputRef}
                 type="text"
                 name="title"
