@@ -1,7 +1,7 @@
-import ToDoAPI from './API/ToDoAPI';
+import ToDoAPI from './API/ToDoAPI.js';
 import React, { useState, useEffect } from 'react';
-import AddTodoForm from './AddTodoForm';
-import TodoListItem from './TodoListItem';
+import AddTodoForm from './AddTodoForm.js';
+import TodoListItem from './TodoListItem.js';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
@@ -36,6 +36,7 @@ const TodoList = () => {
   const addTodo = async (title) => {
     let newTodo = await ToDoAPI.addToDo(title);
     setTodoList([...todoList, newTodo]);
+    console.log(todoList);
   };
 
   // This function deletes todo--sb
@@ -51,7 +52,7 @@ const TodoList = () => {
       <h1>Todo List</h1>
       <AddTodoForm addTodo={addTodo} />
 
-      <ul>
+      <ul data-testid="ul">
         {todoList.map((todo) => (
           <TodoListItem
             key={todo._id}

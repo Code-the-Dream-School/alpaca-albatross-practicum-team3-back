@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddTodoLabel from './AddTodoLabel';
+import AddTodoLabel from './AddTodoLabel.js';
 
 // This function assembles form with input field--sb
 
