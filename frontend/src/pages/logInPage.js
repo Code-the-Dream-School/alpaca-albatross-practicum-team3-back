@@ -9,7 +9,9 @@ const LogInPage = () => {
     const submitLogIn = () => {
         const userInfo = { userName: userName, password: password };
         setDataInput([userInfo]);
-    }
+	}
+	
+
 	return(
 		<>
 			<form action="" onSubmit={submitLogIn}> 
