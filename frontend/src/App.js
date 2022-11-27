@@ -1,8 +1,10 @@
 import React from 'react';
 import TodoList from "./components/TodoList.js";
 import { Routes, Route } from 'react-router-dom';
-import FavoritesPage from './pages/FavoritesPage.js';
-import Header from './components/Header.js';
+import FavoritesPage from './pages/FavoritesPage';
+import Header from './components/Header';
+import LogInPage from './pages/LogInPage';
+import Registration from './pages/Registration';
 
 // Function to preserve list upon refresh. Works with local storage.--sb
 
@@ -23,8 +25,18 @@ function App() {
     <>
       <Header />
       <Routes>
-        {/* home */}
-        <Route path='/' element={<TodoList />}></Route>
+
+        {/* Registration */}
+        <Route path="/" element={<Registration />}>          
+        </Route>
+        
+
+        {/* Log In */}
+        <Route path="/login" element ={<LogInPage/>}>
+        </Route>
+
+        {/* List */}
+        <Route path='/List' element={<TodoList />}></Route>
 
         {/* FavePage */}
         <Route path='/Favorites' element={<FavoritesPage />}></Route>
