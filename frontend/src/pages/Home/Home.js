@@ -1,10 +1,13 @@
 import React from "react";
-import TodoList from "../TodoList";
+import TodoList from "../../components/TodoList";
+
 
 
 function Welcome(useSemiPersistentState) {
 
-    const msg = "Mikey";
+    // msg will be {userName}?
+
+    const msg = "Mikey"; 
 
     return (
         <>

@@ -5,7 +5,7 @@
 
 ![react version](./frontend/assets/react-version.svg) ![node version](./frontend/assets/node-version.svg) ![express version](./frontend/assets/express-version.svg) ![mongoose version](./frontend/assets/mongoose-version.svg) ![mit license](./frontend/assets/mit-license.svg)
 
-<p align="left"><img width="150" src="./frontend/assets/ctd-logo.jpeg" /></p>
+<p align="left"><img alt="logo for Code the Dream" width="150" src="./frontend/assets/ctd-logo.jpeg" /></p>
 
 ## About
 
@@ -13,12 +13,12 @@ This repo is for the Code the Dream, Alpaca-Albatross Practicum - Team 3's devel
 
 ### Contributors
 
-![Chung](https://github.com/Sanlung)
-![Anna](https://github.com/lis-anna)
-![Dahlak](https://github.com/Dahlak76)
-![Danielle](https://github.com/dow-mp)
-![Nelly](https://github.com/Nelly-OP)
-![Sherose](https://github.com/essbee23)
+![Chung](https://avatars.githubusercontent.com/u/58524911?v=4)(https://github.com/Sanlung)
+![Anna](https://avatars.githubusercontent.com/u/13015942?v=4)(https://github.com/lis-anna)
+![Dahlak](https://avatars.githubusercontent.com/u/88516807?v=4)(https://github.com/Dahlak76)
+![Danielle](https://avatars.githubusercontent.com/u/85953575?v=4)(https://github.com/dow-mp)
+![Nelly](https://avatars.githubusercontent.com/u/76629395?v=4)(https://github.com/Nelly-OP)
+![Sherose](https://avatars.githubusercontent.com/u/87711661?v=4)(https://github.com/essbee23)
 
 ### License
 
