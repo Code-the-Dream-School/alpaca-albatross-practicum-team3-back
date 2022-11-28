@@ -50,16 +50,16 @@ const TodoListItem = ({ todo, removeTodo, handleCheck, handleStar }) => {
   };*/
 
   return (
-    <li key={todo._id}>
+    <li className='todo_list' key={todo.id}>
       <input value={todo.title} type='checkbox' onChange={handleCheck} />
       {todo.title}
-      <button type='button' onClick={handleStar}>
+      <button className='Favbtn' type='button' onClick={handleStar}>
         Favorite
       </button>
-      <button type='button'>Edit</button>
+      <button className='Editbtn' type='button'>Edit</button>
       <button
-        type='button'
-        onClick={() => removeTodo(todo._id)}
+         className='Removebtn' type='button'
+        onClick={() => removeTodo(todo.id)}
         // onEditTodo={editTodo}
       >
         Remove Button

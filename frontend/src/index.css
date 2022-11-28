@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box; 
+    list-style: none;
+}
+body {
+    background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
+    min-height: 100vh;
+}
+
+.logo{
+    color:  #f4fc0a;
+    font-size: 35px;
+    font-family: cursive;
+}
+
+/* BUTTONS */
+.Addbtn{
+     /* icon add sign */
+    color: white;
+    font-size: 15px;
+    background-color: green ;
+    padding: 3px 10px;
+    border: none;
+    margin-left: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    transition:all 0.5s ease-out;
+}
+
+.Addbtn:hover{
+    color: green ;
+    background-color:white;
+}
+
+.Editbtn{
+     /* icon pencil */
+    color: white;
+    font-size: 15px;
+    background-color: yellow ;
+    padding: 3px 10px;
+    border: none;
+    margin-left: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    transition:all 0.5s ease-out;
+}
+
+.Editbtn:hover{
+    color: yellow ;
+    background-color:white;
+}
+
+.Favbtn{
+     /* icon heart */
+    color: white;
+    font-size: 15px;
+    background-color: palevioletred ;
+    padding: 3px 10px;
+    border: none;
+    margin-left: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    transition:all 0.5s ease-out;
+}
+
+.Favbtn:hover{
+    color: palevioletred ;
+    background-color:white;
+}
+
+.Removebtn{
+     /* icon X */
+    color: white;
+    font-size: 15px;
+    background-color: red ;
+    padding: 3px 10px;
+    border: none;
+    margin-left: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    transition:all 0.5s ease-out;
+}
+
+.Removebtn:hover{
+    color: red ;
+    background-color:white;
+}
+
+/* NAV AND HEADER */
+
+
+.header_sec {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* TODO LIST PAGE */
+.title{
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+} 
+
+.todo-input{
+    min-width: 300px;
+    font-size: 15px;
+    padding: 3px 8px;
+    border: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    outline: none;
+} 
+
+.todo_list{
+    min-width: 300px;
+    min-height: 32px;
+    font-size: 15px;
+    margin-top: 30px;
+    padding: 3px 8px;
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-image: rgb(55, 127, 242);
+    justify-content: center;
+    /* align-items:center;   */
+}
+
+.todo_list_item{
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    display: flex;
+    word-break: break-all;
+    border: 2px solid black;
+    display:block;
+    height:max-content;
+    width:max-content;
+} 
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items:center;  
+}
+
+/* FAVORITE PAGE */
+.Favs{
+     margin-top: 30px; 
+    margin-bottom: 30px;
+    margin-left: 10px; 
+    justify-content: center; 
+    display: flex; 
+    color: purple;
+    font-size: 70px;
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: bold;
+} 
