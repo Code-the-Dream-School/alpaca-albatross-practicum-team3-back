@@ -13,6 +13,12 @@ body {
     min-height: 100vh;
 }
 
+.logo{
+    color:  #f4fc0a;
+    font-size: 35px;
+    font-family: cursive;
+}
+
 /* BUTTONS */
 .Addbtn{
      /* icon add sign */
@@ -96,30 +102,23 @@ body {
 
 /* NAV AND HEADER */
 
+
 .header_sec {
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 30px;
-    font-family: cursive;
-    font-style: oblique;
-    font-size: 70px;
+    font-size: 30px;
     font-weight: bold;
     display: flex;
     justify-content: center;
-    align-items: center; 
 }
 
-/* .header-styling {
-    background-color: rgb(18, 93, 224);
-    padding:0 10px;
-    height: 50px;
-} */
 
 /* TODO LIST PAGE */
 .title{
     margin-right: 10px;
     font-size: 20px;
     font-weight: bold;
-}
+} 
 
 .todo-input{
     min-width: 300px;
@@ -129,7 +128,7 @@ body {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     outline: none;
-}
+} 
 
 .todo_list{
     min-width: 300px;
@@ -143,7 +142,7 @@ body {
     border-bottom-left-radius: 8px;
     background-image: rgb(55, 127, 242);
     justify-content: center;
-    align-items:center;  
+    /* align-items:center;   */
 }
 
 .todo_list_item{
@@ -153,9 +152,9 @@ body {
     word-break: break-all;
     border: 2px solid black;
     display:block;
-    height:fit-content;
+    height:max-content;
     width:max-content;
-}
+} 
 
 form{
     display: flex;
@@ -175,4 +174,4 @@ form{
     font-family: cursive;
     font-style: oblique;
     font-weight: bold;
-}
+} 

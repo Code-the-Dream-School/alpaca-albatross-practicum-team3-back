@@ -48,7 +48,7 @@ const TodoList = () => {
 
   return (
     <>
-      <h1 className='header'>To Do List</h1>
+      <h1 className='header_sec'>To Do List</h1>
       <AddTodoForm addTodo={addTodo} />
 
       <ul className='todo_list_item'>
