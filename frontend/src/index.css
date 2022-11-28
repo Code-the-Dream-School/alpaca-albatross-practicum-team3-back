@@ -95,37 +95,8 @@ body {
 }
 
 /* NAV AND HEADER */
-.nav-bar{
-    /* display: flex; */
-    justify-content: space-between;
-    background-color: rgb(18, 93, 224);
-    padding:0 10px;
-    height: 50px;
-} 
 
-.home_link {
-    padding: 2px;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.home_link:hover{
-    color: rgb(120, 202, 249);
-}
-
-.favorite_link {
-    padding: 2px;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.favorite_link:hover {
-    color:  rgb(120, 202, 249);
-}
-
-.header {
+.header_sec {
     margin-top: 20px;
     margin-bottom: 30px;
     font-family: cursive;
