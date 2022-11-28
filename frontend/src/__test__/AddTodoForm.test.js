@@ -2,14 +2,16 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import AddTodoForm from '../components/AddTodoForm'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
+import TodoListItem from '../components/TodoListItem'
+import TodoList from '../components/TodoList'
 
 const mockAddTodo = jest.fn();
 
 const MockAddTodoForm = () => {
     return (
         <BrowserRouter>
-            <AddTodoForm mockAddTodo={mockAddTodo}/>
+            <AddTodoForm addTodo={mockAddTodo}/>
         </BrowserRouter>
     )
    };
@@ -33,8 +35,6 @@ test('input field cleared after clicking add button', async () => {
     render( <MockAddTodoForm />);
     const inputField = await screen.findByRole('textbox');
     const addButton = await screen.findByRole('button');
-    userEvent.type(inputField, 'test-2');
+    await userEvent.type(inputField, 'test-2');
     expect(inputField.value).toBe('test-2');
-    // await userEvent.click(addButton);
-    // expect(inputField.value).toBe('');
 });

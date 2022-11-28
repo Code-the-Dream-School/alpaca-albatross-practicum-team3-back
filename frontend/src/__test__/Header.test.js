@@ -12,10 +12,22 @@ const MockHeader = () => {
     )
 }
 
-test('renders Home navigation link', () => {
+test('renders create account navigation link', () => {
     render(<MockHeader />);
-    const homeLink = screen.getByText(/home/i);
-    expect(homeLink).toBeInTheDocument();
+    const createAccountLink = screen.getByText(/create an account/i);
+    expect(createAccountLink).toBeInTheDocument();
+});
+
+test('renders login navigation link', () => {
+    render(<MockHeader />);
+    const loginLink = screen.getByText(/log in/i);
+    expect(loginLink).toBeInTheDocument();
+});
+
+test('renders List navigation link', () => {
+    render(<MockHeader />);
+    const listLink = screen.getByText(/list/i);
+    expect(listLink).toBeInTheDocument();
 });
 
 test('renders Favorites navigation link', () => {
