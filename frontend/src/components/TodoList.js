@@ -41,20 +41,20 @@ const TodoList = () => {
   // This function deletes todo--sb
   const removeTodo = (id) => {
     console.log(id);
-    const newTodoList = todoList.filter((todo) => id !== todo._id);
+    const newTodoList = todoList.filter((todo) => id !== todo.id);
     console.log(newTodoList);
     setTodoList(newTodoList);
   };
 
   return (
     <>
-      <h1>Todo List</h1>
+      <h1 className='header_sec'>To Do List</h1>
       <AddTodoForm addTodo={addTodo} />
 
-      <ul>
+      <ul className='todo_list_item'>
         {todoList.map((todo) => (
           <TodoListItem
-            key={todo._id}
+            key={todo.id}
             todo={todo}
             handleCheck={handleCheck}
             removeTodo={removeTodo}

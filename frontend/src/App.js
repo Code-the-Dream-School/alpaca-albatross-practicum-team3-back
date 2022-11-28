@@ -2,9 +2,10 @@ import React from 'react';
 import TodoList from "./components/TodoList";
 import { Routes, Route } from 'react-router-dom';
 import FavoritesPage from './pages/FavoritesPage';
-import Header from './components/Header';
+import Navbar from './components/Home/Navbar';
 import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
+import Welcome from './components/Home/Home';
 
 // Function to preserve list upon refresh. Works with local storage.--sb
 
@@ -23,7 +24,7 @@ import Registration from './pages/Registration';
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
       <Routes>
 
         {/* Registration */}
@@ -37,6 +38,9 @@ function App() {
 
         {/* List */}
         <Route path='/List' element={<TodoList />}></Route>
+
+        {/* home */}
+        <Route path='/' element={<Welcome />}></Route>
 
         {/* FavePage */}
         <Route path='/Favorites' element={<FavoritesPage />}></Route>
