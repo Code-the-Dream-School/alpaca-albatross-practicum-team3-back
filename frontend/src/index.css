@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     margin:0;
     padding:0;
     box-sizing: border-box; 
     list-style: none;
 }
+
 body {
     background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
     min-height: 100vh;
 }
 
-.logo{
+.logo {
     color:  #f4fc0a;
     font-size: 35px;
     font-family: cursive;
+    font-weight: bold;
 }
 
 /* BUTTONS */
-.Addbtn{
+.Addbtn {
      /* icon add sign */
     color: white;
     font-size: 15px;
@@ -35,12 +37,12 @@ body {
     transition:all 0.5s ease-out;
 }
 
-.Addbtn:hover{
+.Addbtn:hover {
     color: green ;
     background-color:white;
 }
 
-.Editbtn{
+.Editbtn {
      /* icon pencil */
     color: white;
     font-size: 15px;
@@ -55,12 +57,12 @@ body {
     transition:all 0.5s ease-out;
 }
 
-.Editbtn:hover{
+.Editbtn:hover {
     color: yellow ;
     background-color:white;
 }
 
-.Favbtn{
+.Favbtn {
      /* icon heart */
     color: white;
     font-size: 15px;
@@ -75,12 +77,12 @@ body {
     transition:all 0.5s ease-out;
 }
 
-.Favbtn:hover{
+.Favbtn:hover {
     color: palevioletred ;
     background-color:white;
 }
 
-.Removebtn{
+.Removebtn {
      /* icon X */
     color: white;
     font-size: 15px;
@@ -95,13 +97,12 @@ body {
     transition:all 0.5s ease-out;
 }
 
-.Removebtn:hover{
+.Removebtn:hover {
     color: red ;
     background-color:white;
 }
 
 /* NAV AND HEADER */
-
 
 .header_sec {
     margin-top: 60px;
@@ -112,15 +113,14 @@ body {
     justify-content: center;
 }
 
-
 /* TODO LIST PAGE */
-.title{
+.title {
     margin-right: 10px;
     font-size: 20px;
     font-weight: bold;
 } 
 
-.todo-input{
+.todo-input {
     min-width: 300px;
     font-size: 15px;
     padding: 3px 8px;
@@ -130,7 +130,7 @@ body {
     outline: none;
 } 
 
-.todo_list{
+.todo_list {
     min-width: 300px;
     min-height: 32px;
     font-size: 15px;
@@ -145,7 +145,7 @@ body {
     /* align-items:center;   */
 }
 
-.todo_list_item{
+.todo_list_item {
     box-sizing: border-box;
     margin-bottom: 10px;
     display: flex;
@@ -156,14 +156,14 @@ body {
     width:max-content;
 } 
 
-form{
+form {
     display: flex;
     justify-content: center;
     align-items:center;  
 }
 
 /* FAVORITE PAGE */
-.Favs{
+.Favs {
      margin-top: 30px; 
     margin-bottom: 30px;
     margin-left: 10px; 

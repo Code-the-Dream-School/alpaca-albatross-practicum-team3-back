@@ -14,10 +14,10 @@ const Navbar = () => {
             <NavMenu>
             <NavLink to="/">Home</NavLink> 
             <NavLink to="/FavoritesPage">Favorites</NavLink> 
-            <NavLink to="/signup">Sign Up</NavLink>
+            <NavLink to="/register">Register</NavLink>
           </NavMenu> 
           <NavBtn>
-            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            <NavBtnLink to="/login">Log In</NavBtnLink>
           </NavBtn>   
         </Nav>
         </>

@@ -8,8 +8,8 @@ function Welcome(useSemiPersistentState) {
 
     return (
         <>
-            <h1>Welcome {msg}!</h1>
-            <h2>What would you like to get done today?</h2>
+            <h1 className='welcome'>Welcome {msg}!</h1>
+            <h2 className='question'>What would you like to get done today?</h2>
             <TodoList useSemiPersistentState={useSemiPersistentState} />
         </>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import TodoList from "./components/TodoList";
 import { Routes, Route } from 'react-router-dom';
 import FavoritesPage from './pages/FavoritesPage';
@@ -7,9 +7,10 @@ import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
 import Welcome from './components/Home/Home';
 
+
 // Function to preserve list upon refresh. Works with local storage.--sb
 
-/*const useSemiPersistentState = () => {
+const useSemiPersistentState = () => {
   const [todoList, setTodoList] = useState(
     JSON.parse(localStorage.getItem('savedTodoList')) || []
   );
@@ -19,22 +20,18 @@ import Welcome from './components/Home/Home';
   }, [todoList]);
 
   return [todoList, setTodoList];
-};*/
+};
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-
         {/* Registration */}
-        <Route path="/" element={<Registration />}>          
-        </Route>
+        <Route path="/register" element={<Registration />}></Route>
         
-
         {/* Log In */}
-        <Route path="/login" element ={<LogInPage/>}>
-        </Route>
+        <Route path="/login" element ={<LogInPage />}></Route>
 
         {/* List */}
         <Route path='/List' element={<TodoList />}></Route>
@@ -43,7 +40,7 @@ function App() {
         <Route path='/' element={<Welcome />}></Route>
 
         {/* FavePage */}
-        <Route path='/Favorites' element={<FavoritesPage />}></Route>
+        <Route path='/FavoritesPage' element={<FavoritesPage />}></Route>
       </Routes>
     </>
   );
