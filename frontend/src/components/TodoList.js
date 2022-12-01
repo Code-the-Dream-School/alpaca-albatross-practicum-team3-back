@@ -47,6 +47,13 @@ const TodoList = () => {
     setIsLoading(false);
   };
 
+  // this function calls API for new title and sets the updated list as a result
+  const updateToDoList = async (newTodo) => {
+    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList);
+    setTodoList(updTodoList);
+    setIsLoading(false);
+  };
+
   return (
     <>
       <h1 className='header_sec'>To Do List</h1>
@@ -59,6 +66,7 @@ const TodoList = () => {
             todo={todo}
             handleCheck={handleCheck}
             removeTodo={removeTodo}
+            onChange={updateToDoList}
           />
         ))}
       </ul>

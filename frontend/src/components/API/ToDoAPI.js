@@ -57,12 +57,14 @@ class ToDoAPI {
 
   //Change existing record
 
-  //Delete record
-  static async deleteToDo(/*listID,*/ todo, todoList) {
-    //   console.log(todo);
+  static async updateToDo(/*listID,*/ newTodo, todoList) {
+    // console.log("I'm here updating list", newTodo, todoList);
     return await axios
-      .delete(
-        apiURL + `/todos/${todo._id}`, //maybe id
+      .patch(
+        apiURL + `/todos/${newTodo._id}`,
+        {
+          title: `${newTodo.title}`,
+        },
         {
           headers: {
             accept: '*/*',
@@ -71,6 +73,27 @@ class ToDoAPI {
           },
         }
       )
+      .then((result) => {
+        // console.log(result);
+        const updatedList = todoList.map((todo) =>
+          todo._id === newTodo._id ? result.data.todo : todo
+        );
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  //Delete record
+  static async deleteToDo(/*listID,*/ todo, todoList) {
+    //   console.log(todo);
+    return await axios
+      .delete(apiURL + `/todos/${todo._id}`, {
+        headers: {
+          accept: '*/*',
+          Authorization: `Bearer ${bearerKey}`,
+          'Content-Type': 'application/json',
+        },
+      })
       .then((result) => {
         //console.log(result);
         const updatedList = todoList.filter((e) => e._id !== todo._id);
