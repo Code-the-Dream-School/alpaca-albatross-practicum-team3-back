@@ -1,87 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { login } from '../components/API/Auth'
 import { useNavigate } from 'react-router-dom';
-import { login } from "../components/API/Auth";
 
-export default function LogInPage() {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 
-	const [error, setError] = useState('');
-	const [loading, setLoading] = useState(false);
+const LogInPage = () => {
 
-	const history = useNavigate();
-
-	async function handleSubmit(e) {
-		e.preventDefault();
-
-		try {
-			setError('');
-			setLoading(true);
-			// await signUp(email, password);
-			history.push('/');
-		} catch {
-			setError('Failed to log in');
-		}
-
-		setLoading(false);
-	}
-
-	return (
-		<div>
-			<h2>Log In</h2>
-			{error && <p>{error}</p>}
-			<form onSubmit={handleSubmit}>
-				<label>
-					Email
-					<input
-						type="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</label>
-				<label>
-					Password
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</label>
-				<button disabled={loading} type="submit">
-					Log In
-				</button>
-			</form>
-			<p>
-				Need an account? <Link to="/signup">Sign Up</Link>
-			</p>
-		</div>
-	);
+	const[userName,setUserName]=useState(""); 
+	const [password, setPassword] = useState("");
+	const [dataInput, setDataInput] = useState(""); 
+	const navigate = useNavigate();
+	
+	const submitLogIn = async () => {
+			const userInfo = { userName: userName, password: password };
+			let result = await login({username: userName, pw: password});		
+			setDataInput([userInfo]);
 }
 
-// 					<input
-// 						type="password"
-// 						value={passwordConfirm}
-// 						onChange={(e) => setPasswordConfirm(e.target.value)}
-// 					/>
-// 				</label>
-// 				<button disabled={loading} type="submit">
-// 					Sign Up
-// 				</button>
-// 			</form>
-// 			<p>
 
+return(
+	<>
+		<form action="" onSubmit={submitLogIn}> 
+			<div> 
+				<label htmlFor="user name">User Name</label>
+				<input type="text" name="user name" id="user name" value={userName} onChange={(e)=>setUserName(e.target.value)}/> 
+			</div> 
+			<div> 
+				<label htmlFor="password">Password</label>
+				<input type="text" name="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/> 
+			</div>  
+			<button type="submit" onClick={()=>navigate("/home")}>Log In</button>
+		</form>
+	</>
+)
+}
 
-// 				Already have an account? <Link to="/login">Log In</Link>
-// 			</p>
-// 		</div>
-// 	);
-// }
-
-// export default SignUpPage;
-
-
-
+export default LogInPage;
 
 
 

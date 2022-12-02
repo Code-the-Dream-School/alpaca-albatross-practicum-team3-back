@@ -28,12 +28,12 @@ function App() {
       <Routes>
 
         {/* Registration */}
-        <Route path="/" element={<Registration />}>          
+        <Route path="/signup" element={<Registration />}>          
         </Route>
         
 
         {/* Log In */}
-        <Route path="/login" element ={<LogInPage/>}>
+        <Route path="/" element ={<LogInPage/>}>
         </Route>
 
         {/* List */}

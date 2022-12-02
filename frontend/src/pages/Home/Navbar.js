@@ -17,7 +17,7 @@ const Navbar = () => {
             <NavLink to="/signup">Sign Up</NavLink>
           </NavMenu> 
           <NavBtn>
-            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            <NavBtnLink to="/">Sign In</NavBtnLink>
           </NavBtn>   
         </Nav>
         </>
