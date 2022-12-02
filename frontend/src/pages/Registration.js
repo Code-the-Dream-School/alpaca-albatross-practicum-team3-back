@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { register } from "../components/API/Auth";
+
 
 function Registration() {
 const [userName, setUserName] = useState('');
@@ -17,15 +19,27 @@ const handlePassword = (e) => {
 	setSubmitted(false);
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
 	e.preventDefault();
 	if (userName === '' || password === '') {
 	setError(true);
 	} else {
+		let result = await register({username: userName, pw: password});
+		console.log(result)
 	setSubmitted(true);
 	setError(false);
 	}
 };
+// onSubmit: async (values) => {
+// 	let result = await login(values);
+// 	if (result.success) {
+// 		navigate('../dashboard')
+// 	} else {
+// 		let errors = []
+// 		errors.push(result.errors)
+// 		setFormErrors(errors);
+// 	}
+// }
 
 
 const successMessage = () => {
