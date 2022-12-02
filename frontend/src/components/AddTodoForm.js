@@ -13,7 +13,7 @@ const AddTodoForm = ({ addTodo }) => {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    console.log(todoTitle);
+    // console.log(todoTitle);
     addTodo({ /*id: Date.now(),*/ title: todoTitle }); // Id here must be removed because DB has its own id
     setTodoTitle('');
   };
@@ -23,7 +23,9 @@ const AddTodoForm = ({ addTodo }) => {
       <AddTodoLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>
         Title
       </AddTodoLabel>
-      <button className='Addbtn' type='submit'>Add</button>
+      <button className='Addbtn' type='submit'>
+        Add
+      </button>
     </form>
   );
 };

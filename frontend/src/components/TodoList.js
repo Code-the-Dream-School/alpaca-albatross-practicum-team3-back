@@ -33,17 +33,25 @@ const TodoList = () => {
   };
 
   // This function sends todo to list--sb
-  const addTodo = async (title) => {
-    let newTodo = await ToDoAPI.addToDo(title);
+  const addTodo = async (/*listID,*/ todo) => {
+    let newTodo = await ToDoAPI.addToDo(/*listID,*/ todo);
     setTodoList([...todoList, newTodo]);
+    //  console.log(newTodo);
   };
 
   // This function deletes todo--sb
-  const removeTodo = (id) => {
-    console.log(id);
-    const newTodoList = todoList.filter((todo) => id !== todo.id);
-    console.log(newTodoList);
+  const removeTodo = async (/*listID,*/ todo) => {
+    let newTodoList = await ToDoAPI.deleteToDo(todo, todoList);
+    //console.log(newTodoList);
     setTodoList(newTodoList);
+    setIsLoading(false);
+  };
+
+  // this function calls API for new title and sets the updated list as a result
+  const updateToDoList = async (newTodo) => {
+    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList);
+    setTodoList(updTodoList);
+    setIsLoading(false);
   };
 
   return (
@@ -54,10 +62,11 @@ const TodoList = () => {
       <ul className='todo_list_item'>
         {todoList.map((todo) => (
           <TodoListItem
-            key={todo.id}
+            key={todo._id}
             todo={todo}
             handleCheck={handleCheck}
             removeTodo={removeTodo}
+            onChange={updateToDoList}
           />
         ))}
       </ul>
