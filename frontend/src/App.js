@@ -6,6 +6,7 @@ import Navbar from './pages/Home/Navbar';
 import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
 import Welcome from './pages/Home/Home';
+// import Calendar from './pages/Home/Calendar';
 
 // Function to preserve list upon refresh. Works with local storage.--sb
 
@@ -28,7 +29,7 @@ function App() {
       <Routes>
 
         {/* Registration */}
-        <Route path="/signup" element={<Registration />}>          
+        <Route path="/register" element={<Registration />}>          
         </Route>
         
 
@@ -43,7 +44,11 @@ function App() {
         <Route path='/home' element={<Welcome />}></Route>
 
         {/* FavePage */}
-        <Route path='/Favorites' element={<FavoritesPage />}></Route>
+        <Route path='/FavoritesPage' element={<FavoritesPage />}></Route>
+
+        {/* Calendar */}
+        {/* <Route path='/Calendar' element={<Calendar />}></Route> */}
+
       </Routes>
     </>
   );

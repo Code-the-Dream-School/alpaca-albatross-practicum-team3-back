@@ -10,7 +10,7 @@ const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
     });
     
     return (
-        <>
+        <div>
             <label className='title' htmlFor="todoTitle">{children} </label>
             <input className='todo-input'
                 ref={inputRef}
@@ -19,7 +19,7 @@ const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
                 id="todoTitle"
                 value={todoTitle}
                 onChange={handleTitleChange} />  
-        </>
+        </div>
     );
 };
 
