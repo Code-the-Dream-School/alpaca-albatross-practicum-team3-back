@@ -47,12 +47,32 @@ const TodoList = () => {
     setIsLoading(false);
   };
 
-  // this function calls API for new title and sets the updated list as a result
-  const updateToDoList = async (newTodo) => {
-    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList);
-    setTodoList(updTodoList);
-    setIsLoading(false);
-  };
+    // this function calls API for new title and sets the updated list as a result
+    const updateToDoList = async (newTodo) => {
+      let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList);
+      setTodoList(updTodoList);
+      setIsLoading(false);
+    };
+
+  
+// will go false but not true again
+  
+function Fave() {
+  return "fave"
+  }
+  function NotFave() {
+    return "not fave"
+  }  
+  const handleStar = () => {
+    setToggle((toggle) => {
+      if (toggle == true) {
+        return <NotFave/>;
+      } else{
+        return <Fave/>;
+      }
+    });
+  }
+  
 
   return (
     <>
@@ -70,6 +90,8 @@ const TodoList = () => {
           />
         ))}
       </ul>
+
+
     </>
   );
 };

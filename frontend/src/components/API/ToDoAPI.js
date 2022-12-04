@@ -4,10 +4,7 @@ const apiURL = 'http://localhost:3001/api/v1';
 const bearerKey = process.env.REACT_APP_BEARER_KEY;
 //console.log(listID);
 class ToDoAPI {
-  //Registration
 
-  //LogIn
-  //get list of listIDs.
 
   // Get records
 
