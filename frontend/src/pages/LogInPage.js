@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { login } from '../components/API/Auth'
 import { useNavigate } from 'react-router-dom';
-
+import { FaUserCircle } from 'react-icons/fa';
 
 const LogInPage = () => {
 
@@ -18,19 +18,23 @@ const LogInPage = () => {
 
 
 return(
-	<>
-		<form action="" onSubmit={submitLogIn}> 
-			<div> 
-				<label htmlFor="user name">User Name</label>
-				<input type="text" name="user name" id="user name" value={userName} onChange={(e)=>setUserName(e.target.value)}/> 
+	<div className='auth-form-container'>
+		<form action="" onSubmit={submitLogIn} className='login-form'> 
+		<h1><FaUserCircle/></h1>
+			<div>
+				<label htmlFor="user name"></label>
+				<input type="text" placeholder='user name' name="user name" id='name' value={userName} onChange={(e)=>setUserName(e.target.value)}/> 
 			</div> 
 			<div> 
-				<label htmlFor="password">Password</label>
-				<input type="text" name="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/> 
-			</div>  
+				<label htmlFor="password"></label>
+				<input type="text" placeholder='*******' name="password" id='name' value={password} onChange={(e)=>setPassword(e.target.value)}/> 
+			</div> 
+			<div className='login-btn'>
 			<button type="submit" onClick={()=>navigate("/home")}>Log In</button>
+			</div> 
 		</form>
-	</>
+		
+	</div>
 )
 }
 

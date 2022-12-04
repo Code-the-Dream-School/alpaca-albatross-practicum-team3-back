@@ -19,7 +19,7 @@ const AddTodoForm = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleAddTodo}>
+    <form className='list-form' onSubmit={handleAddTodo}>
       <AddTodoLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>
         Title
       </AddTodoLabel>

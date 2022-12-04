@@ -1,0 +1,19 @@
+.Favs{
+    margin-top: 30px; 
+   margin-bottom: 30px;
+   margin-left: 10px; 
+   justify-content: center; 
+   display: flex; 
+   color: purple;
+   font-size: 70px;
+   font-family: cursive;
+   font-style: oblique;
+   font-weight: bold;
+} 
+
+.favoriteslink {
+    background-color:rgb(235, 71, 178);
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 3px;
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { register } from "../components/API/Auth";
+import { FaUserCircle } from 'react-icons/fa';
 
 
 function Registration() {
@@ -60,38 +61,35 @@ const errorMessage = () => {
 		style={{
 		display: error ? '' : 'none',
 		}}>
-		<h1>Please enter all the fields</h1>
+		<h1 className='err'>Please enter all the fields</h1>
 	</div>
 	);
 };
 
 return (
-	<div className="form">
-	<div>
-		<h1>Create an Account</h1>
-	</div>
+	<div className='auth-form-container'>
 
-	
-	<div>
-		{errorMessage()}
-		{successMessage()}
-	</div>
+	<form className='register-form'>
+		<h1><FaUserCircle/></h1>
 
-	<form>
 		<div>
-		    <label htmlFor="user name">User Name</label>
-		    <input onChange={handleUserName}
+		    <label htmlFor="user name"></label>
+		    <input placeholder='create username' onChange={handleUserName}
 		    value={userName} type="text" />
         </div>
 
         <div>  
-		    <label htmlFor="password">Password</label>
-		    <input onChange={handlePassword} value={password} type="password" />
+		    <label htmlFor="password"></label>
+		    <input placeholder='create password' onChange={handlePassword} value={password} type="password" />
         </div>
             
-		<button onClick={handleSubmit} type="submit">
+		<button className='register-btn' onClick={handleSubmit} type="submit">
 		Register
 		</button>
+	<div>
+		{errorMessage()}
+		{successMessage()}
+	</div>
 	</form>
 	</div>
 );
