@@ -1,4 +1,5 @@
 import React from "react";
+import Speech from './Home/Speech'
 
 
 // This is where faveTodos will assemble into a list with input field to add more. This component will call <FaveTodo /> which will provide the todo item paired with delete function. The faveList[] is where autoComplete will pull faveTodos to add to a list.--sb 
@@ -12,6 +13,7 @@ const FavoritesPage = () => {
     <>
      <h1 className='Favs'>Favorites</h1>
      <h3>This will be a list of faveTodos with star "removeFave" icon</h3>
+     <Speech />
     </>
     );
   };
