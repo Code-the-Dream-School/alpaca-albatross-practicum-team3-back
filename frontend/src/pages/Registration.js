@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { register } from "../components/API/Auth";
 import { FaUserCircle } from 'react-icons/fa';
-
+import { useNavigate} from 'react-router-dom';
 
 function Registration() {
 const [userName, setUserName] = useState('');
 const [password, setPassword] = useState('');
 const [submitted, setSubmitted] = useState(false);
 const [error, setError] = useState(false);
+const navigate = useNavigate();
 
 
 const handleUserName = (e) => {
@@ -29,6 +30,7 @@ const handleSubmit = async (e) => {
 		console.log(result)
 	setSubmitted(true);
 	setError(false);
+	navigate("/home")
 	}
 };
 // onSubmit: async (values) => {
