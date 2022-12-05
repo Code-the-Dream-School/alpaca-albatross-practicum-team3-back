@@ -1,0 +1,48 @@
+.home {
+    background-color:blue;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 
+.home:hover {
+    color:black;
+    background-color: blue;
+    transition:all 0.4s ease-out;
+} */
+
+
+.welcome {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 45px;
+    font-family: cursive;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.question {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.list-form{
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+    box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
+    width: 30%;
+    margin-left:500px;
+}
+
+.title{
+    margin-right: 3px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+} 

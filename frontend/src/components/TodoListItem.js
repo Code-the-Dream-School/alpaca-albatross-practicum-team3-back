@@ -1,70 +1,86 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
-//const API_URL = `${process.env.REACT_APP_BASE_URL}`;
 //Function creates list item with checkbox, todo.title, star, edit, remove.--sb
 
-const TodoListItem = ({ todo, removeTodo, handleCheck, handleStar }) => {
-  /* const [isEditing, setIsEditing] = useState(false);
-  const [newTitle, setNewTitle] = useState();
+const TodoListItem = ({
+  todo,
+  removeTodo,
+  onChange,
+  handleCheck,
+  handleStar,
+}) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState(todo.title);
 
-  function handleSubmitTodo(event, id) {
-    setIsEditing(false);
+  // this function is processing editing mode
+  const editTodo = (event) => {
+    console.log(event.target.value);
+    setIsEditing(!isEditing);
     event.preventDefault();
     event.stopPropagation();
-    const result = axios
-      // update item in DB
-      .post(API_URL, id, newTitle)
-      // get updated list
-      .get(API_URL)
-      .then((response) => {
-        setTodoList(response);
-      });
+  };
+  // this functino saves new title and calls update todo API
+  const saveTodo = (event) => {
+    setIsEditing(!isEditing);
+    event.preventDefault();
+    event.stopPropagation();
+    todo.title = newTitle;
+    onChange(todo);
+  };
+
+  let items = {};
+
+  if (isEditing) {
+    items = (
+      <span>
+        <input
+          type='text'
+          defaultValue={todo.title}
+          onChange={(e) => setNewTitle(e.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === 'Escape') {
+              saveTodo(event);
+            }
+          }}
+        />
+        <button
+          className='Editbtn'
+          type='submit'
+          onClick={(event) => saveTodo(event)}
+        >
+          Save
+        </button>
+      </span>
+    );
+  } else {
+    items = (
+      <span onClick={editTodo}>
+        {todo.title}
+        <button className='Editbtn' type='button' onClick={editTodo}>
+          Edit
+        </button>
+      </span>
+    );
   }
-  const editTodo = (todo) => {
-    setIsEditing(true);
-    setNewTitle(todo.title);
-    console.log(newTitle, isEditing);
-    if (isEditing) {
-      return (
-        <form onSubmit={(event) => handleSubmitTodo(event, todo.id)}>
-          <input
-            className='input'
-            value={todo.title}
-            onChange={(e) => setNewTitle(e.target.value)}
-            placeholder='edit...'
-          ></input>
-          <button type='submit' className='ok-icon'>
-            OK
+  return (
+    <>
+      <li className='todo_list' key={todo._id}>
+        <input value={todo.title} type='checkbox' onChange={handleCheck} />
+        {items}
+        <span>
+          <button className='Favbtn' type='button' onClick={handleStar}>
+            Favorite
           </button>
           <button
+            className='Removebtn'
             type='button'
-            className='cancel-icon'
-            onClick={() => setIsEditing(false)}
+            onClick={() => removeTodo(todo)}
           >
-            Cancel
+            Remove Button
           </button>
-        </form>
-      );
-    }
-  };*/
-
-  return (
-    <li className='todo_list' key={todo.id}>
-      <input value={todo.title} type='checkbox' onChange={handleCheck} />
-      {todo.title}
-      <button className='Favbtn' type='button' onClick={handleStar}>
-        Favorite
-      </button>
-      <button className='Editbtn' type='button'>Edit</button>
-      <button
-         className='Removebtn' type='button'
-        onClick={() => removeTodo(todo.id)}
-        // onEditTodo={editTodo}
-      >
-        Remove Button
-      </button>
-    </li>
+        </span>
+      </li>
+    </>
   );
 };
 

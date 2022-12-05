@@ -6,6 +6,7 @@ import Navbar from './pages/Home/Navbar';
 import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
 import Welcome from './pages/Home/Home';
+// import Calendar from './pages/Home/Calendar';
 // import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
@@ -33,6 +34,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 // make the transcript available for use in the component
 // const { transcript } = useSpeechRecognition()
+
 
 // reset the transcript to empty string after use in the component is complete
 // const { resetTranscript } = useSpeechRecognition()
@@ -95,12 +97,12 @@ function App() {
       <Routes>
 
         {/* Registration */}
-        <Route path="/" element={<Registration />}>          
+        <Route path="/register" element={<Registration />}>          
         </Route>
         
 
         {/* Log In */}
-        <Route path="/login" element ={<LogInPage/>}>
+        <Route path="/" element ={<LogInPage/>}>
         </Route>
 
         {/* List */}
@@ -111,7 +113,6 @@ function App() {
 
         {/* FavePage */}
         <Route path='/Favorites' element={<FavoritesPage />}></Route>
-        {redirect}
       </Routes>
       <div id="transcriptDiv">
         <p id="transcript">{transcript}</p>
