@@ -5,7 +5,7 @@ import TodoListItem from './TodoListItem';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = () => {
+const TodoList = ({ spokenTodoItem }) => {
   //const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
@@ -57,7 +57,7 @@ const TodoList = () => {
   return (
     <>
       <h1 className='header_sec'>To Do List</h1>
-      <AddTodoForm addTodo={addTodo} />
+      <AddTodoForm addTodo={addTodo} spokenTodoItem={spokenTodoItem} />
 
       <ul className='todo_list_item'>
         {todoList.map((todo) => (

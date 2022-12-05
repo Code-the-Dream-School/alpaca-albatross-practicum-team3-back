@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { BrowserRouter, Navigate, redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const Speech = () => {
+const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
+
   // recognized commands
   const commands = [
       {
@@ -11,6 +12,18 @@ const Speech = () => {
           setRedirectUrl(redirectPage);
         }
       },
+      {
+        // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
+        commands: ['Add *', 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'],
+        callback: ([spokenMsg]) => {
+          // let spokenMsgTooLong = '';
+          // if (spokenMsg.length <= 6) {
+            handleSpokenTodo([spokenMsg])
+          // } else {
+            // spokenMsgTooLong = <p>Your to do item is too long to add via speech.</p>
+          // }
+        }
+      }
     ];
 
     const navigate = useNavigate();
@@ -43,6 +56,7 @@ const Speech = () => {
           <p id="transcript">{transcript}</p>
           <button id="transcriptButton" onClick={SpeechRecognition.startListening}>Start</button>
           {redirectPage}
+          {/* {spokenMsgTooLong} */}
       </div>
   )
 };
