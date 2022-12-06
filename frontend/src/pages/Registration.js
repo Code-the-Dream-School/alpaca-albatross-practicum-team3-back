@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { register } from "../components/API/Auth";
 import { FaUserCircle } from 'react-icons/fa';
-
+import { useNavigate} from 'react-router-dom';
 
 function Registration() {
-const [userName, setUserName] = useState('');
-const [password, setPassword] = useState('');
-const [submitted, setSubmitted] = useState(false);
-const [error, setError] = useState(false);
+	const [userName, setUserName] = useState('');
+	const [password, setPassword] = useState('');
+	const [submitted, setSubmitted] = useState(false);
+	const [error, setError] = useState(false);
+	const navigate = useNavigate();
 
 
 const handleUserName = (e) => {
@@ -19,28 +20,22 @@ const handlePassword = (e) => {
 	setPassword(e.target.value);
 	setSubmitted(false);
 };
+	
+	
 
 const handleSubmit = async (e) => {
 	e.preventDefault();
 	if (userName === '' || password === '') {
 	setError(true);
 	} else {
-		let result = await register({username: userName, pw: password});
+		let result = await register({username: userName, password: password});
 		console.log(result)
-	setSubmitted(true);
-	setError(false);
+		setSubmitted(true);
+		setError(false);
+		navigate('/home')
 	}
 };
-// onSubmit: async (values) => {
-// 	let result = await login(values);
-// 	if (result.success) {
-// 		navigate('../dashboard')
-// 	} else {
-// 		let errors = []
-// 		errors.push(result.errors)
-// 		setFormErrors(errors);
-// 	}
-// }
+
 
 
 const successMessage = () => {

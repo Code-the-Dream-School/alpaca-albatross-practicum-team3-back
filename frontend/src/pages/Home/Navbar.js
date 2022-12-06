@@ -1,7 +1,16 @@
 import React from "react";
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  
+  const submitLogOut = (e) => {
+    e.preventDefault()
+    localStorage.setItem("user", '')
+    localStorage.setItem("token", '')
+    navigate('/')
+  }
 
     return (
         <>
@@ -17,6 +26,9 @@ const Navbar = () => {
           </NavMenu> 
           <NavBtn>
             <NavBtnLink to="/">Log In</NavBtnLink>
+          </NavBtn>   
+          <NavBtn>
+            <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
           </NavBtn>   
         </Nav>
         </>
