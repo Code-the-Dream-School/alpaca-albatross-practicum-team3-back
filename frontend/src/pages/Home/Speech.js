@@ -7,7 +7,7 @@ const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
   // recognized commands
   const commands = [
       {
-        command: ['Navigate *', 'Navigate to *', 'Open *', 'Go *'],
+        command: ['Navigate *', 'Navigate to *', 'Open *', 'Go *', 'Go to *'],
         callback: (redirectPage) => {
           setRedirectUrl(redirectPage);
         }
@@ -15,10 +15,11 @@ const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
       {
         // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
         commands: ['Add *', 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'],
-        callback: ([spokenMsg]) => {
+        callback: (spokenMsg) => {
+          console.log(spokenMsg);
           // let spokenMsgTooLong = '';
           // if (spokenMsg.length <= 6) {
-            handleSpokenTodo([spokenMsg])
+            handleSpokenTodo(spokenMsg)
           // } else {
             // spokenMsgTooLong = <p>Your to do item is too long to add via speech.</p>
           // }

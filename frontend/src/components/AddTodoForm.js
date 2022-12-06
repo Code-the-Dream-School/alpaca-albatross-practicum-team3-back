@@ -12,7 +12,8 @@ const AddTodoForm = ({ addTodo, spokenTodoItem }) => {
   };
 
   if (spokenTodoItem) {
-    setTodoTitle(spokenTodoItem);
+    const spokenTodoItemString = spokenTodoItem.toString();
+    setTodoTitle(spokenTodoItemString);
   }
 
   const handleAddTodo = (e) => {

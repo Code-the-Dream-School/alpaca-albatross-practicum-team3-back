@@ -6,10 +6,10 @@ import Speech from "./Speech";
 
 function Welcome(useSemiPersistentState) {
 
-    const [spokenTodoItem, setSpokenTodoItem] = useState('');
+    const [spokenTodoItem, setSpokenTodoItem] = useState([]);
 
     const handleSpokenTodo = (spokenMsg) => {
-        setSpokenTodoItem(spokenMsg)
+        setSpokenTodoItem([...spokenTodoItem,  spokenMsg])
     }
     // msg will be {userName}?
 
