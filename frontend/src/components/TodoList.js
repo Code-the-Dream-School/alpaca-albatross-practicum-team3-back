@@ -10,6 +10,7 @@ const TodoList = () => {
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     (async () => {
