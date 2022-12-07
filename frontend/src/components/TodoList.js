@@ -2,20 +2,29 @@ import ToDoAPI from './API/ToDoAPI';
 import React, { useState, useEffect } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoListItem from './TodoListItem';
+import { useLocation } from 'react-router';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = ({ spokenTodoItem }) => {
+const TodoList = ({ listID, spokenTodoItem }) => {
   //const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  //console.log('todolist list ID here', listID);
+  // const userToken = JSON.parse(localStorage.getItem('token'));
+  const idList = listID;
+  //console.log(idList);
 
   useEffect(() => {
     (async () => {
-      let fetchedData = await ToDoAPI.getToDoList();
-      // console.log(fetchedData);
+      const userToken = JSON.parse(localStorage.getItem('token'));
+      let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
+      // console.log('todolist list ID here', listID);
+      //console.log(fetchedData);
+
       setTodoList(fetchedData);
+
       setIsLoading(false);
     })();
   }, [isLoading]);
@@ -33,15 +42,18 @@ const TodoList = ({ spokenTodoItem }) => {
   };
 
   // This function sends todo to list--sb
-  const addTodo = async (/*listID,*/ todo) => {
-    let newTodo = await ToDoAPI.addToDo(/*listID,*/ todo);
+  const addTodo = async (todo, listID) => {
+    // console.log('todo', todo, 'listID', listID);
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let newTodo = await ToDoAPI.addToDo(listID, todo, userToken);
     setTodoList([...todoList, newTodo]);
-    //  console.log(newTodo);
+    // console.log(newTodo);
   };
 
   // This function deletes todo--sb
-  const removeTodo = async (/*listID,*/ todo) => {
-    let newTodoList = await ToDoAPI.deleteToDo(todo, todoList);
+  const removeTodo = async (todo) => {
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let newTodoList = await ToDoAPI.deleteToDo(todo, todoList, userToken);
     //console.log(newTodoList);
     setTodoList(newTodoList);
     setIsLoading(false);
@@ -49,7 +61,8 @@ const TodoList = ({ spokenTodoItem }) => {
 
   // this function calls API for new title and sets the updated list as a result
   const updateToDoList = async (newTodo) => {
-    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList);
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList, userToken);
     setTodoList(updTodoList);
     setIsLoading(false);
   };
@@ -57,7 +70,7 @@ const TodoList = ({ spokenTodoItem }) => {
   return (
     <>
       <h1 className='header_sec'>To Do List</h1>
-      <AddTodoForm addTodo={addTodo} spokenTodoItem={spokenTodoItem} />
+      <AddTodoForm addTodo={addTodo} idList={listID} spokenTodoItem={spokenTodoItem} />
 
       <ul className='todo_list_item'>
         {todoList.map((todo) => (

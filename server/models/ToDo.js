@@ -19,6 +19,10 @@ const ToDoSchema = new mongoose.Schema(
       ref: "ToDoList",
       required: [true, "Please specify the list this item belongs to."],
     },
+    favorite: {
+      type: Boolean,
+      default: false,  
+    }
   },
   {timestamps: true}
 );

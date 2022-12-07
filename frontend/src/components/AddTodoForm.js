@@ -3,7 +3,7 @@ import AddTodoLabel from './AddTodoLabel';
 
 // This function assembles form with input field--sb
 
-const AddTodoForm = ({ addTodo, spokenTodoItem }) => {
+const AddTodoForm = ({ addTodo, idList, spokenTodoItem }) => {
   const [todoTitle, setTodoTitle] = useState('');
 
   const handleTitleChange = (e) => {
@@ -19,8 +19,7 @@ const AddTodoForm = ({ addTodo, spokenTodoItem }) => {
   const handleAddTodo = (e) => {
     e.preventDefault();
     // console.log(todoTitle);
-
-    addTodo({ /*id: Date.now(),*/ title: todoTitle }); // Id here must be removed because DB has its own id
+    addTodo({ /*id: Date.now(),*/ title: todoTitle }, idList); // Id here must be removed because DB has its own id
     setTodoTitle('');
   };
 
