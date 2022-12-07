@@ -1,17 +1,56 @@
 import axios from 'axios';
-const listID = process.env.REACT_APP_LIST_ID;
+//const listID = process.env.REACT_APP_LIST_ID;
 const apiURL = 'http://localhost:3001/api/v1';
-const bearerKey = process.env.REACT_APP_BEARER_KEY;
+//const bearerKey = process.env.REACT_APP_BEARER_KEY;
 //console.log(listID);
 class ToDoAPI {
-  //Registration
+  static async createNewList(/*apiURL,*/ bearerKey) {
+    return await axios
+      .post(
+        apiURL + `/lists`,
+        {
+          title: 'Default',
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        return result.data.list._id;
+      })
+      .catch((error) =>
+        console.log('Whoops, something went wrong. Cannot get list ID!', error)
+      );
+  }
 
-  //LogIn
-  //get list of listIDs.
+  //get list of listIDs
+
+  static async getListIDs(/*apiURL, */ bearerKey) {
+    let listArray = [];
+    await axios
+      .get(apiURL + `/lists`, {
+        headers: {
+          Authorization: `Bearer ${bearerKey}`,
+          'Content-Type': 'application/json',
+          accept: '*/*',
+        },
+      })
+      .then((result) => {
+        listArray = result.data.lists;
+        // return todoArray;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+
+    return listArray;
+  }
 
   // Get records
 
-  static async getToDoList(/*apiURL, listID, bearerKey*/) {
+  static async getToDoList(/*apiURL,*/ listID, bearerKey) {
     let todoArray = [];
     await axios
       .get(apiURL + `/todos?list=${listID}`, {
@@ -33,7 +72,8 @@ class ToDoAPI {
 
   //Add new record
 
-  static async addToDo(/*listID,*/ todo) {
+  static async addToDo(listID, todo, bearerKey) {
+    console.log('todo', todo, 'listID', listID);
     return await axios
       .post(
         apiURL + `/todos`,
@@ -57,7 +97,7 @@ class ToDoAPI {
 
   //Change existing record
 
-  static async updateToDo(/*listID,*/ newTodo, todoList) {
+  static async updateToDo(newTodo, todoList, bearerKey) {
     // console.log("I'm here updating list", newTodo, todoList);
     return await axios
       .patch(
@@ -84,7 +124,7 @@ class ToDoAPI {
   }
 
   //Delete record
-  static async deleteToDo(/*listID,*/ todo, todoList) {
+  static async deleteToDo(/*listID,*/ todo, todoList, bearerKey) {
     //   console.log(todo);
     return await axios
       .delete(apiURL + `/todos/${todo._id}`, {
