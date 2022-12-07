@@ -7,7 +7,8 @@ function Welcome(useSemiPersistentState) {
 
     // msg will be {userName}?
 
-    const msg = "Mikey"; 
+    //const msg = "Mikey"; 
+    const msg = JSON.parse(localStorage.getItem("user"));
 
     return (
         <>
