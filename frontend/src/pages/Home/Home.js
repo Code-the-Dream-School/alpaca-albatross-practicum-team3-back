@@ -7,7 +7,7 @@ function Welcome(useSemiPersistentState) {
   //const msg = 'Mikey';
   const msg = JSON.parse(localStorage.getItem('user'));
   const location = useLocation();
-  // console.log('location', location.state.listID);
+  console.log('location', location.state.listID);
 
   return (
     <>
