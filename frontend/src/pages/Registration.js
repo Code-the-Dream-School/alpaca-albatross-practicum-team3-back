@@ -3,12 +3,13 @@ import { register } from '../components/API/Auth';
 import { FaUserCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import ToDoAPI from '../components/API/ToDoAPI';
+import { ValidationPassword } from '../middleware/ValidationPassword';
 
 function Registration() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const [defaultListID, setDefaultListID] = useState('');
@@ -35,8 +36,12 @@ function Registration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (userName === '' || password === '') {
-      setError(true);
-    } else {
+      setError('Must have username and password');
+    } else if(ValidationPassword(password) === -1){
+			setError("Must have at least one lowercase character, one uppercase character, one digit and one special character (!@$%&?).")
+		} else if(userName.length < 6 || userName.length > 18){
+			setError("Username must be between 6-18 characters")
+		} else {
       let result = await register({ username: userName, password: password });
       console.log(result);
 
@@ -72,17 +77,6 @@ function Registration() {
     );
   };
 
-  const errorMessage = () => {
-    return (
-      <div
-        style={{
-          display: error ? '' : 'none',
-        }}
-      >
-        <h1 className='err'>Please enter all the fields</h1>
-      </div>
-    );
-  };
 
   return (
     <>
@@ -116,10 +110,10 @@ function Registration() {
             Register
           </button>
           <div>
-            {errorMessage()}
             {successMessage()}
           </div>
         </form>
+            <div>{error.length ? <p className="text-red-600"><small>{error}</small></p> : null}</div>
       </div>
     </>
   );
