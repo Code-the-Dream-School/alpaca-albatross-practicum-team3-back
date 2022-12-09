@@ -6,6 +6,12 @@ import Speech from "./Speech";
 
 
 function Welcome(useSemiPersistentState) {
+
+const [spokenTodoItem, setSpokenTodoItem] = useState('');
+const handleSpokenTodo = (spokenMsg) => {
+    setSpokenTodoItem(spokenMsg)
+}
+
   // msg will be {userName}?
   //const msg = 'Mikey';
   const msg = JSON.parse(localStorage.getItem('user'));
@@ -20,6 +26,7 @@ function Welcome(useSemiPersistentState) {
       <TodoList
         useSemiPersistentState={useSemiPersistentState}
         listID={location.state.listID}
+        spokenTodoItem={spokenTodoItem}
       />
     </>
   );

@@ -7,7 +7,8 @@ const AddTodoForm = ({ addTodo, idList, spokenTodoItem }) => {
   const [todoTitle, setTodoTitle] = useState('');
 
   const handleTitleChange = (e) => {
-    const newTodoTitle = e.target.value;
+    const newTodoTitle = spokenTodoItem ? spokenTodoItem : e.target.value;
+    console.log('setting to do title');
     setTodoTitle(newTodoTitle);
   };
 
