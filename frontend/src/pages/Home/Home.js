@@ -6,17 +6,11 @@ import Speech from "./Speech";
 
 
 function Welcome(useSemiPersistentState) {
-    const [spokenTodoItem, setSpokenTodoItem] = useState([]);
-
-    const handleSpokenTodo = (spokenMsg) => {
-        setSpokenTodoItem([...spokenTodoItem,  spokenMsg])
-    }
-    // msg will be {userName}?
-
-    //const msg = "Mikey"; 
-    const msg = JSON.parse(localStorage.getItem("user"));
-    const location = useLocation();
-  // console.log('location', location.state.listID);
+  // msg will be {userName}?
+  //const msg = 'Mikey';
+  const msg = JSON.parse(localStorage.getItem('user'));
+  const location = useLocation();
+  console.log('location', location.state.listID);
 
   return (
     <>
