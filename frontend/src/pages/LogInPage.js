@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
 
 const LogInPage = () => {
@@ -55,15 +55,19 @@ const LogInPage = () => {
           <label>
             Password:
             <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
+            <button className="show.btn" onClick={togglePassword}>
+          {passwordShown ? <FaEyeSlash /> : <FaEye />}
+          </button>
           </label>
           <button type='submit'>Login</button>
         </form>
-            <button onClick={togglePassword}>Show Password</button>
-        {logInError ? (
-          <p className='text-red-600 bg-white'>
-            <small>Invalid Password/Username</small>
-          </p>
-        ) : null}
+            
+            {logInError ? (
+                <p className='text-red-600 bg-white'>
+                  <small>Invalid Password or Username</small>
+                </p>) : null
+            }
+            
       </div>
     </div>
   );
