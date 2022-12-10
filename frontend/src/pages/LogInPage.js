@@ -6,7 +6,15 @@ import ToDoAPI from '../components/API/ToDoAPI';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+
   const navigate = useNavigate();
+
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
 
   const submitLogIn = async (e) => {
     try {
@@ -46,10 +54,11 @@ const LogInPage = () => {
           </label>
           <label>
             Password:
-            <input type='password' name='password' placeholder='password' />
+            <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
           </label>
           <button type='submit'>Login</button>
         </form>
+            <button onClick={togglePassword}>Show Password</button>
         {logInError ? (
           <p className='text-red-600 bg-white'>
             <small>Invalid Password/Username</small>
