@@ -48,26 +48,28 @@ const LogInPage = () => {
           <h1>
             <FaUserCircle />
           </h1>
+          <div className="inputFields">
           <label>
-            Username:
+            Username: <br></br>
             <input type='text' name='username' placeholder='username' />
           </label>
           <label>
-            Password:
+            Password:<br></br>
             <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
-            <button className="show.btn" onClick={togglePassword}>
-          {passwordShown ? <FaEyeSlash /> : <FaEye />}
+            <button id='eye' onClick={togglePassword}>
+              {passwordShown ? <FaEyeSlash /> : <FaEye />}
           </button>
           </label>
-          <button type='submit'>Login</button>
-        </form>
+
+          <button className="logbtn" type='submit'>Login</button>
             
             {logInError ? (
-                <p className='text-red-600 bg-white'>
+                <p className='login-error'>
                   <small>Invalid Password or Username</small>
                 </p>) : null
             }
-            
+            </div>
+          </form>  
       </div>
     </div>
   );
