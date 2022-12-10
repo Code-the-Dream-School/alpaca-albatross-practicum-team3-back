@@ -10,6 +10,7 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+	const [passwordShown, setPasswordShown] = useState(false);
   const navigate = useNavigate();
 
   const [defaultListID, setDefaultListID] = useState('');
@@ -31,6 +32,11 @@ function Registration() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
     setSubmitted(false);
+  };
+	const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
   };
 
   const handleSubmit = async (e) => {
@@ -102,7 +108,7 @@ function Registration() {
               placeholder='create password'
               onChange={handlePassword}
               value={password}
-              type='password'
+              type={passwordShown ? "text" : "password"}
             />
           </div>
 
@@ -113,6 +119,7 @@ function Registration() {
             {successMessage()}
           </div>
         </form>
+				<button onClick={togglePassword}>Show Password</button>
             <div>{error.length ? <p className="text-red-600"><small>{error}</small></p> : null}</div>
       </div>
     </>
