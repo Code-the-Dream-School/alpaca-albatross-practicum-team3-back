@@ -17,10 +17,11 @@ body {
 }
 
 .logo{
-    color:  #f4fc0a;
+    color:black;
     font-size: 35px;
     font-family: cursive;
     margin-top: 20px;
+    /* align left or replace with Avatar */
 }
 
 /* BUTTONS */
