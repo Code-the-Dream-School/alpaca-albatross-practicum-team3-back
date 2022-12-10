@@ -24,6 +24,7 @@ const Navbar = () => {
             <NavLink to="/home" className='home'>Home</NavLink> 
             <NavLink to="/FavoritesPage" className='favoriteslink'>Favorites</NavLink> 
             <NavLink to="/register" className='register'>Register</NavLink>
+            <NavLink ro="/Weekly" className="weeklyLink">Weekly</NavLink>
           </NavMenu> 
           <NavBtn>
             <NavBtnLink to="/">Log In</NavBtnLink>

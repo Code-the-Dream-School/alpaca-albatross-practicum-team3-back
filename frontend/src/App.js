@@ -6,6 +6,7 @@ import Navbar from './pages/Home/Navbar';
 import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
 import Welcome from './pages/Home/Home';
+import WeeklyList from './pages/WeeklyList';
 // import Calendar from './pages/Home/Calendar';
 
 // Function to preserve list upon refresh. Works with local storage.--sb
@@ -34,11 +35,10 @@ function App() {
         
 
         {/* Log In */}
-        <Route path="/" element ={<LogInPage/>}>
-        </Route>
+        <Route path="/" element ={<LogInPage/>}></Route>
 
         {/* List */}
-        <Route path='/List' element={<TodoList />}></Route>
+        {/* <Route path='/List' element={<TodoList />}></Route> */}
 
         {/* home */}
         <Route path='/home' element={<Welcome />}></Route>
@@ -46,8 +46,8 @@ function App() {
         {/* FavePage */}
         <Route path='/FavoritesPage' element={<FavoritesPage />}></Route>
 
-        {/* Calendar */}
-        {/* <Route path='/Calendar' element={<Calendar />}></Route> */}
+        {/* Weekly */}
+        <Route path='/Weekly' element={<WeeklyList />}></Route>
 
       </Routes>
     </>
