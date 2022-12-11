@@ -17,21 +17,26 @@ const Navbar = () => {
         <>
           <Nav> 
           <NavLink to='/logo'>
-            <h1 className="logo">LifeStyle App</h1>
+            <h1 className="logo">logo to fix later</h1>
             </NavLink> 
             <Bars />
             <NavMenu>
             <NavLink to="/home" className='home'>Home</NavLink> 
             <NavLink to="/FavoritesPage" className='favoriteslink'>Favorites</NavLink> 
-            <NavLink to="/register" className='register'>Register</NavLink>
+            <NavLink className="weekly">Weekly</NavLink>
+            <NavLink className="Monthly">Monthly</NavLink>
           </NavMenu> 
-          <NavBtn>
+          {/* <NavBtn>
             <NavBtnLink to="/">Log In</NavBtnLink>
-          </NavBtn>   
-          <NavBtn>
+          </NavBtn>    */}
+           {/* <NavBtn>
             <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
-          </NavBtn>   
+          </NavBtn>  */}
+    
         </Nav>
+        <NavBtn>
+            <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
+          </NavBtn> 
         </>
       );
     };

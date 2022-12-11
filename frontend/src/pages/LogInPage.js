@@ -3,6 +3,7 @@ import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
+import { NavLink } from './Home/NavbarElements';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
@@ -48,6 +49,7 @@ const LogInPage = () => {
           <h1>
             <FaUserCircle />
           </h1>
+          <NavLink id="register" to="/register" className='register'>Create an account</NavLink>
           <label>
             Username:
             <input type='text' name='username' placeholder='username' />
