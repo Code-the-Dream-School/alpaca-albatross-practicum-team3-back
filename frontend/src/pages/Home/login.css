@@ -29,7 +29,8 @@ h1 {
 }
 
 #register{
-    color:blue;
+    color:blue; 
+    border:none;
 }
 
 /* .login-btn {
