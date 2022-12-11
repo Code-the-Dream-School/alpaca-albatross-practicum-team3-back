@@ -12,8 +12,7 @@
 } 
 
 .favoriteslink {
-    background-color:rgb(235, 71, 178);
+    background-color:greenyellow;
     border-radius: 5px;
     font-weight: bold;
-    margin-left: 3px;
 }
