@@ -26,12 +26,6 @@ const Navbar = () => {
             <NavLink className="weekly">Weekly</NavLink>
             <NavLink className="Monthly">Monthly</NavLink>
           </NavMenu> 
-          {/* <NavBtn>
-            <NavBtnLink to="/">Log In</NavBtnLink>
-          </NavBtn>    */}
-           {/* <NavBtn>
-            <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
-          </NavBtn>  */}
     
         </Nav>
         <NavBtn>

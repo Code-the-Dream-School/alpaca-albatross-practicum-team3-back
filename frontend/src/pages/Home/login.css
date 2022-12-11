@@ -49,12 +49,8 @@ border: 1px solid rgba(255, 255, 255, .25);
     border-radius:10px;
 }
 
-#register{
-    color:blue; 
-    border:none;
-}
-
-/* .login-btn {
+/* this is the log in button on the nav bar, used for nav while building app */
+.login-btn {
     border: none;
     margin-top: 10px;
     background-color:#cf95f5;
@@ -65,4 +61,33 @@ border: 1px solid rgba(255, 255, 255, .25);
     flex-direction: column;
     align-items: center;
     
-} */
+}
+
+.login-error{
+    font-weight: bold;
+    border-style: solid;
+    border-color: crimson;
+    border-width: 2px;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 1px -1px 6px 1px crimson inset;
+}
+
+.inputFields label{ 
+    display:flex;
+    flex-direction: column;
+    align-content: left;
+    margin-left: 10px;
+}
+
+#eye{
+    font-size: larger;
+    margin-left: -40px;
+    margin-top: 48px;
+    z-index: 1;
+}
+
+.register{
+    color:blue;
+    align-self: center;
+}
