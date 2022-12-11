@@ -8,9 +8,9 @@ display: flex;
 // justify-content: center;
 flex-direction:row;
 padding: 3px calc((100vw - 1000px) / 2);
-z-index: 10;
+z-index: -1;
 border: 1px solid rgba(255, 255, 255, .25);
-border-radius: 20px;
+border-radius: 10px;
 background-color: rgba(255, 255, 255, 0.45);
 box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 backdrop-filter: blur(5px);
@@ -63,7 +63,7 @@ display: flex;
 // align-items: center;
 // margin-right: 24px;
 float:right;
-
+margin-top:-50px;
 
 
 @media screen and (max-width: 768px) {
@@ -82,6 +82,7 @@ outline: none;
 cursor: pointer;
 transition: all 0.2s ease-in-out;
 text-decoration: none;
+z-index:1;
 
 
 
