@@ -6,7 +6,9 @@
     align-items: center;
     width: moz-fit-content;
     justify-content: center;
-    /* background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg); */
+
+    /* place in home?  */
+    background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg);
     /* background-image: linear-gradient(75deg, #f9f9d1, #f8c8f8, #c2e0f8); */
     
 }
@@ -18,19 +20,34 @@
 } */
 
 .err {
-    font-weight: bold;
+    /* font-weight: bold;
     font-size: 15px;
-    color: red;
+    color: red; */
+
+    font-weight: bold;
+    border-style: solid;
+    border-color: crimson;
+    border-width: 2px;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 1px -1px 6px 1px crimson inset;
 }
 
 .register-form{
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 3px 3px 3px 3px rgb(180, 178, 178);
+    /* box-shadow: 3px 3px 3px 3px rgb(180, 178, 178);
     height: 300px;
     width: moz-fit-content;
-    border-radius: 10px;
+    border-radius: 10px; */
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+        
 }
 
 
@@ -56,12 +73,20 @@ input {
 .register-btn {
     border: none;
     margin-top: 10px;
-    background-color:#cf95f5;
+    margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
+    border:solid black 1px;
     width: moz-fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
    
+}
+
+#eye2{
+    margin-left:-35px;
+    margin-top:65px;
+    font-size: larger;
+    z-index: 1;
 }

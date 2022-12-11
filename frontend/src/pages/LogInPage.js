@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
 
@@ -45,27 +45,35 @@ const LogInPage = () => {
   return (
     <div>
       <div className='auth-form-container'>
-        <form action='' onSubmit={submitLogIn} className='login-form'>
+        <form id="formBkgd" action='' onSubmit={submitLogIn} className='login-form'>
           <h1>
             <FaUserCircle />
           </h1>
           <NavLink id="register" to="/register" className='register'>Create an account</NavLink>
           <label>
-            Username:
+            Username: <br></br>
             <input type='text' name='username' placeholder='username' />
           </label>
           <label>
-            Password:
+            Password:<br></br>
             <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
+            {/* <button id='eye' onClick={togglePassword}>
+              {passwordShown ? <FaEyeSlash /> : <FaEye />} */}
+          {/* </button> */}
           </label>
-          <button type='submit'>Login</button>
-        </form>
-            <button onClick={togglePassword}>Show Password</button>
-        {logInError ? (
-          <p className='text-red-600 bg-white'>
-            <small>Invalid Password/Username</small>
-          </p>
-        ) : null}
+
+          <button className="logbtn" type='submit'>Login</button>
+            
+            {logInError ? (
+                <p className='login-error'>
+                  <small>Invalid Password or Username</small>
+                </p>) : null
+            }
+            </div>
+          </form>  
+          <button id='eye' onClick={togglePassword}>
+              {passwordShown ? <FaEyeSlash /> : <FaEye />}
+              </button>
       </div>
     </div>
   );

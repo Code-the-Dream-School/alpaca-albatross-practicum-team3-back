@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { register } from '../components/API/Auth';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { ValidationPassword } from '../middleware/ValidationPassword';
@@ -118,9 +118,11 @@ function Registration() {
           <div>
             {successMessage()}
           </div>
+          <div>{error.length ? <p className="err"><small>{error}</small></p> : null}</div>
         </form>
-				<button onClick={togglePassword}>Show Password</button>
-            <div>{error.length ? <p className="text-red-600"><small>{error}</small></p> : null}</div>
+        <button id="eye2" onClick={togglePassword}>{passwordShown ? <FaEyeSlash /> : <FaEye />}</button>
+        
+            {/* <div>{error.length ? <p className="err"><small>{error}</small></p> : null}</div> */}
       </div>
     </>
   );
