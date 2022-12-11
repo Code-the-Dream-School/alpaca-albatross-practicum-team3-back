@@ -3,6 +3,7 @@
     /* text-align: center; */
     display: flex;
     min-height: 100vh;
+    
     /* align-items: center;
     justify-content: center; */
     /* background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg); */
@@ -19,6 +20,14 @@ h1 {
     margin-left: 10px;
 }
 
+#formBkgd{
+border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+}
+
 .login-form{
     display: flex;
     /* align-items: center; */
@@ -26,9 +35,21 @@ h1 {
     box-shadow: 3px 3px 3px 3px rgb(180, 178, 178);
     width: moz-fit-content;
     border-radius: 10px;
-    background-color: #eee8c1;
+
 }
 
+
+/* Log in button on log in form  */
+
+.logbtn{
+    border: solid black 1px;
+    padding:5px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius:10px;
+}
+
+/* this is the log in button on the nav bar, used for nav while building app */
 .login-btn {
     border: none;
     margin-top: 10px;
@@ -59,11 +80,9 @@ h1 {
     margin-left: 10px;
 }
 
-.inputFields #eye{
-   display: flex;
-   align-self:flex-end;
-   font-size: larger;
-   padding-right: 15px;
-   margin-top: -21px;
-    
+#eye{
+    font-size: larger;
+    margin-left: -40px;
+    margin-top: 48px;
+    z-index: 1;
 }
