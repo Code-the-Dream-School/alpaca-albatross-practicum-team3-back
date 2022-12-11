@@ -47,9 +47,10 @@ const LogInPage = () => {
       <div className='auth-form-container'>
         <form id="formBkgd" action='' onSubmit={submitLogIn} className='login-form'>
           <h1>
-            <FaUserCircle />
+            <FaUserCircle style={{marginLeft:"20px"}} />
+            <NavLink to="register" className= "register" style={{border:"none", fontSize:"14px"}}>Create an account</NavLink>
           </h1>
-          <NavLink id="register" to="/register" className='register'>Create an account</NavLink>
+          <div className="inputFields">
           <label>
             Username: <br></br>
             <input type='text' name='username' placeholder='username' />
@@ -57,9 +58,6 @@ const LogInPage = () => {
           <label>
             Password:<br></br>
             <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
-            {/* <button id='eye' onClick={togglePassword}>
-              {passwordShown ? <FaEyeSlash /> : <FaEye />} */}
-          {/* </button> */}
           </label>
 
           <button className="logbtn" type='submit'>Login</button>
