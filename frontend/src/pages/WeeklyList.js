@@ -1,12 +1,11 @@
 import AddTodoForm from "../components/AddTodoForm";
-
+import TodoList from "../components/TodoList"
 
 function WeeklyList (){
     return (
-        <>
-        <h1>Weekly</h1>
-            <AddTodoForm />
-        </>
+        <div className="weeklyList">
+            <TodoList />
+        </div>
     )
 }
 export default WeeklyList

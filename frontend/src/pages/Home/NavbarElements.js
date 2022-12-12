@@ -29,6 +29,10 @@ cursor: pointer;
 border: solid black 1px;
 border-radius: 5px;
 
+
+
+
+
 &:hover {
 color: #8799f3;
 }
@@ -87,7 +91,7 @@ z-index:1;
 
 
 &:hover {
-transition: all 0.2s ease-in-out;
+// transition: all 0.2s ease-in-out;
 background: #fff;
 color: #010606;
 border: solid 4px;

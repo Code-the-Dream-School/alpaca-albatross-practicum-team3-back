@@ -23,8 +23,8 @@ const Navbar = () => {
             <NavMenu>
             <NavLink to="/home" className='home'>Home</NavLink> 
             <NavLink to="/FavoritesPage" className='favoriteslink'>Favorites</NavLink> 
-            <NavLink className="weekly">Weekly</NavLink>
-            <NavLink className="Monthly">Monthly</NavLink>
+            <NavLink to="/weekly" className="weekly">Weekly</NavLink>
+            <NavLink to="/monthly" className="Monthly">Monthly</NavLink>
           </NavMenu> 
     
         </Nav>
