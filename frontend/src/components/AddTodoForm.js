@@ -3,19 +3,14 @@ import AddTodoLabel from './AddTodoLabel';
 
 // This function assembles form with input field--sb
 
-const AddTodoForm = ({ addTodo, idList, spokenTodoItem }) => {
+const AddTodoForm = ({ addTodo, idList }) => {
   const [todoTitle, setTodoTitle] = useState('');
 
   const handleTitleChange = (e) => {
-    const newTodoTitle = spokenTodoItem ? spokenTodoItem : e.target.value;
+    const newTodoTitle = e.target.value;
     console.log('setting to do title');
     setTodoTitle(newTodoTitle);
   };
-
-  if (spokenTodoItem) {
-    const spokenTodoItemString = spokenTodoItem.toString();
-    setTodoTitle(spokenTodoItemString);
-  }
 
   const handleAddTodo = (e) => {
     e.preventDefault();

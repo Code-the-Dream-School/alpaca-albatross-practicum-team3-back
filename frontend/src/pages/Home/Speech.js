@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
-
+const Speech = () => {
+  
   // recognized commands
   const commands = [
       {
@@ -12,14 +12,15 @@ const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
           setRedirectUrl(redirectPage);
         }
       },
-      {
-        // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
-        commands: 'Add *', //, 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'
-        callback: (spokenMsg) => {
-          console.log(spokenMsg);
-            handleSpokenTodo(spokenMsg)
-        }
-      }
+      // {
+      //   // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
+      //   commands: 'Add *', //, 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'
+      //   callback: (spokenMsg) => {
+      //     console.log(spokenMsg);
+      //       setTranscribedMsg(spokenMsg);
+      //       handleSpokenTodo(spokenMsg)
+      //   }
+      // }
     ];
 
     const navigate = useNavigate();
@@ -31,6 +32,8 @@ const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
     };
 
     const { transcript } = useSpeechRecognition({commands});
+
+
 
     // allows app to function without errors in unsupported browsers
     if (!SpeechRecognition.browserSupportsSpeechRecognition) {
@@ -52,7 +55,6 @@ const Speech = ({spokenTodoItem, handleSpokenTodo}) => {
           <p id="transcript">{transcript}</p>
           <button id="transcriptButton" onClick={SpeechRecognition.startListening}>Start</button>
           {redirectPage}
-          {/* {spokenMsgTooLong} */}
       </div>
   )
 };
