@@ -17,7 +17,7 @@ const Navbar = () => {
         <>
           <Nav> 
           <NavLink to='/logo'>
-            <h1 className="logo">LifeStyle App</h1>
+            <h1 className="logo">logo to fix later</h1>
             </NavLink> 
             <Bars />
             <NavMenu>
@@ -26,13 +26,11 @@ const Navbar = () => {
             <NavLink to="/register" className='register'>Register</NavLink>
             <NavLink to ="/monthly" className="monthlyList">Monthly</NavLink>
           </NavMenu> 
-          <NavBtn>
-            <NavBtnLink to="/">Log In</NavBtnLink>
-          </NavBtn>   
-          <NavBtn>
-            <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
-          </NavBtn>   
+    
         </Nav>
+        <NavBtn>
+            <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
+          </NavBtn> 
         </>
       );
     };
