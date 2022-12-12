@@ -1,11 +1,10 @@
-import AddTodoForm from "../components/AddTodoForm";
+import TodoList from "../components/TodoList";
 
 
 function MonthlyList (){
     return (
         <>
-        <h1>Monthly</h1>
-            <AddTodoForm />
+            <TodoList/>
         </>
     )
 }
