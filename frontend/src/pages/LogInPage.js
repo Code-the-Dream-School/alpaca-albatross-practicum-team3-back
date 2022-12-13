@@ -31,11 +31,7 @@ const LogInPage = () => {
         const token = JSON.parse(localStorage.getItem('token'));
         const lists = await ToDoAPI.getListIDs(token);
         const id = lists[0]._id;
-        navigate('/home', {
-          state: {
-            listID: id,
-          },
-        });
+        navigate('/home');
       }
     } catch (error) {
       setLogInError(true);
@@ -45,33 +41,50 @@ const LogInPage = () => {
   return (
     <div>
       <div className='auth-form-container'>
-        <form id="formBkgd" action='' onSubmit={submitLogIn} className='login-form'>
+        <form
+          id='formBkgd'
+          action=''
+          onSubmit={submitLogIn}
+          className='login-form'
+        >
           <h1>
-            <FaUserCircle style={{marginLeft:"20px"}} />
-            <NavLink to="register" className= "register" style={{border:"none", fontSize:"14px"}}>Create an account</NavLink>
+            <FaUserCircle style={{ marginLeft: '20px' }} />
+            <NavLink
+              to='register'
+              className='register'
+              style={{ border: 'none', fontSize: '14px' }}
+            >
+              Create an account
+            </NavLink>
           </h1>
-          <div className="inputFields">
-          <label>
-            Username: <br></br>
-            <input type='text' name='username' placeholder='username' />
-          </label>
-          <label>
-            Password:<br></br>
-            <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
-          </label>
+          <div className='inputFields'>
+            <label>
+              Username: <br></br>
+              <input type='text' name='username' placeholder='username' />
+            </label>
+            <label>
+              Password:<br></br>
+              <input
+                type={passwordShown ? 'text' : 'password'}
+                name='password'
+                placeholder='password'
+              />
+            </label>
 
-          <button className="logbtn" type='submit'>Login</button>
-            
+            <button className='logbtn' type='submit'>
+              Login
+            </button>
+
             {logInError ? (
-                <p className='login-error'>
-                  <small>Invalid Password or Username</small>
-                </p>) : null
-            }
-            </div>
-          </form>  
-          <button id='eye' onClick={togglePassword}>
-              {passwordShown ? <FaEyeSlash /> : <FaEye />}
-              </button>
+              <p className='login-error'>
+                <small>Invalid Password or Username</small>
+              </p>
+            ) : null}
+          </div>
+        </form>
+        <button id='eye' onClick={togglePassword}>
+          {passwordShown ? <FaEyeSlash /> : <FaEye />}
+        </button>
       </div>
     </div>
   );

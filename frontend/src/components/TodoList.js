@@ -71,7 +71,7 @@ const TodoList = ({ listID }) => {
     <>
       <h1 className='header_sec'>To Do List</h1>
       <AddTodoForm addTodo={addTodo} idList={listID} />
-    
+
       <ul className='todo_list_item'>
         {todoList.map((todo) => (
           <TodoListItem
@@ -83,8 +83,6 @@ const TodoList = ({ listID }) => {
           />
         ))}
       </ul>
-
-
     </>
   );
 };
