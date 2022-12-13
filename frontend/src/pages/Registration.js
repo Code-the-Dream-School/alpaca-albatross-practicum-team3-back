@@ -19,7 +19,7 @@ function Registration() {
   //   logged: false,
   //   listID: '',
   // }
-  const [defaultListID, setDefaultListID] = useState('');
+  //const [defaultListID, setDefaultListID] = useState('');
   const [cookies, setCookie] = useCookies(['listID']);
 
   //   const [token, setToken] = useState('');
@@ -67,18 +67,14 @@ function Registration() {
         let id = await ToDoAPI.createNewList(/*apiURL,*/ token);
         //console.log('id', id);
         setCookie('listID', id, { path: '/' });
-        setDefaultListID(id);
+        // setDefaultListID(id);
         const testID = cookies.listID;
         console.log(testID, 'testID');
         //console.log('from here ID', defaultListID);
         //const [mapState, dispatch] = SharedReducer((state = initialState, action) => {})
         setSubmitted(true);
         setError(false);
-        navigate('/home', {
-          state: {
-            listID: id,
-          },
-        });
+        navigate('/home');
       }
     }
   };

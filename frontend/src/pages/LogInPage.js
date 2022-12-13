@@ -28,9 +28,9 @@ const LogInPage = () => {
       //console.log("Success:", result)
       if (result) {
         setLogInError(false);
-        const token = JSON.parse(localStorage.getItem('token'));
-        const lists = await ToDoAPI.getListIDs(token);
-        const id = lists[0]._id;
+        // const token = JSON.parse(localStorage.getItem('token'));
+        // const lists = await ToDoAPI.getListIDs(token);
+        // const id = lists[0]._id;
         navigate('/home');
       }
     } catch (error) {
