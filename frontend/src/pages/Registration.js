@@ -4,16 +4,23 @@ import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { ValidationPassword } from '../middleware/ValidationPassword';
+//import SharedReducer from 'shared-reducer-hooks';
+import { useCookies } from 'react-cookie';
 
 function Registration() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-	const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   const navigate = useNavigate();
 
-  const [defaultListID, setDefaultListID] = useState('');
+  // const initialState = {
+  //   logged: false,
+  //   listID: '',
+  // }
+  //const [defaultListID, setDefaultListID] = useState('');
+  const [cookies, setCookie] = useCookies(['listID']);
 
   //   const [token, setToken] = useState('');
   //   //this sets fresh token when it's changed
@@ -33,7 +40,7 @@ function Registration() {
     setPassword(e.target.value);
     setSubmitted(false);
   };
-	const togglePassword = () => {
+  const togglePassword = () => {
     // When the handler is invoked
     // inverse the boolean state of passwordShown
     setPasswordShown(!passwordShown);
@@ -43,11 +50,13 @@ function Registration() {
     e.preventDefault();
     if (userName === '' || password === '') {
       setError('Must have username and password');
-    } else if(ValidationPassword(password) === -1){
-			setError("Must have at least one lowercase character, one uppercase character, one digit and one special character (!@$%&?).")
-		} else if(userName.length < 6 || userName.length > 18){
-			setError("Username must be between 6-18 characters")
-		} else {
+    } else if (ValidationPassword(password) === -1) {
+      setError(
+        'Must have at least one lowercase character, one uppercase character, one digit and one special character (!@$%&?).'
+      );
+    } else if (userName.length < 6 || userName.length > 18) {
+      setError('Username must be between 6-18 characters');
+    } else {
       let result = await register({ username: userName, password: password });
       console.log(result);
 
@@ -56,17 +65,16 @@ function Registration() {
         //use token stored in the local storage as a bearerKey
         const token = JSON.parse(localStorage.getItem('token'));
         let id = await ToDoAPI.createNewList(/*apiURL,*/ token);
-        console.log('id', id);
-        setDefaultListID(id);
+        //console.log('id', id);
+        setCookie('listID', id, { path: '/' });
+        // setDefaultListID(id);
+        const testID = cookies.listID;
+        console.log(testID, 'testID');
         //console.log('from here ID', defaultListID);
-
+        //const [mapState, dispatch] = SharedReducer((state = initialState, action) => {})
         setSubmitted(true);
         setError(false);
-        navigate('/home', {
-          state: {
-            listID: id,
-          },
-        });
+        navigate('/home');
       }
     }
   };
@@ -82,7 +90,6 @@ function Registration() {
       </div>
     );
   };
-
 
   return (
     <>
@@ -108,21 +115,27 @@ function Registration() {
               placeholder='create password'
               onChange={handlePassword}
               value={password}
-              type={passwordShown ? "text" : "password"}
+              type={passwordShown ? 'text' : 'password'}
             />
           </div>
 
           <button className='register-btn' onClick={handleSubmit} type='submit'>
             Register
           </button>
+          <div>{successMessage()}</div>
           <div>
-            {successMessage()}
+            {error.length ? (
+              <p className='err'>
+                <small>{error}</small>
+              </p>
+            ) : null}
           </div>
-          <div>{error.length ? <p className="err"><small>{error}</small></p> : null}</div>
         </form>
-        <button id="eye2" onClick={togglePassword}>{passwordShown ? <FaEyeSlash /> : <FaEye />}</button>
-        
-            {/* <div>{error.length ? <p className="err"><small>{error}</small></p> : null}</div> */}
+        <button id='eye2' onClick={togglePassword}>
+          {passwordShown ? <FaEyeSlash /> : <FaEye />}
+        </button>
+
+        {/* <div>{error.length ? <p className="err"><small>{error}</small></p> : null}</div> */}
       </div>
     </>
   );
