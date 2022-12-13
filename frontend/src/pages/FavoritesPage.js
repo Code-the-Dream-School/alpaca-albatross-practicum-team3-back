@@ -1,23 +1,22 @@
-import React from "react";
+import React from "react"
+import AddTodoForm from "../components/AddTodoForm"
 import Speech from './Home/Speech'
 
+const FavoritesPage = (addToDo) => {
+    console.log("all your fave are belong to us")
+    
+    
 
-// This is where faveTodos will assemble into a list with input field to add more. This component will call <FaveTodo /> which will provide the todo item paired with delete function. The faveList[] is where autoComplete will pull faveTodos to add to a list.--sb 
+    // this ugly. How not? Want input, list with 2 icons (star and edit). faveList.push(todoListItem that toggle=true) faveList = todoList.filter?
+    return (
+        <>
+        <h1>Favorites</h1>
+        <AddTodoForm />    
+        <Speech />
+        </>
+    )
+}
 
-const FavoritesPage = () => {
-  
-    //this function receives the faveTodo.title and key and populates them into faveList. Contains pseudo code that sb tested a little bit.
-      
-  
-  return (
-    <>
-     <h1 className='Favs'>Favorites</h1>
-     <h3>This will be a list of faveTodos with star "removeFave" icon</h3>
-     <Speech />
-    </>
-    );
-  };
-  
 export default FavoritesPage;
   
 // The handleStar function could change the state, copy the faveTodo.title, and then send to faveList. Icon needs to change from empty star to filled star.

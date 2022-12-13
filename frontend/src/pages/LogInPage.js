@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
+import { NavLink } from './Home/NavbarElements';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+
   const navigate = useNavigate();
+
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
 
   const submitLogIn = async (e) => {
     try {
@@ -36,25 +45,33 @@ const LogInPage = () => {
   return (
     <div>
       <div className='auth-form-container'>
-        <form action='' onSubmit={submitLogIn} className='login-form'>
+        <form id="formBkgd" action='' onSubmit={submitLogIn} className='login-form'>
           <h1>
-            <FaUserCircle />
+            <FaUserCircle style={{marginLeft:"20px"}} />
+            <NavLink to="register" className= "register" style={{border:"none", fontSize:"14px"}}>Create an account</NavLink>
           </h1>
+          <div className="inputFields">
           <label>
-            Username:
+            Username: <br></br>
             <input type='text' name='username' placeholder='username' />
           </label>
           <label>
-            Password:
-            <input type='password' name='password' placeholder='password' />
+            Password:<br></br>
+            <input type={passwordShown ? "text" : "password"} name='password' placeholder='password' />
           </label>
-          <button type='submit'>Login</button>
-        </form>
-        {logInError ? (
-          <p className='text-red-600 bg-white'>
-            <small>Invalid Password/Username</small>
-          </p>
-        ) : null}
+
+          <button className="logbtn" type='submit'>Login</button>
+            
+            {logInError ? (
+                <p className='login-error'>
+                  <small>Invalid Password or Username</small>
+                </p>) : null
+            }
+            </div>
+          </form>  
+          <button id='eye' onClick={togglePassword}>
+              {passwordShown ? <FaEyeSlash /> : <FaEye />}
+              </button>
       </div>
     </div>
   );
