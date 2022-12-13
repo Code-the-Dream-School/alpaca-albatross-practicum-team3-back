@@ -22,7 +22,6 @@ const AddTodoForm = ({ addTodo, idList }) => {
   return (
     <form className='list-form' onSubmit={handleAddTodo}>
       <AddTodoLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>
-        Title
       </AddTodoLabel>
       <button className='Addbtn' type='submit'>
         Add

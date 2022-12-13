@@ -76,7 +76,7 @@ const TodoListItem = ({
             type='button'
             onClick={() => removeTodo(todo)}
           >
-            Remove Button
+            Remove
           </button>
         </span>
       </li>
