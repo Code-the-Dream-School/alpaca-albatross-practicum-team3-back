@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
+import { useCookies } from 'react-cookie';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
-
+  const [cookies, setCookie] = useCookies(['listID']);
   const navigate = useNavigate();
 
   const togglePassword = () => {
@@ -28,9 +29,11 @@ const LogInPage = () => {
       //console.log("Success:", result)
       if (result) {
         setLogInError(false);
-        // const token = JSON.parse(localStorage.getItem('token'));
-        // const lists = await ToDoAPI.getListIDs(token);
-        // const id = lists[0]._id;
+        const token = JSON.parse(localStorage.getItem('token'));
+        const lists = await ToDoAPI.getListIDs(token);
+        const id = lists[0]._id;
+        console.log('lists and id', lists, id);
+        setCookie('listID', id, { path: '/' });
         navigate('/home');
       }
     } catch (error) {
