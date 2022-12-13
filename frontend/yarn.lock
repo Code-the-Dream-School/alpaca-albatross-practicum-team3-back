@@ -1641,6 +1641,21 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@speechly/browser-client@^2.4.1":
+  "integrity" "sha512-5pRsn+u4uacXw+zN+Unpl6vkVv5X13DQSbkHon6C1ciI8guEnsxxnu9dgUxkrunkT+wmTJXykf94rWyTMsrI7g=="
+  "resolved" "https://registry.npmjs.org/@speechly/browser-client/-/browser-client-2.6.1.tgz"
+  "version" "2.6.1"
+  dependencies:
+    "base-64" "^0.1.0"
+    "uuid" "^8.0.0"
+
+"@speechly/speech-recognition-polyfill@^1.2.0":
+  "integrity" "sha512-G58yLyyoJdB5r8r9ZwK4vuQ7lqHyfqCExIjGQp/nIXBYiLs5WKU0XPFVvEG3Hptf/oT9lzCz1lOcozmp+Dh3Iw=="
+  "resolved" "https://registry.npmjs.org/@speechly/speech-recognition-polyfill/-/speech-recognition-polyfill-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "@speechly/browser-client" "^2.4.1"
+
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   "integrity" "sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ=="
   "resolved" "https://registry.npmjs.org/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz"
@@ -2751,6 +2766,11 @@
   "integrity" "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   "version" "1.0.2"
+
+"base-64@^0.1.0":
+  "integrity" "sha512-Y5gU45svrR5tI2Vt/X9GPd3L0HNIKzGu202EjxrXMpuc2V2CiKgemAbUUsqYmZJvPtCXoUKjNZwBJzsNScUbXA=="
+  "resolved" "https://registry.npmjs.org/base-64/-/base-64-0.1.0.tgz"
+  "version" "0.1.0"
 
 "batch@0.6.1":
   "integrity" "sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw=="
@@ -7346,6 +7366,8 @@
     "@remix-run/router" "1.0.3"
 
 "react-scripts@^5.0.1":
+  "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="
+  "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.1.tgz"
   "version" "5.0.1"
   dependencies:
     "@babel/core" "^7.16.0"
@@ -7398,7 +7420,12 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@*", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=16.8":
+"react-speech-recognition@^3.10.0":
+  "integrity" "sha512-EVSr4Ik8l9urwdPiK2r0+ADrLyDDrjB0qBRdUWO+w2MfwEBrj6NuRmy1GD3x7BU/V6/hab0pl8Lupen0zwlJyw=="
+  "resolved" "https://registry.npmjs.org/react-speech-recognition/-/react-speech-recognition-3.10.0.tgz"
+  "version" "3.10.0"
+
+"react@*", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=16.8", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -8622,7 +8649,7 @@
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
 
-"uuid@^8.3.2":
+"uuid@^8.0.0", "uuid@^8.3.2":
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"

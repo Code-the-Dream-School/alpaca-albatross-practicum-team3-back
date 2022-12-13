@@ -2,7 +2,6 @@ import React from "react";
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements";
 import { useNavigate } from 'react-router-dom';
 
-
 const Navbar = () => {
   const navigate = useNavigate();
   

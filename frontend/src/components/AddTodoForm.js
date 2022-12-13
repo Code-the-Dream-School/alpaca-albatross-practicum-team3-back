@@ -8,6 +8,7 @@ const AddTodoForm = ({ addTodo, idList }) => {
 
   const handleTitleChange = (e) => {
     const newTodoTitle = e.target.value;
+    console.log('setting to do title');
     setTodoTitle(newTodoTitle);
   };
 
