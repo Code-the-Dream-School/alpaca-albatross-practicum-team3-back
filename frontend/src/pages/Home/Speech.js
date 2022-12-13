@@ -25,10 +25,12 @@ const Speech = () => {
 
     const navigate = useNavigate();
     const [redirectUrl, setRedirectUrl] = useState('');
-    const pages = ['home', 'favorites'];
+    const pages = ['home', 'favorites', 'weekly', 'monthly'];
     const urls = {
       home: "/home",
       favorites: "/FavoritesPage",
+      weekly: '/weekly',
+      monthly: '/monthly',
     };
 
     const { transcript } = useSpeechRecognition({commands});
