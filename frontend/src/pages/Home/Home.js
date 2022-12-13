@@ -1,9 +1,13 @@
-import React from 'react';
-import TodoList from '../../components/TodoList';
+import React, { useState } from "react";
+import TodoList from "../../components/TodoList";
 import { useLocation } from 'react-router';
+import Speech from "./Speech";
+
+
 import { useCookies } from 'react-cookie';
 
 function Welcome(useSemiPersistentState) {
+
   // msg will be {userName}?
   //const msg = 'Mikey';
   const msg = JSON.parse(localStorage.getItem('user'));
@@ -15,6 +19,7 @@ function Welcome(useSemiPersistentState) {
     <>
       <h1 className='welcome'>Welcome {msg}!</h1>
       <h2 className='question'>What would you like to get done today?</h2>
+      <Speech />
       <TodoList
         useSemiPersistentState={useSemiPersistentState}
         listID={cookies.listID}

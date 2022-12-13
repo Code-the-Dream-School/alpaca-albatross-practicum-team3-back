@@ -33,8 +33,15 @@ const Navbar = () => {
           <NavLink to='/FavoritesPage' className='favoriteslink'>
             Favorites
           </NavLink>
-          <NavLink className='weekly'>Weekly</NavLink>
-          <NavLink className='Monthly'>Monthly</NavLink>
+          <NavLink to='/register' className='register'>
+            Register
+          </NavLink>
+          <NavLink to='/weekly' className='weekly'>
+            Weekly
+          </NavLink>
+          <NavLink to='/monthly' className='monthlyList Monthly'>
+            Monthly
+          </NavLink>
         </NavMenu>
       </Nav>
       <NavBtn>

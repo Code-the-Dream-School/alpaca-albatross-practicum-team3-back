@@ -1,5 +1,6 @@
 import React from 'react';
 import AddTodoForm from '../components/AddTodoForm';
+import Speech from './Home/Speech';
 
 const FavoritesPage = (addToDo) => {
   console.log('all your fave are belong to us');
@@ -9,6 +10,7 @@ const FavoritesPage = (addToDo) => {
     <>
       <h1>Favorites</h1>
       <AddTodoForm />
+      <Speech />
     </>
   );
 };
