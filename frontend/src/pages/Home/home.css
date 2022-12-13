@@ -35,14 +35,20 @@
     display: flex;
     justify-content: center;
     align-items:center; 
-    box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
+    /* box-shadow: 11px 12px 13px 12px rgb(207, 207, 207); */
     width: 30%;
     margin-left:500px;
-}
+    border: 1px solid rgba(255, 255, 255, .25);
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.45);
+box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(5px);
 
+}
+/* 
 .title{
     margin-right: 3px;
     margin-left: 5px;
     font-size: 20px;
     font-weight: bold;
-} 
+}  */
