@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import {FaMicrophoneSlash} from "react-icons/fa";
 
 const Speech = () => {
   
@@ -55,7 +56,7 @@ const Speech = () => {
   return (
       <div id="transcriptDiv">
           <p id="transcript">{transcript}</p>
-          <button id="transcriptButton" onClick={SpeechRecognition.startListening}>Start</button>
+          <button id="transcriptButton" onClick={SpeechRecognition.startListening}><FaMicrophoneSlash/></button>
           {redirectPage}
       </div>
   )
