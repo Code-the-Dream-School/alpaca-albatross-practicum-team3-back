@@ -26,24 +26,30 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 60%;
   cursor: pointer;
-  border: solid black 1px;
-  border-radius: 5px;
+  // border: solid black 1px;
+  // border-radius: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(1px);
 
   &:hover {
-    color: #8799f3;
+    // color: #8799f3;
+    border: #bcb89a solid 3px;
   }
 `;
 
 export const Bars = styled(FaBars)`
   display: none;
-  color: #fff;
+  // color: #fff;
 
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 75%);
+    // top: 0;
+    // right: 0;
+    // transform: translate(-100%, 75%);
     font-size: 1.8rem;
     cursor: pointer;
   }
@@ -74,20 +80,20 @@ export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   font-size: 15px;
   // background: #c8bbf4;
-  padding: 10px 22px;
+  padding: 10px 15px;
   color: #222831;
   border: solid black 1px;
   outline: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  // transition: all 0.2s ease-in-out;
   text-decoration: none;
   z-index: 1;
 
   &:hover {
     // transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+    // background: #fff;
+    // color: #010606;
     border: solid 4px;
-    border-color: #8799f3;
+    border-color: #bcb89a;
   }
 `;
