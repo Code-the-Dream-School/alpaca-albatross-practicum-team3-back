@@ -25,7 +25,6 @@ const Navbar = () => {
 
         {/* should route to home or be inactive */}
         <NavLink to='/logo'> logo
-          <h1 className='logo'></h1>
         </NavLink>
         <Bars />
         <NavMenu>
@@ -44,7 +43,7 @@ const Navbar = () => {
         </NavMenu>
       </Nav>
       <NavBtn>
-        <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
+        <NavBtnLink className="logoutbtn" onClick={submitLogOut}>Log Out</NavBtnLink>
       </NavBtn>
     </>
   );

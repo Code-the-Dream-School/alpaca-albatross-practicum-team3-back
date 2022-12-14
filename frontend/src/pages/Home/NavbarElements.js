@@ -55,6 +55,8 @@ export const Bars = styled(FaBars)`
   }
 `;
 
+
+// send to footer in @media
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
@@ -64,6 +66,7 @@ export const NavMenu = styled.div`
     display: none;
   }
 `;
+
 export const NavBtn = styled.nav`
   display: flex;
   // align-items: center;
@@ -75,7 +78,8 @@ export const NavBtn = styled.nav`
     display: none;
   }
 `;
-// to be styled when all tabs are set
+
+
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   font-size: 15px;
@@ -85,14 +89,11 @@ export const NavBtnLink = styled(Link)`
   border: solid black 1px;
   outline: none;
   cursor: pointer;
-  // transition: all 0.2s ease-in-out;
+
   text-decoration: none;
   z-index: 1;
 
   &:hover {
-    // transition: all 0.2s ease-in-out;
-    // background: #fff;
-    // color: #010606;
     border: solid 4px;
     border-color: #bcb89a;
   }

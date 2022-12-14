@@ -8,6 +8,7 @@
     box-sizing: border-box; 
     list-style: none;
     align-content: center;
+    color: #38372e;
     
     
 }
@@ -19,7 +20,7 @@ body {
 }
 
 .logo{
-    color:black;
+    color:#38372e;
     font-size: 35px;
     font-family: cursive;
     margin-top: 20px;
@@ -132,6 +133,7 @@ body {
     border-bottom-left-radius: 6px;
     outline: none;
     margin-left: 5px;
+    position: sticky;
 } 
 
 .todo_list{
@@ -146,6 +148,7 @@ body {
     border-bottom-left-radius: 8px;
     background-image: rgb(55, 127, 242);
     justify-content: center;
+    position: sticky;
     /* align-items:center;   */
 }
 
@@ -158,6 +161,7 @@ body {
     display:block;
     height:max-content;
     width:max-content;
+    position: sticky;
 
 } 
 
