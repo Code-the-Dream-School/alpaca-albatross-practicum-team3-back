@@ -6,7 +6,7 @@ import Speech from "./Speech";
 
 import { useCookies } from 'react-cookie';
 
-function Welcome(useSemiPersistentState) {
+function Home (useSemiPersistentState) {
 
   // msg will be {userName}?
   //const msg = 'Mikey';
@@ -27,4 +27,4 @@ function Welcome(useSemiPersistentState) {
     </>
   );
 }
-export default Welcome;
+export default Home;

@@ -5,7 +5,7 @@ import FavoritesPage from './pages/FavoritesPage';
 import Navbar from './pages/Home/Navbar';
 import LogInPage from './pages/LogInPage';
 import Registration from './pages/Registration';
-import Welcome from './pages/Home/Home';
+import Home from './pages/Home/Home';
 import MonthlyList from './pages/MonthlyList';
 import WeeklyList from './pages/WeeklyList';
 
@@ -30,7 +30,7 @@ function App() {
         {/* <Route path='/List' element={<TodoList />}></Route> */}
 
         {/* home */}
-        <Route path='/home' element={<Welcome />}></Route>
+        <Route path='/home' element={<Home />}></Route>
 
         {/* FavePage */}
         <Route path='/FavoritesPage' element={<FavoritesPage />}></Route>
