@@ -50,7 +50,7 @@ const LogInPage = () => {
           onSubmit={submitLogIn}
           className='login-form'
         >
-          <h1>
+          <h1 className='logAvatar'>
             <FaUserCircle style={{ marginLeft: '20px' }} />
             <NavLink
               to='register'
