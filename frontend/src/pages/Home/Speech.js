@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import {FaMicrophoneSlash} from "react-icons/fa";
+import {FaMicrophone, FaMicrophoneSlash} from "react-icons/fa";
 
 const Speech = () => {
+  const [mic, setMic] = useState("");
+
   
   // recognized commands
   const commands = [
@@ -53,10 +55,16 @@ const Speech = () => {
       }
     }
 
+  //use boolean to change mic icon when speech command is in use 
+  const toggleMic = () => {
+    SpeechRecognition.startListening()
+    setMic(!mic)
+  };
+  
   return (
       <div id="transcriptDiv">
           <p id="transcript">{transcript}</p>
-          <button id="transcriptButton" onClick={SpeechRecognition.startListening}><FaMicrophoneSlash/></button>
+      <button id="transcriptButton" onClick={toggleMic}>{mic ? <FaMicrophone /> : <FaMicrophoneSlash />}</button>
           {redirectPage}
       </div>
   )
