@@ -21,7 +21,7 @@ const TodoList = ({ listID }) => {
       const userToken = JSON.parse(localStorage.getItem('token'));
       let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
       // console.log('todolist list ID here', listID);
-      //console.log(fetchedData);
+      console.log(fetchedData);
 
       setTodoList(fetchedData);
 
@@ -67,6 +67,12 @@ const TodoList = ({ listID }) => {
     setIsLoading(false);
   };
 
+  const updateFavorite = async (newTodo) => {
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let updTodoList = await ToDoAPI.updateFav(newTodo, todoList, userToken);
+    setTodoList(updTodoList);
+  };
+
 
   return (
     <>
@@ -81,6 +87,7 @@ const TodoList = ({ listID }) => {
             handleCheck={handleCheck}
             removeTodo={removeTodo}
             onChange={updateToDoList}
+            onFave={updateFavorite}
           />
         ))}
       </ul>

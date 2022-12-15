@@ -7,10 +7,11 @@ const TodoListItem = ({
   removeTodo,
   onChange,
   handleCheck,
-  handleStar,
+  onFave,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(todo.title);
+  const [favorite, setFavorite] = useState(todo.favorite);
 
   // this function is processing editing mode
   const editTodo = (event) => {
@@ -26,6 +27,18 @@ const TodoListItem = ({
     event.stopPropagation();
     todo.title = newTitle;
     onChange(todo);
+  };
+
+  const saveFav = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    // setFavorite(!favorite)
+    if(todo.favorite === true) {
+      todo.favorite = false
+    } else {
+      todo.favorite = true
+    }
+    onFave(todo);
   };
 
   let items = {};
@@ -61,6 +74,25 @@ const TodoListItem = ({
         </button>
       </span>
     );
+  } 
+  let faveBtn = {};
+
+  if (todo.favorite === true) {
+    faveBtn = (
+      <span>
+      <button className='Favbtn' type='button' onClick={saveFav}>
+           Favored
+         </button>
+     </span>
+    );
+  } else {
+    faveBtn = (
+      <span>
+       <button className='Favbtn' type='button' onClick={saveFav}>
+            Favorite
+          </button>
+      </span>
+    );
   }
   return (
     <>
@@ -68,9 +100,7 @@ const TodoListItem = ({
         <input value={todo.title} type='checkbox' onChange={handleCheck} />
         {items}
         <span>
-          <button className='Favbtn' type='button' onClick={handleStar}>
-            Favorite
-          </button>
+         {faveBtn}
           <button
             className='Removebtn'
             type='button'
