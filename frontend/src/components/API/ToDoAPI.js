@@ -123,6 +123,34 @@ class ToDoAPI {
       .catch((error) => console.log('Whoops, something went wrong!', error));
   }
 
+  static async updateFav(newTodo, todoList, bearerKey) {
+    // console.log("I'm here updating list", newTodo, todoList);
+    return await axios
+      .patch(
+        apiURL + `/todos/${newTodo._id}`,
+        {
+          favorite: `${newTodo.favorite}`,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        // console.log(result);
+        const updatedList = todoList.map((todo) =>
+          todo._id === newTodo._id ? result.data.todo : todo
+        );
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  
+
   //Delete record
   static async deleteToDo(/*listID,*/ todo, todoList, bearerKey) {
     //   console.log(todo);
