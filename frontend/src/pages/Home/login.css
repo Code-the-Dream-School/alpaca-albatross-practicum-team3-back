@@ -4,6 +4,8 @@
     display: flex;
     min-height: 100vh;
     
+    
+    
     /* align-items: center;
     justify-content: center; */
     /* background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg); */
@@ -11,13 +13,13 @@
     
 }
 
-h1 {
+.logAvatar{
     align-self: center;
     /* margin-top: 20px;
     margin-bottom: 30px; */
     font-weight: bold;
     font-size:85px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 #formBkgd{
@@ -35,7 +37,7 @@ border: 1px solid rgba(255, 255, 255, .25);
     box-shadow: 3px 3px 3px 3px rgb(180, 178, 178);
     width: moz-fit-content;
     border-radius: 10px;
-
+    height: 250px;
 }
 
 
@@ -50,7 +52,7 @@ border: 1px solid rgba(255, 255, 255, .25);
 }
 
 /* this is the log in button on the nav bar, used for nav while building app */
-.login-btn {
+/* .login-btn {
     border: none;
     margin-top: 10px;
     background-color:#cf95f5;
@@ -61,7 +63,7 @@ border: 1px solid rgba(255, 255, 255, .25);
     flex-direction: column;
     align-items: center;
     
-}
+} */
 
 .login-error{
     font-weight: bold;
@@ -71,6 +73,7 @@ border: 1px solid rgba(255, 255, 255, .25);
     padding: 5px;
     margin: 10px;
     box-shadow: 1px -1px 6px 1px crimson inset;
+    z-index: 1;
 }
 
 .inputFields label{ 
@@ -83,11 +86,11 @@ border: 1px solid rgba(255, 255, 255, .25);
 #eye{
     font-size: larger;
     margin-left: -40px;
-    margin-top: 48px;
+    margin-top: -10px;
     z-index: 1;
 }
 
 .register{
     color:blue;
-    align-self: center;
+    align-self:flex-start;
 }
