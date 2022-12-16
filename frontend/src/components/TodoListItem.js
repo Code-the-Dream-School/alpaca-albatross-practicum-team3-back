@@ -2,20 +2,14 @@ import React, { useState } from 'react';
 
 //Function creates list item with checkbox, todo.title, star, edit, remove.--sb
 
-const TodoListItem = ({
-  todo,
-  removeTodo,
-  onChange,
-  handleCheck,
-  onFave,
-}) => {
+const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(todo.title);
   const [favorite, setFavorite] = useState(todo.favorite);
 
   // this function is processing editing mode
   const editTodo = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setIsEditing(!isEditing);
     event.preventDefault();
     event.stopPropagation();
@@ -33,10 +27,10 @@ const TodoListItem = ({
     event.preventDefault();
     event.stopPropagation();
     // setFavorite(!favorite)
-    if(todo.favorite === true) {
-      todo.favorite = false
+    if (todo.favorite === true) {
+      todo.favorite = false;
     } else {
-      todo.favorite = true
+      todo.favorite = true;
     }
     onFave(todo);
   };
@@ -74,23 +68,23 @@ const TodoListItem = ({
         </button>
       </span>
     );
-  } 
+  }
   let faveBtn = {};
 
   if (todo.favorite === true) {
     faveBtn = (
       <span>
-      <button className='Favbtn' type='button' onClick={saveFav}>
-           Favored
-         </button>
-     </span>
+        <button className='Favbtn' type='button' onClick={saveFav}>
+          Favored
+        </button>
+      </span>
     );
   } else {
     faveBtn = (
       <span>
-       <button className='Favbtn' type='button' onClick={saveFav}>
-            Favorite
-          </button>
+        <button className='Favbtn' type='button' onClick={saveFav}>
+          Favorite
+        </button>
       </span>
     );
   }
@@ -100,7 +94,7 @@ const TodoListItem = ({
         <input value={todo.title} type='checkbox' onChange={handleCheck} />
         {items}
         <span>
-         {faveBtn}
+          {faveBtn}
           <button
             className='Removebtn'
             type='button'
