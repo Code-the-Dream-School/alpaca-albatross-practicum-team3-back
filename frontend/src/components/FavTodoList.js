@@ -2,14 +2,10 @@ import ToDoAPI from './API/ToDoAPI';
 import React, { useState, useEffect } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoListItem from './TodoListItem';
-import { useLocation } from 'react-router';
 
-//function to assemble and dissemble list: checkbox, title, fave, edit, trash
-
-const TodoList = ({ listID }) => {
-  //const [todoList, setTodoList] = useSemiPersistentState();
+const FavTodoList = ({ listID }) => {
   const [checked, setChecked] = useState([]);
-  const [todoList, setTodoList] = useState([]);
+  const [favTodoList, setFavTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   //console.log('todolist list ID here', listID);
   // const userToken = JSON.parse(localStorage.getItem('token'));
@@ -20,70 +16,56 @@ const TodoList = ({ listID }) => {
     (async () => {
       const userToken = JSON.parse(localStorage.getItem('token'));
       let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
-      // console.log('todolist list ID here', listID);
-      //   console.log(fetchedData);
-
-      setTodoList(fetchedData);
-
+      let favList = fetchedData.filter((item) => item.favorite === true);
+      //  console.log('fav list here', favList);
+      setFavTodoList(favList);
       setIsLoading(false);
     })();
   }, [isLoading]);
 
-  // Checkbox. Add Strikethrough in css. Can use: const isChecked = (todo) =>checked.includes(todo) ? "checked-todo" : "not-checked-todo"; <span className={isChecked(item)}>{item}</span> .checked-item {text-decoration: line-through;}--sb
-
-  const handleCheck = (e) => {
-    let updatedList = [...checked];
-    if (e.target.checked) {
-      updatedList = [...checked, e.target.value];
-    } else {
-      updatedList.splice(checked.indexOf(e.target.value), 1);
-    }
-    setChecked(updatedList);
-  };
-
   // This function sends todo to list--sb
-  const addTodo = async (todo, listID) => {
+  const addFavTodo = async (todo, listID) => {
     // console.log('todo', todo, 'listID', listID);
     const userToken = JSON.parse(localStorage.getItem('token'));
-    let newTodo = await ToDoAPI.addToDo(listID, todo, userToken);
-    setTodoList([...todoList, newTodo]);
+    let newTodo = await ToDoAPI.addFavToDo(listID, todo, userToken);
+    setFavTodoList([...favTodoList, newTodo]);
     // console.log(newTodo);
   };
 
   // This function deletes todo--sb
   const removeTodo = async (todo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
-    let newTodoList = await ToDoAPI.deleteToDo(todo, todoList, userToken);
+    let newTodoList = await ToDoAPI.deleteToDo(todo, favTodoList, userToken);
     //console.log(newTodoList);
-    setTodoList(newTodoList);
+    setFavTodoList(newTodoList);
     setIsLoading(false);
   };
 
   // this function calls API for new title and sets the updated list as a result
   const updateToDoList = async (newTodo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
-    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList, userToken);
-    setTodoList(updTodoList);
+    let updTodoList = await ToDoAPI.updateToDo(newTodo, favTodoList, userToken);
+    setFavTodoList(updTodoList);
     setIsLoading(false);
   };
 
   const updateFavorite = async (newTodo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
-    let updTodoList = await ToDoAPI.updateFav(newTodo, todoList, userToken);
-    setTodoList(updTodoList);
+    let updTodoList = await ToDoAPI.updateFav(newTodo, favTodoList, userToken);
+    // console.log(updTodoList);
+    setFavTodoList(updTodoList.filter((item) => item.favorite === true));
   };
 
   return (
     <>
       <h1 className='header_sec'>To Do List</h1>
-      <AddTodoForm addTodo={addTodo} idList={listID} />
+      <AddTodoForm addTodo={addFavTodo} idList={listID} />
 
       <ul className='todo_list_item'>
-        {todoList.map((todo) => (
+        {favTodoList.map((todo) => (
           <TodoListItem
             key={todo._id}
             todo={todo}
-            handleCheck={handleCheck}
             removeTodo={removeTodo}
             onChange={updateToDoList}
             onFave={updateFavorite}
@@ -94,4 +76,4 @@ const TodoList = ({ listID }) => {
   );
 };
 
-export default TodoList;
+export default FavTodoList;
