@@ -1,0 +1,11 @@
+.redirectPg {
+    font-size: 1rem;
+    margin: 0 auto;
+}
+
+#transcriptDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-items: center; */
+}
