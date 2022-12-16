@@ -11,8 +11,6 @@
    font-weight: bold;
 } 
 
-.favoriteslink {
-    background-color:greenyellow;
-    border-radius: 5px;
-    font-weight: bold;
+.favorites{
+    background-color:#bc9aaf;
 }

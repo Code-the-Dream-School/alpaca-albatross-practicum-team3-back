@@ -56,7 +56,7 @@ const toggleTheme = () => {
         
 
         {/* Log In */}
-        <Route path="/Home" element ={<LogInPage/>}></Route>
+        <Route path="/" element ={<LogInPage/>}></Route>
 
         {/* List */}
         {/* <Route path='/List' element={<TodoList />}></Route> */}

@@ -52,7 +52,7 @@ function Registration() {
       setError('Must have username and password');
     } else if (ValidationPassword(password) === -1) {
       setError(
-        'Must have at least one lowercase character, one uppercase character, one digit and one special character (!@$%&?).'
+        'Password must have at least one lowercase character, one uppercase character, one digit and one special character (!@$%&?).'
       );
     } else if (userName.length < 6 || userName.length > 18) {
       setError('Username must be between 6-18 characters');
@@ -95,12 +95,12 @@ function Registration() {
     <>
       <div className='auth-form-container'>
         <form className='register-form'>
-          <h1>
+          <h1 className='regAvatar'>
             <FaUserCircle />
           </h1>
 
           <div>
-            <label htmlFor='user name'></label>
+            <label htmlFor='user name'>Create username</label>
             <input
               placeholder='create username'
               onChange={handleUserName}
@@ -110,7 +110,7 @@ function Registration() {
           </div>
 
           <div>
-            <label htmlFor='password'></label>
+            <label htmlFor='password'>Create password</label>
             <input
               placeholder='create password'
               onChange={handlePassword}

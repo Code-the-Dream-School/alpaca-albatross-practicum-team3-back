@@ -8,7 +8,7 @@ const AddTodoForm = ({ addTodo, idList }) => {
 
   const handleTitleChange = (e) => {
     const newTodoTitle = e.target.value;
-    console.log('setting to do title');
+    // console.log('setting to do title');
     setTodoTitle(newTodoTitle);
   };
 
@@ -21,8 +21,10 @@ const AddTodoForm = ({ addTodo, idList }) => {
 
   return (
     <form className='list-form' onSubmit={handleAddTodo}>
-      <AddTodoLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>
-      </AddTodoLabel>
+      <AddTodoLabel
+        todoTitle={todoTitle}
+        handleTitleChange={handleTitleChange}
+      ></AddTodoLabel>
       <button className='Addbtn' type='submit'>
         Add
       </button>
