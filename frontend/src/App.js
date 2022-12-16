@@ -8,6 +8,7 @@ import Registration from './pages/Registration';
 import Home from './pages/Home/Home';
 import MonthlyList from './pages/MonthlyList';
 import WeeklyList from './pages/WeeklyList';
+import SuggestionsList from './components/SuggestionsList';
 
 // import Calendar from './pages/Home/Calendar';
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <SuggestionsList/>
       <Routes>
 
         {/* Registration */}
