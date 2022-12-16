@@ -51,7 +51,7 @@ const Speech = () => {
       if (pages.includes(redirectUrl)) {
         redirectPage = navigate(urls[redirectUrl])
       } else {
-        redirectPage = <p>Could not find page: {redirectUrl}</p>
+        redirectPage = <p id="redirectPg" className="redirectPg">Could not find page: {redirectUrl}</p>
       }
     }
 
@@ -63,9 +63,13 @@ const Speech = () => {
   
   return (
       <div id="transcriptDiv">
-          <p id="transcript">{transcript}</p>
+      <p id="transcript">{transcript}</p>
+      <p id="transcript"> {redirectPage}</p>
       <button id="transcriptButton" onClick={toggleMic}>{mic ? <FaMicrophone /> : <FaMicrophoneSlash />}</button>
-          {redirectPage}
+          {/* {redirectPage} */}
+          {/*<button id="transcriptButton" onClick={SpeechRecognition.startListening}
+          ><FaMicrophoneSlash/></button> */}
+
       </div>
   )
 };
