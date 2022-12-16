@@ -95,6 +95,30 @@ class ToDoAPI {
       .catch((error) => console.log('Whoops, something went wrong!', error));
   }
 
+  static async addFavToDo(listID, todo, bearerKey) {
+    console.log('todo', todo, 'listID', listID);
+    return await axios
+      .post(
+        apiURL + `/todos`,
+        {
+          list: `${listID}`,
+          title: `${todo.title}`,
+          favorite: true,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        return result.data.todo;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
   //Change existing record
 
   static async updateToDo(newTodo, todoList, bearerKey) {
@@ -104,6 +128,32 @@ class ToDoAPI {
         apiURL + `/todos/${newTodo._id}`,
         {
           title: `${newTodo.title}`,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        // console.log(result);
+        const updatedList = todoList.map((todo) =>
+          todo._id === newTodo._id ? result.data.todo : todo
+        );
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  static async updateFav(newTodo, todoList, bearerKey) {
+    // console.log("I'm here updating fave list", newTodo, todoList);
+    return await axios
+      .patch(
+        apiURL + `/todos/${newTodo._id}`,
+        {
+          favorite: `${newTodo.favorite}`,
         },
         {
           headers: {

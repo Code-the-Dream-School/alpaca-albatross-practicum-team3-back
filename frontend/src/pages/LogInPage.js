@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash, } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
 import { useCookies } from 'react-cookie';
@@ -43,6 +43,9 @@ const LogInPage = () => {
 
   return (
     <div>
+      {/* <h1 className='logo'><em>Lifestyle:</em><br></br>
+      tracking all of life's tasks
+      </h1> */}
       <div className='auth-form-container'>
         <form
           id='formBkgd'
@@ -50,8 +53,11 @@ const LogInPage = () => {
           onSubmit={submitLogIn}
           className='login-form'
         >
-          <h1>
-            <FaUserCircle style={{ marginLeft: '20px' }} />
+          <h1 className='logAvatar'>
+            {/* <FaUserCircle style={{ marginLeft: '20px' }} /> */}
+            <h1 className='logo'><em>Lifestyle:</em><br></br>
+      tracking all of life's tasks
+      </h1>
             <NavLink
               to='register'
               className='register'

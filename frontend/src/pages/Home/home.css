@@ -1,7 +1,5 @@
 .home {
-    background-color:orange;
-    border-radius: 5px;
-    font-weight: bold;
+    background-color:#9abca7;
 }
 
 /* 
@@ -44,6 +42,15 @@ background-color: rgba(255, 255, 255, 0.45);
 box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 backdrop-filter: blur(5px);
 
+}
+
+.weekly{
+    background-color: #9a9ebc;
+}
+
+.monthly{
+    background-color:#DD8374;
+    
 }
 /* 
 .title{

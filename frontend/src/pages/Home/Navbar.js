@@ -22,30 +22,28 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <NavLink to='/logo'>
-          <h1 className='logo'>logo to fix later</h1>
-        </NavLink>
+
+        {/* should route to home or be inactive */}
+        {/* <NavLink to='/logo'> logo
+        </NavLink> */}
         <Bars />
         <NavMenu>
           <NavLink to='/home' className='home'>
             Home
           </NavLink>
-          <NavLink to='/FavoritesPage' className='favoriteslink'>
+          <NavLink to='/FavoritesPage' className='favorites'>
             Favorites
-          </NavLink>
-          <NavLink to='/register' className='register'>
-            Register
           </NavLink>
           <NavLink to='/weekly' className='weekly'>
             Weekly
           </NavLink>
-          <NavLink to='/monthly' className='monthlyList Monthly'>
+          <NavLink to='/monthly' className='monthly'>
             Monthly
           </NavLink>
         </NavMenu>
       </Nav>
       <NavBtn>
-        <NavBtnLink onClick={submitLogOut}>Log Out</NavBtnLink>
+        <NavBtnLink className="logoutbtn" onClick={submitLogOut}>Log Out</NavBtnLink>
       </NavBtn>
     </>
   );
