@@ -28,7 +28,7 @@ const darkTheme = {
 };
 
 const lightTheme = {
-  body:'#22abfb',
+  // body:'#22abfb',
   title: '#1c1c1c',
   subtitle: '#333',
   icon:'#1c1c1c',
