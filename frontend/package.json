@@ -15,10 +15,7 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "react-speech-recognition": "^3.10.0",
-<<<<<<< HEAD
     "react-switch": "^7.0.0",
-=======
->>>>>>> main
     "shared-reducer-hooks": "^1.3.0",
     "stream": "^0.0.2",
     "styled-components": "^5.3.6"
