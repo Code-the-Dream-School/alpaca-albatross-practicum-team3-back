@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { FaMicrophone } from 'react-icons/fa';
+import {FaMicrophoneSlash} from "react-icons/fa";
 
 const Speech = () => {
   
@@ -48,15 +50,17 @@ const Speech = () => {
       if (pages.includes(redirectUrl)) {
         redirectPage = navigate(urls[redirectUrl])
       } else {
-        redirectPage = <p>Could not find page: {redirectUrl}</p>
+        redirectPage = <p id="redirectPg" className="redirectPg">Could not find page: {redirectUrl}</p>
       }
     }
 
   return (
       <div id="transcriptDiv">
           <p id="transcript">{transcript}</p>
-          <button id="transcriptButton" onClick={SpeechRecognition.startListening}>Start</button>
           {redirectPage}
+          <button id="transcriptButton" onClick={SpeechRecognition.startListening}
+          ><FaMicrophoneSlash/></button>
+
       </div>
   )
 };
