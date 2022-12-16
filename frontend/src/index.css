@@ -20,10 +20,27 @@ body {
 }
 
 .logo{
-    color:#38372e;
+    color:#453953;
     font-size: 35px;
-    font-family: cursive;
-    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* background: radial-gradient(circle farthest-corner at top left, #9A9EBC 0%, #DD8374 50%, #BC9AAF 70%, #439663 100%); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    text-align: center;
+    width: 250px;
+    padding: 5px;
+    margin-left: 3px;
+    margin-top: -5px;
+    /* border: 3px solid rgba(255, 255, 255, .25); */
+    /* background-color: rgba(255, 255, 255, 0.45); */
+    /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25); */
+    box-shadow: -5px -5px 5px 2px #BC9AAF, 5px -5px 5px 2px #9A9EBC, 5px 5px 5px 2px #DD8374, -5px 5px 50px 2px #439663, -5px 5px 5px 2px #439663;
+    backdrop-filter: blur(80px);
+    border-radius: 25px;
+    /* margin-bottom: -190px; */
+    /* margin: auto; */
+    
+
     /* align left or replace with Avatar */
 }
 
