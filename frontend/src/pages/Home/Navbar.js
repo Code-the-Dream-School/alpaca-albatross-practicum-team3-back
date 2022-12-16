@@ -24,8 +24,8 @@ const Navbar = () => {
       <Nav>
 
         {/* should route to home or be inactive */}
-        <NavLink to='/logo'> logo
-        </NavLink>
+        {/* <NavLink to='/logo'> logo
+        </NavLink> */}
         <Bars />
         <NavMenu>
           <NavLink to='/home' className='home'>
