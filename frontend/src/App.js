@@ -8,8 +8,6 @@ import Registration from './pages/Registration';
 import Home from './pages/Home/Home';
 import MonthlyList from './pages/MonthlyList';
 import WeeklyList from './pages/WeeklyList';
-import MoonIcon from './pages/Home/MoonIcon';
-import SunIcon from './pages/Home/SunIcon';
 import Switch from './pages/Home/Switch';
 import styled, { ThemeProvider } from "styled-components";
 
@@ -45,16 +43,13 @@ const toggleTheme = () => {
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <StyledApp>
     <Navbar />
-    <SunIcon />
     <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/>
-      <MoonIcon />
       <Routes>
 
         {/* Registration */}
         <Route path="/register" element={<Registration />}>          
         </Route>
         
-
         {/* Log In */}
         <Route path="/" element ={<LogInPage/>}></Route>
 
