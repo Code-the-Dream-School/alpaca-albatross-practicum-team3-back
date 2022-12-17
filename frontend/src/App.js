@@ -15,21 +15,23 @@ import styled, { ThemeProvider } from "styled-components";
 
 const StyledApp = styled.div`
   min-height: 100vh;
-  background-color: ${(props) => props.theme.body};
+  background-image: ${(props) => props.theme.body};
+  // color: ${(props) => props.theme.text};
   `;
 
 const darkTheme = {
-  body: '#1c1c1c',
-  title: '#22abfb',
-  subtitle: '#b6b6b6',
-  icon: '#b6b6b6',
+  body: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDhUoSyHfzGxCgJronqdMzVrR_OQxmvDWBEqCpmHQkYWZQVQuhBfMzyziBL-nbAXGWc0&usqp=CAU)',
+  // text: '#ff6347',
+  // title: '#22abfb',
+  // subtitle: '#b6b6b6',
+  // icon: '#b6b6b6',
 };
 
 const lightTheme = {
   // body:'#22abfb',
-  title: '#1c1c1c',
-  subtitle: '#333',
-  icon:'#1c1c1c',
+  // title: '#1c1c1c',
+  // subtitle: '#333',
+  // icon:'#1c1c1c',
 };
 
 function App() {
