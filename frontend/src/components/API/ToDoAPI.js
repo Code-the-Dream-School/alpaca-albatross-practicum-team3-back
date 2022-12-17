@@ -65,7 +65,9 @@ class ToDoAPI {
         todoArray = result.data.todos;
         // return todoArray;
       })
-      .catch((error) => console.log('Whoops, something went wrong!', error));
+      .catch((error) => {
+        console.log('Whoops, something went wrong!', error);
+      });
 
     return todoArray;
   }

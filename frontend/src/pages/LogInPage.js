@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaEye, FaEyeSlash, } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
 import { useCookies } from 'react-cookie';
+import { authAtom } from '../state/atom-auth';
+import { useSetRecoilState } from 'recoil';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [cookies, setCookie] = useCookies(['listID']);
   const navigate = useNavigate();
+  const setAuth = useSetRecoilState(authAtom);
 
   const togglePassword = () => {
     // When the handler is invoked
@@ -32,8 +35,9 @@ const LogInPage = () => {
         const token = JSON.parse(localStorage.getItem('token'));
         const lists = await ToDoAPI.getListIDs(token);
         const id = lists[0]._id;
-        console.log('lists and id', lists, id);
+        // console.log('lists and id', lists, id);
         setCookie('listID', id, { path: '/' });
+        setAuth(localStorage.getItem('user'));
         navigate('/home');
       }
     } catch (error) {
@@ -55,11 +59,13 @@ const LogInPage = () => {
         >
           <h1 className='logAvatar'>
             {/* <FaUserCircle style={{ marginLeft: '20px' }} /> */}
-            <h1 className='logo'><em>Lifestyle:</em><br></br>
-      tracking all of life's tasks
-      </h1>
+            <h1 className='logo'>
+              <em>Lifestyle:</em>
+              <br></br>
+              tracking all of life's tasks
+            </h1>
             <NavLink
-              to='register'
+              to='/register'
               className='register'
               style={{ border: 'none', fontSize: '14px' }}
             >

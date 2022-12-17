@@ -4,20 +4,18 @@ import AddTodoForm from './AddTodoForm';
 import TodoListItem from './TodoListItem';
 
 const FavTodoList = ({ listID }) => {
-  const [checked, setChecked] = useState([]);
+  // const [checked, setChecked] = useState([]);
   const [favTodoList, setFavTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  //console.log('todolist list ID here', listID);
-  // const userToken = JSON.parse(localStorage.getItem('token'));
+
   const idList = listID;
-  //console.log(idList);
 
   useEffect(() => {
     (async () => {
       const userToken = JSON.parse(localStorage.getItem('token'));
       let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
       let favList = fetchedData.filter((item) => item.favorite === true);
-      //  console.log('fav list here', favList);
+
       setFavTodoList(favList);
       setIsLoading(false);
     })();
