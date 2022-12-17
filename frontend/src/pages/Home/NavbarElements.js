@@ -5,9 +5,11 @@ import { FaBars } from 'react-icons/fa';
 export const Nav = styled.nav`
   height: 75px;
   display: flex;
-  // justify-content: center;
+  align-items: flex-end;
   flex-direction: row;
-  padding: 3px calc((100vw - 1000px) / 2);
+  justify-content:center;
+
+  // padding: 3px calc((100vw - 1000px) / 2);
   z-index: -1;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
@@ -16,27 +18,29 @@ export const Nav = styled.nav`
   backdrop-filter: blur(5px);
 `;
 
+
 export const NavLink = styled(Link)`
   // color: #fff;
-  margin-bottom: -25px;
+  // margin-bottom: -25px;
   font-size: 24px;
-  display: flex;
+  
+  // display: flex;
   // align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 60%;
-  cursor: pointer;
+  // text-decoration: none;
+  // padding: 0 1rem;
+  // height: 60%;
+  // cursor: pointer;
   // border: solid black 1px;
   // border-radius: 5px;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(1px);
 
   &:hover {
     // color: #8799f3;
-    border: #bcb89a solid 3px;
+    border: #fffff0 solid 3px;
   }
 `;
 
@@ -59,7 +63,7 @@ export const Bars = styled(FaBars)`
 // send to footer in @media
 export const NavMenu = styled.div`
   display: flex;
-  align-items: center;
+  // align-items: center;
   margin-right: -24px;
 
   @media screen and (max-width: 768px) {
