@@ -3,7 +3,7 @@ import AddTodoLabel from './AddTodoLabel';
 
 // This function assembles form with input field--sb
 
-const AddTodoForm = ({ addTodo, idList }) => {
+const AddTodoForm = ({ addTodo, idList, spokenTodo, convertTranscript }) => {
   const [todoTitle, setTodoTitle] = useState('');
 
   const handleTitleChange = (e) => {
@@ -23,7 +23,9 @@ const AddTodoForm = ({ addTodo, idList }) => {
     <form className='list-form' onSubmit={handleAddTodo}>
       <AddTodoLabel
         todoTitle={todoTitle}
-        handleTitleChange={handleTitleChange}
+        handleTitleChange={handleTitleChange} 
+        spokenTodo={spokenTodo}
+        convertTranscript={convertTranscript}
       ></AddTodoLabel>
       <button className='Addbtn' type='submit'>
         Add

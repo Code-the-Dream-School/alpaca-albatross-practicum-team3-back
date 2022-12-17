@@ -6,7 +6,7 @@ import { useLocation } from 'react-router';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = ({ listID }) => {
+const TodoList = ({ listID, spokenTodo, convertTranscript }) => {
   //const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
@@ -76,7 +76,12 @@ const TodoList = ({ listID }) => {
   return (
     <>
       <h1 className='header_sec'>To Do List</h1>
-      <AddTodoForm addTodo={addTodo} idList={listID} />
+      <AddTodoForm 
+        addTodo={addTodo} 
+        idList={listID} 
+        spokenTodo={spokenTodo}
+        convertTranscript={convertTranscript}
+      />
 
       <ul className='todo_list_item'>
         {todoList.map((todo) => (

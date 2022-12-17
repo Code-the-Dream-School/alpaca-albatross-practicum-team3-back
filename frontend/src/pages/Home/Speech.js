@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {FaMicrophone, FaMicrophoneSlash} from "react-icons/fa";
 
-const Speech = () => {
+const Speech = ({ handleSpokenTodo, convertTranscript }) => {
   const [mic, setMic] = useState("");
 
   
@@ -12,18 +12,21 @@ const Speech = () => {
       {
         command: ['Navigate *', 'Navigate to *', 'Open *', 'Go *', 'Go to *'],
         callback: (redirectPage) => {
+          console.log(transcript);
           setRedirectUrl(redirectPage);
         }
       },
-      // {
+      {
       //   // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
-      //   commands: 'Add *', //, 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'
-      //   callback: (spokenMsg) => {
-      //     console.log(spokenMsg);
+        commands: 'Add *', //, 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'
+        callback: (spokenMsg) => {
+          // console.log(spokenMsg);
+          handleSpokenTodo(spokenMsg);
+          // convertTranscript(spokenMsg);
       //       setTranscribedMsg(spokenMsg);
-      //       handleSpokenTodo(spokenMsg)
-      //   }
-      // }
+  
+        }
+      }
     ];
 
     const navigate = useNavigate();

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 //Function for focused input field and the prop types it would accept--sb
 
-const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
+const AddTodoLabel = ({ children, todoTitle, handleTitleChange, spokenTodo, convertTranscript }) => {
     const inputRef = useRef();
     useEffect(() => {
         inputRef.current.focus();
@@ -17,7 +17,7 @@ const AddTodoLabel = ({ children, todoTitle, handleTitleChange }) => {
                 type="text"
                 name="title"
                 id="todoTitle"
-                value={todoTitle}
+                value={todoTitle || spokenTodo}
                 onChange={handleTitleChange} />  
         </div>
     );
