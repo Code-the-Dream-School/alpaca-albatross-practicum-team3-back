@@ -7,21 +7,25 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 import { useNavigate } from 'react-router-dom';
+import { authAtom } from './../../state/atom-auth';
+import { useSetRecoilState } from 'recoil';
 
 const Navbar = () => {
   const navigate = useNavigate();
 
+  const setAuth = useSetRecoilState(authAtom);
+
   const submitLogOut = (e) => {
     e.preventDefault();
-    localStorage.setItem('user', '');
-    localStorage.setItem('token', '');
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setAuth(null);
     navigate('/');
   };
 
   return (
     <>
       <Nav>
-
         {/* should route to home or be inactive */}
         {/* <NavLink to='/logo'> logo
         </NavLink> */}
@@ -41,7 +45,9 @@ const Navbar = () => {
         </NavMenu>
       </Nav>
       <NavBtn>
-        <NavBtnLink className="logoutbtn" onClick={submitLogOut}>Log Out</NavBtnLink>
+        <NavBtnLink className='logoutbtn' onClick={submitLogOut}>
+          Log Out
+        </NavBtnLink>
       </NavBtn>
     </>
   );

@@ -2,7 +2,6 @@ import ToDoAPI from './API/ToDoAPI';
 import React, { useState, useEffect } from 'react';
 import AddTodoForm from './AddTodoForm';
 import TodoListItem from './TodoListItem';
-import { useLocation } from 'react-router';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
@@ -11,8 +10,7 @@ const TodoList = ({ listID }) => {
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  //console.log('todolist list ID here', listID);
-  // const userToken = JSON.parse(localStorage.getItem('token'));
+
   const idList = listID;
   //console.log(idList);
 
@@ -21,7 +19,7 @@ const TodoList = ({ listID }) => {
       const userToken = JSON.parse(localStorage.getItem('token'));
       let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
       // console.log('todolist list ID here', listID);
-      //   console.log(fetchedData);
+      console.log('fetched', fetchedData);
 
       setTodoList(fetchedData);
 
