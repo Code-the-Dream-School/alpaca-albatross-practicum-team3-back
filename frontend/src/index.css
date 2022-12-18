@@ -60,7 +60,7 @@ body {
     /* display: inline-block; */
     float:right;
     margin-top: -40px;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .Addbtn:hover{
@@ -161,8 +161,9 @@ body {
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(30px);
     margin: auto;
+    font-weight: 800;
 }
 
 @media screen and (max-width:768px){
