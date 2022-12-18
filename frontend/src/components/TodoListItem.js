@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {FaTrashAlt, FaEdit, FaRegStar, FaStar} from "react-icons/fa"
 
 //Function creates list item with checkbox, todo.title, star, edit, remove.--sb
 
@@ -65,7 +66,7 @@ const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
       <span onClick={editTodo}>
         {todo.title}
         <button className='Editbtn' type='button' onClick={editTodo}>
-          Edit
+        <FaEdit/>
         </button>
       </span>
     );
@@ -76,7 +77,7 @@ const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
     faveBtn = (
       <span>
         <button className='Favbtn' type='button' onClick={saveFav}>
-          Favored
+          <FaStar/>
         </button>
       </span>
     );
@@ -84,7 +85,7 @@ const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
     faveBtn = (
       <span>
         <button className='Favbtn' type='button' onClick={saveFav}>
-          Favorite
+        <FaRegStar/>
         </button>
       </span>
     );
@@ -101,7 +102,7 @@ const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
             type='button'
             onClick={() => removeTodo(todo)}
           >
-            Remove
+            <FaTrashAlt/>
           </button>
         </span>
       </li>

@@ -66,16 +66,10 @@ body {
 
 .Editbtn{
      /* icon pencil */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: yellow ;
-    padding: 3px 10px;
     border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
@@ -86,16 +80,9 @@ body {
 
 .Favbtn{
      /* icon heart */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: palevioletred ;
-    padding: 3px 10px;
-    border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
@@ -106,16 +93,9 @@ body {
 
 .Removebtn{
      /* icon X */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: red ;
-    padding: 3px 10px;
-    border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
