@@ -1,21 +1,60 @@
 import axios from 'axios';
-const listID = '637546f5f78b9f7eafe772ae';
+//const listID = process.env.REACT_APP_LIST_ID;
 const apiURL = 'http://localhost:3001/api/v1';
-const bearerKey =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Mzc1NDYxYmY3OGI5ZjdlYWZlNzcyYWIiLCJ1c2VybmFtZSI6ImFsaXNrb3ZldHMiLCJpYXQiOjE2Njg3Mzc4NjYsImV4cCI6MTY2ODgyNDI2Nn0.xD61W9Uff5pp98Z_RLz6aRoCXqRA28DlbksMiNYzEsQ';
-
+//const bearerKey = process.env.REACT_APP_BEARER_KEY;
+//console.log(listID);
 class ToDoAPI {
-  //Registration
+  static async createNewList(/*apiURL,*/ bearerKey) {
+    return await axios
+      .post(
+        apiURL + `/lists`,
+        {
+          title: 'Default',
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        return result.data.list._id;
+      })
+      .catch((error) =>
+        console.log('Whoops, something went wrong. Cannot get list ID!', error)
+      );
+  }
 
-  //LogIn
-  //get list of listIDs.
+  //get list of listIDs
+
+  static async getListIDs(/*apiURL, */ bearerKey) {
+    let listArray = [];
+    await axios
+      .get(apiURL + `/lists`, {
+        headers: {
+          Authorization: `Bearer ${bearerKey}`,
+          'Content-Type': 'application/json',
+          accept: '*/*',
+        },
+      })
+      .then((result) => {
+        listArray = result.data.lists;
+        // return todoArray;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+
+    return listArray;
+  }
 
   // Get records
 
-  static async getToDoList(/*apiURL, listID, bearerKey*/) {
+  static async getToDoList(/*apiURL,*/ listID, bearerKey) {
     let todoArray = [];
     await axios
       .get(apiURL + `/todos?list=${listID}`, {
+        // here --> add link to the user's list
         headers: {
           Authorization: `Bearer ${bearerKey}`,
           'Content-Type': 'application/json',
@@ -26,20 +65,47 @@ class ToDoAPI {
         todoArray = result.data.todos;
         // return todoArray;
       })
-      .catch((error) => console.log('Whoops, something went wrong!', error));
+      .catch((error) => {
+        console.log('Whoops, something went wrong!', error);
+      });
 
     return todoArray;
   }
 
   //Add new record
 
-  static async addToDo(/*listID,*/ todo, todoList) {
+  static async addToDo(listID, todo, bearerKey) {
+    console.log('todo', todo, 'listID', listID);
+    return await axios
+      .post(
+        apiURL + `/todos`,
+        {
+          list: `${listID}`, // here --> add link to the user's list
+          title: `${todo.title}`,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        return result.data.todo;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  static async addFavToDo(listID, todo, bearerKey) {
+    console.log('todo', todo, 'listID', listID);
     return await axios
       .post(
         apiURL + `/todos`,
         {
           list: `${listID}`,
           title: `${todo.title}`,
+          favorite: true,
         },
         {
           headers: {
@@ -57,9 +123,78 @@ class ToDoAPI {
 
   //Change existing record
 
-  //Delete record
+  static async updateToDo(newTodo, todoList, bearerKey) {
+    // console.log("I'm here updating list", newTodo, todoList);
+    return await axios
+      .patch(
+        apiURL + `/todos/${newTodo._id}`,
+        {
+          title: `${newTodo.title}`,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        // console.log(result);
+        const updatedList = todoList.map((todo) =>
+          todo._id === newTodo._id ? result.data.todo : todo
+        );
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
 
-  //Move to favourites
+  static async updateFav(newTodo, todoList, bearerKey) {
+    // console.log("I'm here updating fave list", newTodo, todoList);
+    return await axios
+      .patch(
+        apiURL + `/todos/${newTodo._id}`,
+        {
+          favorite: `${newTodo.favorite}`,
+        },
+        {
+          headers: {
+            accept: '*/*',
+            Authorization: `Bearer ${bearerKey}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result) => {
+        // console.log(result);
+        const updatedList = todoList.map((todo) =>
+          todo._id === newTodo._id ? result.data.todo : todo
+        );
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  //Delete record
+  static async deleteToDo(/*listID,*/ todo, todoList, bearerKey) {
+    //   console.log(todo);
+    return await axios
+      .delete(apiURL + `/todos/${todo._id}`, {
+        headers: {
+          accept: '*/*',
+          Authorization: `Bearer ${bearerKey}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((result) => {
+        //console.log(result);
+        const updatedList = todoList.filter((e) => e._id !== todo._id);
+        return updatedList;
+      })
+      .catch((error) => console.log('Whoops, something went wrong!', error));
+  }
+
+  //Move to favorites
 }
 
 export default ToDoAPI;

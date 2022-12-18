@@ -5,17 +5,24 @@ import TodoListItem from './TodoListItem.js';
 
 //function to assemble and dissemble list: checkbox, title, fave, edit, trash
 
-const TodoList = () => {
+const TodoList = ({ listID }) => {
   //const [todoList, setTodoList] = useSemiPersistentState();
   const [checked, setChecked] = useState([]);
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const idList = listID;
+  //console.log(idList);
+
   useEffect(() => {
     (async () => {
-      let fetchedData = await ToDoAPI.getToDoList();
-      // console.log(fetchedData);
+      const userToken = JSON.parse(localStorage.getItem('token'));
+      let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
+      // console.log('todolist list ID here', listID);
+      console.log('fetched', fetchedData);
+
       setTodoList(fetchedData);
+
       setIsLoading(false);
     })();
   }, [isLoading]);
@@ -33,36 +40,55 @@ const TodoList = () => {
   };
 
   // This function sends todo to list--sb
-  const addTodo = async (title) => {
-    let newTodo = await ToDoAPI.addToDo(title);
+  const addTodo = async (todo, listID) => {
+    // console.log('todo', todo, 'listID', listID);
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let newTodo = await ToDoAPI.addToDo(listID, todo, userToken);
     setTodoList([...todoList, newTodo]);
-    console.log(todoList);
+    // console.log(newTodo);
   };
 
   // This function deletes todo--sb
-  const removeTodo = (id) => {
-    console.log(id);
-    const newTodoList = todoList.filter((todo) => id !== todo.id);
-    console.log(newTodoList);
+  const removeTodo = async (todo) => {
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let newTodoList = await ToDoAPI.deleteToDo(todo, todoList, userToken);
+    //console.log(newTodoList);
     setTodoList(newTodoList);
+    setIsLoading(false);
+  };
+
+  // this function calls API for new title and sets the updated list as a result
+  const updateToDoList = async (newTodo) => {
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let updTodoList = await ToDoAPI.updateToDo(newTodo, todoList, userToken);
+    setTodoList(updTodoList);
+    setIsLoading(false);
+  };
+
+  const updateFavorite = async (newTodo) => {
+    const userToken = JSON.parse(localStorage.getItem('token'));
+    let updTodoList = await ToDoAPI.updateFav(newTodo, todoList, userToken);
+    setTodoList(updTodoList);
   };
 
   return (
-    <>
-      <h1 className='header_sec'>To Do List</h1>
-      <AddTodoForm addTodo={addTodo} />
+    <div className='notepad'>
+      {/* <h1 className='header_sec'>To Do List</h1> */}
+      <AddTodoForm addTodo={addTodo} idList={listID} />
 
-      <ul className='todo_list_item'>
+      <ul className='todo_list'>
         {todoList.map((todo) => (
           <TodoListItem
-            key={todo.id}
+            key={todo._id}
             todo={todo}
             handleCheck={handleCheck}
             removeTodo={removeTodo}
+            onChange={updateToDoList}
+            onFave={updateFavorite}
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

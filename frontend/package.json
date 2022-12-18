@@ -4,11 +4,28 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@speechly/speech-recognition-polyfill": "^1.2.0",
     "axios": "^1.1.3",
+    "dotenv": "^16.0.3",
+    "path": "^0.12.7",
     "react": "^18.2.0",
+    "react-apply-darkmode": "^1.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-speech-recognition": "^3.10.0",
+    "react-switch": "^7.0.0",
+    "recoil": "^0.7.6",
+    "shared-reducer-hooks": "^1.3.0",
+    "stream": "^0.0.2",
+    "styled-components": "^5.3.6"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   },
   "scripts": {
     "start": "react-scripts start",

@@ -3,36 +3,40 @@
 @tailwind utilities;
 
 *{
-    margin:0;
-    padding:0;
+    /* margin:0; */
+    /* padding:0; */
     box-sizing: border-box; 
     list-style: none;
+    /* align-content: center; */
+    color: #38372e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 body {
-    background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg);
 }
 
-.logo{
-    color:  #f4fc0a;
-    font-size: 35px;
-    font-family: cursive;
-}
 
 /* BUTTONS */
+
 .Addbtn{
      /* icon add sign */
-    color: white;
-    font-size: 15px;
+    color:white;
+    font-size: 16px;
     background-color: green ;
-    padding: 3px 10px;
+    padding: 4px 19px 4px 19px;
     border: none;
-    margin-left: 5px;
+    /* margin-right: 5px; */
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
+    /* cursor: pointer; */
+    /* outline: none; */
     transition:all 0.5s ease-out;
+    /* display: inline-block; */
+    float:right;
+    margin-top: -40px;
+    margin-right: 10px;
 }
 
 .Addbtn:hover{
@@ -42,16 +46,10 @@ body {
 
 .Editbtn{
      /* icon pencil */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: yellow ;
-    padding: 3px 10px;
     border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
@@ -62,16 +60,9 @@ body {
 
 .Favbtn{
      /* icon heart */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: palevioletred ;
-    padding: 3px 10px;
-    border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
@@ -82,16 +73,9 @@ body {
 
 .Removebtn{
      /* icon X */
-    color: white;
+    color: #38372e;
     font-size: 15px;
-    background-color: red ;
-    padding: 3px 10px;
-    border: none;
     margin-left: 5px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
-    outline: none;
     transition:all 0.5s ease-out;
 }
 
@@ -102,47 +86,52 @@ body {
 
 /* NAV AND HEADER */
 
-
-.header_sec {
+/* .header_sec {
     margin-top: 60px;
     margin-bottom: 30px;
     font-size: 30px;
     font-weight: bold;
     display: flex;
     justify-content: center;
-}
+} */
 
 
 /* TODO LIST PAGE */
-.title{
-    margin-right: 10px;
-    font-size: 20px;
-    font-weight: bold;
-} 
 
 .todo-input{
-    min-width: 300px;
-    font-size: 15px;
+    width: 500px;
+    font-size: 16px;
     padding: 3px 8px;
     border: none;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     outline: none;
+    margin-bottom: 10px;
 } 
 
-.todo_list{
-    min-width: 300px;
-    min-height: 32px;
-    font-size: 15px;
-    margin-top: 30px;
-    padding: 3px 8px;
-    border: none;
-    border-radius: 5px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    background-image: rgb(55, 127, 242);
-    justify-content: center;
-    /* align-items:center;   */
+.notepad{
+    width: 600px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(30px);
+    margin: auto;
+    font-weight: 800;
+}
+
+@media screen and (max-width:768px){
+    .notepad{
+        width:400px;
+    }
+    .todo-input{
+        width:300px;
+    }
+    .Addbtn{
+        width:fit-content;
+    }
 }
 
 .todo_list_item{
@@ -150,28 +139,48 @@ body {
     margin-bottom: 10px;
     display: flex;
     word-break: break-all;
-    border: 2px solid black;
+    border-bottom: 2px solid #38372e;
+
     display:block;
     height:max-content;
     width:max-content;
-} 
+    /* position: sticky; */
+    /* background-color: #439663; */
 
-form{
-    display: flex;
-    justify-content: center;
-    align-items:center;  
+} 
+/* 
+#transcriptButton{
+    font-size: 64px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  float: right;
+  position: fixed;
+  bottom:0;
+  right: 0;
 }
 
-/* FAVORITE PAGE */
-.Favs{
-     margin-top: 30px; 
-    margin-bottom: 30px;
-    margin-left: 10px; 
-    justify-content: center; 
-    display: flex; 
-    color: purple;
-    font-size: 70px;
-    font-family: cursive;
-    font-style: oblique;
-    font-weight: bold;
-} 
+#transcriptButton:focus{
+    border: solid red 2px;
+    box-shadow: 2px 2px 5px 6px rgba(227, 7, 7, 0.4);
+    
+}
+
+#transcript{
+  color: #38372e;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  width: fit-content;
+  float: right;
+  position: fixed;
+  bottom:100px;
+  right: 0;
+  font-size: 24px;
+}
+
+ */

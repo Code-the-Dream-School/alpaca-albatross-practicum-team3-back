@@ -2,10 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
-.header-link {
+/* .header-link {
   width: 1rem;
   transition: all 0.2s ease;
-}
+} */
 
 .page-content {
   background-color: cadetblue;

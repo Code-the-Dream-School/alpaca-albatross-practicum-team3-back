@@ -1,0 +1,88 @@
+
+.auth-form-container {
+    text-align: center;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .account {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 25px;
+} */
+
+.err {
+    font-weight: bold;
+    border-style: solid;
+    border-color: crimson;
+    border-width: 2px;
+    padding: 5px;
+    margin-top: -130%;
+    box-shadow: 1px -1px 6px 1px crimson inset;
+    width: 300px;
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(35px);
+}
+
+.register-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+    margin-top: -25px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+        
+}
+
+.regAvatar{
+    font-size:96px;
+    margin-top: 10px;
+}
+
+
+label {
+    text-align: left;
+    padding: 0.25rem 0;
+    margin-right: 5px;
+    font-weight: bold;
+    align-self: center;
+}
+
+input {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: solid 1px;
+    border-color: black;
+    border-radius: 3px;
+    align-self: center;
+}
+
+.register-btn {
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border:solid black 1px;
+    width: moz-fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+#eye2{
+    margin-left:-35px;
+    margin-top:105px;
+    font-size: larger;
+    z-index: 1;
+    position: sticky;
+}
