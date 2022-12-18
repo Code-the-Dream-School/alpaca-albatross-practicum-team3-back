@@ -16,15 +16,20 @@ function Home (useSemiPersistentState) {
   const [cookies] = useCookies(['listID']);
 
   return (
-    <>
+   <>
+      <div>
+        <div id="intro">
       <h1 className='welcome'>Welcome {msg}!</h1>
-      <h2 className='question'>What would you like to get done today?</h2>
-      <Speech />
+        <h2 className='question'>What would you like to get done today?</h2>
+        </div>
+      {/* <Speech /> */}
       <TodoList
         useSemiPersistentState={useSemiPersistentState}
         listID={cookies.listID}
       />
-    </>
+    </div>
+      <Speech />
+</>
   );
 }
 export default Home;

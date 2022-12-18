@@ -16,21 +16,23 @@ import { PrivateRoute } from './components/PrivateRoute';
 
 const StyledApp = styled.div`
   min-height: 100vh;
-  background-color: ${(props) => props.theme.body};
+  background-image: ${(props) => props.theme.body};
+  // color: ${(props) => props.theme.text};
   `;
 
 const darkTheme = {
-  body: '#1c1c1c',
+  body: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, .9))',
+  text: '#EDEFFA',
   title: '#22abfb',
-  subtitle: '#b6b6b6',
-  icon: '#b6b6b6',
+  // subtitle: '#b6b6b6',
+  // icon: '#b6b6b6',
 };
 
 const lightTheme = {
   // body:'#22abfb',
-  title: '#1c1c1c',
-  subtitle: '#333',
-  icon:'#1c1c1c',
+  // title: '#1c1c1c',
+  // subtitle: '#333',
+  // icon:'#1c1c1c',
 };
 
 function App() {

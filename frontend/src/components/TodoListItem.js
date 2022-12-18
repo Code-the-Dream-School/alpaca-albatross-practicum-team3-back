@@ -92,7 +92,7 @@ const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
   }
   return (
     <>
-      <li className='todo_list' key={todo._id}>
+      <li className='todo_list_item' key={todo._id}>
         <input value={todo.title} type='checkbox' onChange={handleCheck} />
         {items}
         <span>
