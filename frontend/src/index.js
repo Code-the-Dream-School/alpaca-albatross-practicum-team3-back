@@ -9,14 +9,17 @@ import './pages/Home/login.css';
 import './pages/Home/registration.css';
 import './pages/Home/speech.css'
 import { CookiesProvider } from 'react-cookie';
+import { RecoilRoot } from 'recoil';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <CookiesProvider>
-      <Router>
-        <App />
-      </Router>
+      <RecoilRoot>
+        <Router>
+          <App />
+        </Router>
+      </RecoilRoot>
     </CookiesProvider>
   </React.StrictMode>
 );
