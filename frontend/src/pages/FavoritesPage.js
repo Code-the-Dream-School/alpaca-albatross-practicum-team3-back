@@ -15,7 +15,7 @@ const FavoritesPage = (addToDo) => {
   // delete function is the same
   return (
     <>
-      <h1>Favorites</h1>
+      {/* <h1>Favorites</h1> */}
       <Speech />
       <FavTodoList listID={cookies.listID} />
     </>

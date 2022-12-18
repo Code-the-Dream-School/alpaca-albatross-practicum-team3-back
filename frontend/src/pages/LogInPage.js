@@ -43,9 +43,6 @@ const LogInPage = () => {
 
   return (
     <div>
-      {/* <h1 className='logo'><em>Lifestyle:</em><br></br>
-      tracking all of life's tasks
-      </h1> */}
       <div className='auth-form-container'>
         <form
           id='formBkgd'
@@ -53,19 +50,18 @@ const LogInPage = () => {
           onSubmit={submitLogIn}
           className='login-form'
         >
-          <h1 className='logAvatar'>
-            {/* <FaUserCircle style={{ marginLeft: '20px' }} /> */}
+          <div>
             <h1 className='logo'><em>Lifestyle:</em><br></br>
       tracking all of life's tasks
       </h1>
             <NavLink
               to='register'
-              className='register'
+              id='register'
               style={{ border: 'none', fontSize: '14px' }}
             >
               Create an account
-            </NavLink>
-          </h1>
+          </NavLink>
+          </div>
           <div className='inputFields'>
             <label>
               Username: <br></br>

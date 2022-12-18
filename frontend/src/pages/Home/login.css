@@ -5,15 +5,8 @@
     margin-top: -100px;
 }
 
-.logAvatar{
-    align-self: center;
-    font-weight: bold;
-    font-size:85px;
-    margin-left: 15px;
-}
-
 #formBkgd{
-border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
@@ -38,20 +31,6 @@ border: 1px solid rgba(255, 255, 255, .25);
     margin-bottom: 10px;
     border-radius:10px;
 }
-
-/* this is the log in button on the nav bar, used for nav while building app */
-/* .login-btn {
-    border: none;
-    margin-top: 10px;
-    background-color:#cf95f5;
-    padding: 10px;
-    border-radius: 10px;
-    width: moz-fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-} */
 
 .login-error{
     font-weight: bold;
@@ -78,10 +57,12 @@ border: 1px solid rgba(255, 255, 255, .25);
     z-index: 1;
 }
 
-.register{
+#register{
     color:blue;
-    justify-self:center;
+    display: flex;
     width: fit-content;
-    margin-top: 15px;
-    margin-left: 45px;
+    margin-top: 5px;
+    margin-left: 70px;
+    padding: 5px;
+    height: fit-content;
     }
