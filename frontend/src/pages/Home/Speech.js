@@ -64,7 +64,7 @@ const Speech = () => {
   return (
       <div id="transcriptDiv">
       <p id="transcript">{transcript}</p>
-      <p id="transcript"> {redirectPage}</p>
+      {redirectPage}
       <button id="transcriptButton" onClick={toggleMic}>{mic ? <FaMicrophone /> : <FaMicrophoneSlash />}</button>
       <p id="vnTitle">VoiceNavigation</p>
           {/* {redirectPage} */}
