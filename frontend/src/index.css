@@ -179,6 +179,10 @@ body {
     position: sticky;
 
 } 
+
+input:checked + .todo_list_item{
+    text-decoration: line-through;
+}
 /* 
 #transcriptButton{
     font-size: 64px;
