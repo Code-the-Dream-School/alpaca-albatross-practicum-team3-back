@@ -72,11 +72,11 @@ const TodoList = ({ listID }) => {
   };
 
   return (
-    <>
-      <h1 className='header_sec'>To Do List</h1>
+    <div className='notepad'>
+      {/* <h1 className='header_sec'>To Do List</h1> */}
       <AddTodoForm addTodo={addTodo} idList={listID} />
 
-      <ul className='todo_list_item'>
+      <ul className='todo_list'>
         {todoList.map((todo) => (
           <TodoListItem
             key={todo._id}
@@ -88,7 +88,7 @@ const TodoList = ({ listID }) => {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
