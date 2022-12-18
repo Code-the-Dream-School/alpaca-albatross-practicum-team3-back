@@ -1,22 +1,12 @@
 
 .auth-form-container {
-    /* text-align: center; */
     display: flex;
     min-height: 100vh;
     margin-top: -100px;
-    
-    
-    /* align-items: center;
-    justify-content: center; */
-    /* background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg); */
-    /* background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg); */
-    
 }
 
 .logAvatar{
     align-self: center;
-    /* margin-top: 20px;
-    margin-bottom: 30px; */
     font-weight: bold;
     font-size:85px;
     margin-left: 15px;
@@ -32,8 +22,6 @@ border: 1px solid rgba(255, 255, 255, .25);
 
 .login-form{
     display: flex;
-    /* align-items: center; */
-    /* flex-direction: column; */
     box-shadow: 3px 3px 3px 3px rgb(180, 178, 178);
     width: moz-fit-content;
     border-radius: 10px;

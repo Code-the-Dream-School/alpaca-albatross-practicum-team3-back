@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
@@ -30,7 +29,6 @@ const Navbar = () => {
         {/* should route to home or be inactive */}
         {/* <NavLink to='/logo'> logo
         </NavLink> */}
-        <Bars />
         <NavMenu>
           <NavLink to='/home' className='home'>
             Home

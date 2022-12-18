@@ -7,6 +7,7 @@ import './pages/Home/home.css';
 import './pages/Home/favoritespage.css';
 import './pages/Home/login.css';
 import './pages/Home/registration.css';
+import './pages/Home/speech.css'
 import { CookiesProvider } from 'react-cookie';
 import { RecoilRoot } from 'recoil';
 const root = ReactDOM.createRoot(document.getElementById('root'));

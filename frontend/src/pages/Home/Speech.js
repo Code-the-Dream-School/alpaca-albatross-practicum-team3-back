@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import {FaMicrophone, FaMicrophoneSlash} from "react-icons/fa";
 
 const Speech = () => {
+  const [mic, setMic] = useState("");
+
   
   // recognized commands
   const commands = [
@@ -48,15 +51,26 @@ const Speech = () => {
       if (pages.includes(redirectUrl)) {
         redirectPage = navigate(urls[redirectUrl])
       } else {
-        redirectPage = <p>Could not find page: {redirectUrl}</p>
+        redirectPage = <p id="redirectPg" className="redirectPg">Could not find page: {redirectUrl}</p>
       }
     }
 
+  //use boolean to change mic icon when speech command is in use 
+  const toggleMic = () => {
+    SpeechRecognition.startListening()
+    setMic(!mic)
+  };
+  
   return (
       <div id="transcriptDiv">
-          <p id="transcript">{transcript}</p>
-          <button id="transcriptButton" onClick={SpeechRecognition.startListening}>Start</button>
-          {redirectPage}
+      <p id="transcript">{transcript}</p>
+      <p id="transcript"> {redirectPage}</p>
+      <button id="transcriptButton" onClick={toggleMic}>{mic ? <FaMicrophone /> : <FaMicrophoneSlash />}</button>
+      <p id="vnTitle">VoiceNavigation</p>
+          {/* {redirectPage} */}
+          {/*<button id="transcriptButton" onClick={SpeechRecognition.startListening}
+          ><FaMicrophoneSlash/></button> */}
+
       </div>
   )
 };
