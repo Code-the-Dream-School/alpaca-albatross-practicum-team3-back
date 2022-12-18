@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { login } from '../components/API/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import {FiAlertTriangle} from "react-icons/fi"
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
 import { useCookies } from 'react-cookie';
@@ -86,7 +87,7 @@ const LogInPage = () => {
 
             {logInError ? (
               <p className='login-error'>
-                <small>Invalid Password or Username</small>
+                <small><FiAlertTriangle/>Invalid Password or Username</small>
               </p>
             ) : null}
           </div>

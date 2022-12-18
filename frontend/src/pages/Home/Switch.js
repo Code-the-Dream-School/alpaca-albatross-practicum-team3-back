@@ -12,14 +12,14 @@ function Switch({toggleTheme, isDarkTheme}) {
   };
 
   return (
-    <>
+    <div className="darkmode-toggle">
     <BsFillSunFill id="sun"/>
     <label className="toggle-switch">
       <input type="checkbox" checked={isToggled} onChange={onToggle} />
       <span className="switch" />
     </label>
     <BsFillMoonStarsFill id="moon" />
-    </>
+    </div>
   );
 }
 export default Switch;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { register } from '../components/API/Auth';
 import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import {FiAlertTriangle} from "react-icons/fi"
 import { useNavigate } from 'react-router-dom';
 import ToDoAPI from '../components/API/ToDoAPI';
 import { ValidationPassword } from '../middleware/ValidationPassword';
@@ -129,7 +130,7 @@ function Registration() {
           <div>{successMessage()}</div>
           <div>
             {error.length ? (
-              <p className='err'>
+              <p className='err'><FiAlertTriangle/>
                 <small>{error}</small>
               </p>
             ) : null}
