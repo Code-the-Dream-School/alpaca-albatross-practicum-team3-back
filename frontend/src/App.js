@@ -20,9 +20,9 @@ const StyledApp = styled.div`
   `;
 
 const darkTheme = {
-  body: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDhUoSyHfzGxCgJronqdMzVrR_OQxmvDWBEqCpmHQkYWZQVQuhBfMzyziBL-nbAXGWc0&usqp=CAU)',
-  // text: '#ff6347',
-  // title: '#22abfb',
+  body: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, .9))',
+  text: '#EDEFFA',
+  title: '#22abfb',
   // subtitle: '#b6b6b6',
   // icon: '#b6b6b6',
 };
