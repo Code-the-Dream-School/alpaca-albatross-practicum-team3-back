@@ -4,7 +4,7 @@ import Speech from './Home/Speech'
 
 function WeeklyList (){
     return (
-        <div className="weeklyList">
+        <div className="weeklyList" style={{marginTop:"110px"}}>
             <Speech />
             <TodoList />
         </div>

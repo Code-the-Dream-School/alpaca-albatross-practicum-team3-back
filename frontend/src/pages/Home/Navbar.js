@@ -29,7 +29,7 @@ const Navbar = () => {
         {/* should route to home or be inactive */}
         {/* <NavLink to='/logo'> logo
         </NavLink> */}
-        <NavMenu>
+        <NavMenu id="header">
           <NavLink to='/home' className='home'>
             Home
           </NavLink>

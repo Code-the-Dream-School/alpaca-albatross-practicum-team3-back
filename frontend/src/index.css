@@ -15,8 +15,24 @@
 body {
     /* min-height: 100vh; */
     background-image: url(https://metropole.at/wp-content/uploads/2020/05/top-view-of-modern-blue-office-desktop-with-blank-87K89QW-scaled.jpg);
+    object-fit: fill;
 }
 
+
+ #footer{
+    display:none;
+ }
+@media screen and (max-width: 786px) {
+    #footer{
+    position:fixed;
+    bottom:0;
+    display: inline;
+    width: fit-content;
+    }
+    #header{
+        display: none;
+    }
+  }
 
 /* BUTTONS */
 
@@ -112,7 +128,7 @@ body {
 .notepad{
     width: 600px;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 1000px;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.45);

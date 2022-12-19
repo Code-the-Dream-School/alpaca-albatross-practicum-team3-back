@@ -11,6 +11,7 @@ import WeeklyList from './pages/WeeklyList';
 import Switch from './pages/Home/Switch';
 import styled, { ThemeProvider } from "styled-components";
 import { PrivateRoute } from './components/PrivateRoute';
+import Footer from "./components/Footer"
 
 // import Calendar from './pages/Home/Calendar';
 
@@ -45,7 +46,8 @@ const toggleTheme = () => {
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <StyledApp>
-    <Navbar />
+        <Navbar />
+        <Footer />
     <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/>
       <Routes>
         {/* Registration */}
