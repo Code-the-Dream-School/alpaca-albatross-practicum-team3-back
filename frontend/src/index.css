@@ -164,6 +164,10 @@ body {
     /* background-color: #439663; */
 
 } 
+
+input:checked + .todo_list_item{
+    text-decoration: line-through;
+}
 /* 
 #transcriptButton{
     font-size: 64px;
