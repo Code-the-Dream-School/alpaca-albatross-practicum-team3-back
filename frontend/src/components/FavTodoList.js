@@ -55,7 +55,7 @@ const FavTodoList = ({ listID }) => {
   };
 
   return (
-    <>
+    <div>
       <h1 id="empty"></h1>
       <AddTodoForm addTodo={addFavTodo} idList={listID} />
 
@@ -70,7 +70,7 @@ const FavTodoList = ({ listID }) => {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -4,9 +4,9 @@ import Speech from './Home/Speech';
 
 function MonthlyList (){
     return (
-        <div id="monthlyList">
+        <div style={{marginTop:"110px"}}>
             <Speech />
-            <TodoList/>
+            <TodoList />
         </div>
     )
 }
