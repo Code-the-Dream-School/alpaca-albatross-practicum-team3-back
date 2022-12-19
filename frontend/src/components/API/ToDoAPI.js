@@ -1,8 +1,9 @@
 import axios from 'axios';
 //const listID = process.env.REACT_APP_LIST_ID;
-const apiURL = 'http://localhost:3001/api/v1';
+//const apiURL = 'http://localhost:3001/api/v1';
 //const bearerKey = process.env.REACT_APP_BEARER_KEY;
 //console.log(listID);
+const apiURL = process.env.REACT_APP_BASE_URL;
 class ToDoAPI {
   static async createNewList(/*apiURL,*/ bearerKey) {
     return await axios
