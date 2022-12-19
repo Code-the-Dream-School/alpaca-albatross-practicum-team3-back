@@ -56,7 +56,7 @@ const FavTodoList = ({ listID }) => {
 
   return (
     <>
-      <h1 className='header_sec'>To Do List</h1>
+      <h1 id="empty"></h1>
       <AddTodoForm addTodo={addFavTodo} idList={listID} />
 
       <ul className='todo_list_item'>
