@@ -51,7 +51,7 @@ const Speech = () => {
       if (pages.includes(redirectUrl)) {
         redirectPage = navigate(urls[redirectUrl])
       } else {
-        redirectPage = <p id="redirectPg" className="redirectPg">Could not find page: {redirectUrl}</p>
+        redirectPage = <p id="transcript" className="redirectPg">Could not find page: {redirectUrl}</p>
       }
     }
 
