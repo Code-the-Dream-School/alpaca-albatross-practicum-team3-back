@@ -73,8 +73,9 @@ function Registration() {
         setCookie('listID', id, { path: '/' });
         setAuth(localStorage.getItem('user'));
         // setDefaultListID(id);
-        const testID = cookies.listID;
-        console.log(testID, 'testID');
+        //*****commented out testID to test errors in deploy */
+        // const testID = cookies.listID;
+        // console.log(testID, 'testID');
         //console.log('from here ID', defaultListID);
         //const [mapState, dispatch] = SharedReducer((state = initialState, action) => {})
         setSubmitted(true);
