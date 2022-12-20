@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {FaTrashAlt, FaEdit, FaRegStar, FaStar} from "react-icons/fa"
 
 //Function creates list item with checkbox, todo.title, star, edit, remove.--sb
@@ -7,11 +6,9 @@ import {FaTrashAlt, FaEdit, FaRegStar, FaStar} from "react-icons/fa"
 const TodoListItem = ({ todo, removeTodo, onChange, handleCheck, onFave }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(todo.title);
-  const [favorite, setFavorite] = useState(todo.favorite);
 
   // this function is processing editing mode
   const editTodo = (event) => {
-    // console.log(event.target.value);
     setIsEditing(!isEditing);
     event.preventDefault();
     event.stopPropagation();

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { register } from '../components/API/Auth';
 import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import {FiAlertTriangle} from "react-icons/fi"
@@ -62,21 +62,17 @@ function Registration() {
       setError('Username must be between 6-18 characters');
     } else {
       let result = await register({ username: userName, password: password });
-      console.log(result);
 
       if (result) {
         //if registered successfully - get listID
         //use token stored in the local storage as a bearerKey
         const token = JSON.parse(localStorage.getItem('token'));
         let id = await ToDoAPI.createNewList(/*apiURL,*/ token);
-        //console.log('id', id);
         setCookie('listID', id, { path: '/' });
         setAuth(localStorage.getItem('user'));
         // setDefaultListID(id);
         //*****commented out testID to test errors in deploy */
         // const testID = cookies.listID;
-        // console.log(testID, 'testID');
-        //console.log('from here ID', defaultListID);
         //const [mapState, dispatch] = SharedReducer((state = initialState, action) => {})
         setSubmitted(true);
         setError(false);

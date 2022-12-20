@@ -11,15 +11,12 @@ const TodoList = ({ listID }) => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const idList = listID;
-  //console.log(idList);
+  //const idList = listID;
 
   useEffect(() => {
     (async () => {
       const userToken = JSON.parse(localStorage.getItem('token'));
       let fetchedData = await ToDoAPI.getToDoList(listID, userToken);
-      // console.log('todolist list ID here', listID);
-      console.log('fetched', fetchedData);
 
       setTodoList(fetchedData);
 
@@ -41,18 +38,15 @@ const TodoList = ({ listID }) => {
 
   // This function sends todo to list--sb
   const addTodo = async (todo, listID) => {
-    // console.log('todo', todo, 'listID', listID);
     const userToken = JSON.parse(localStorage.getItem('token'));
     let newTodo = await ToDoAPI.addToDo(listID, todo, userToken);
     setTodoList([...todoList, newTodo]);
-    // console.log(newTodo);
   };
 
   // This function deletes todo--sb
   const removeTodo = async (todo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
     let newTodoList = await ToDoAPI.deleteToDo(todo, todoList, userToken);
-    //console.log(newTodoList);
     setTodoList(newTodoList);
     setIsLoading(false);
   };

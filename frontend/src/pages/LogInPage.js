@@ -29,14 +29,11 @@ const LogInPage = () => {
         username: e.target.username.value,
         password: e.target.password.value,
       });
-      console.log(result, 'result.....');
-      //console.log("Success:", result)
       if (result) {
         setLogInError(false);
         const token = JSON.parse(localStorage.getItem('token'));
         const lists = await ToDoAPI.getListIDs(token);
         const id = lists[0]._id;
-        // console.log('lists and id', lists, id);
         setCookie('listID', id, { path: '/' });
         setAuth(localStorage.getItem('user'));
         navigate('/home');

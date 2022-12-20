@@ -20,7 +20,6 @@ export const login = async function(formData) {
     });
 }
 export const register = async function(formData) {  
-  console.log('apiUrl......',apiURL )
   return axios
     .post(apiURL + `/auth/register`,
     { 
@@ -33,7 +32,7 @@ export const register = async function(formData) {
       }
       
       return response.data
-    }).catch(err => console.log('registration error',err));
+    }).catch(err => console.error('registration error',err));
 }
 
 // export const logout = async function() {

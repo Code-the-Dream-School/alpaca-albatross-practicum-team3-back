@@ -8,7 +8,7 @@ const FavTodoList = ({ listID }) => {
   const [favTodoList, setFavTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const idList = listID;
+  //const idList = listID;
 
   useEffect(() => {
     (async () => {
@@ -23,18 +23,15 @@ const FavTodoList = ({ listID }) => {
 
   // This function sends todo to list--sb
   const addFavTodo = async (todo, listID) => {
-    // console.log('todo', todo, 'listID', listID);
     const userToken = JSON.parse(localStorage.getItem('token'));
     let newTodo = await ToDoAPI.addFavToDo(listID, todo, userToken);
     setFavTodoList([...favTodoList, newTodo]);
-    // console.log(newTodo);
   };
 
   // This function deletes todo--sb
   const removeTodo = async (todo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
     let newTodoList = await ToDoAPI.deleteToDo(todo, favTodoList, userToken);
-    //console.log(newTodoList);
     setFavTodoList(newTodoList);
     setIsLoading(false);
   };
@@ -50,7 +47,6 @@ const FavTodoList = ({ listID }) => {
   const updateFavorite = async (newTodo) => {
     const userToken = JSON.parse(localStorage.getItem('token'));
     let updTodoList = await ToDoAPI.updateFav(newTodo, favTodoList, userToken);
-    // console.log(updTodoList);
     setFavTodoList(updTodoList.filter((item) => item.favorite === true));
   };
 

@@ -8,15 +8,15 @@ const AddTodoForm = ({ addTodo, idList }) => {
 
   const handleTitleChange = (e) => {
     const newTodoTitle = e.target.value;
-    // console.log('setting to do title');
     setTodoTitle(newTodoTitle);
   };
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    // console.log(todoTitle);
-    addTodo({ /*id: Date.now(),*/ title: todoTitle }, idList); // Id here must be removed because DB has its own id
-    setTodoTitle('');
+    if(todoTitle.length > 0) {
+      addTodo({ /*id: Date.now(),*/ title: todoTitle }, idList); // Id here must be removed because DB has its own id
+      setTodoTitle('');
+    }    
   };
 
   return (

@@ -1,12 +1,10 @@
 import React from 'react';
-import AddTodoForm from '../components/AddTodoForm';
 import Speech from './Home/Speech';
 import FavTodoList from '../components/FavTodoList';
 import { useCookies } from 'react-cookie';
 
 const FavoritesPage = (addToDo) => {
   const [cookies] = useCookies(['listID']);
-  // console.log('all your fave are belong to us');
 
   // create new Todolist component
   // it will show only the items in status favored
@@ -16,7 +14,6 @@ const FavoritesPage = (addToDo) => {
   return (
     <>
       <div id="favelist">
-        <h1></h1>
       <FavTodoList listID={cookies.listID} />
       </div>
       <Speech />

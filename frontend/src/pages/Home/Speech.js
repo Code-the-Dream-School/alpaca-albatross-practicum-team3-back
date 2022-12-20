@@ -19,7 +19,6 @@ const Speech = () => {
       //   // need to address handling multiple words in the spoken message throughout the rest of the app, error if spoken message is too long?
       //   commands: 'Add *', //, 'Add **', 'Add ***', 'Add ****', 'Add *****', 'Add ******'
       //   callback: (spokenMsg) => {
-      //     console.log(spokenMsg);
       //       setTranscribedMsg(spokenMsg);
       //       handleSpokenTodo(spokenMsg)
       //   }
