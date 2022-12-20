@@ -10,7 +10,7 @@ import MonthlyList from './pages/MonthlyList';
 import WeeklyList from './pages/WeeklyList';
 import Switch from './pages/Home/Switch';
 import styled, { ThemeProvider } from "styled-components";
-import { PrivateRoute } from './components/PrivateRoute';
+// import { PrivateRoute } from './components/PrivateRoute';
 import Footer from "./components/Footer"
 
 // import Calendar from './pages/Home/Calendar';
@@ -63,9 +63,9 @@ const toggleTheme = () => {
         <Route
           path='/home'
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Home />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         ></Route>
 
@@ -73,9 +73,9 @@ const toggleTheme = () => {
         <Route
           path='/FavoritesPage'
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <FavoritesPage />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         ></Route>
 
@@ -83,9 +83,9 @@ const toggleTheme = () => {
         <Route
           path='/Monthly'
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <MonthlyList />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         ></Route>
 
@@ -93,9 +93,9 @@ const toggleTheme = () => {
         <Route
           path='/Weekly'
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <WeeklyList />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         ></Route>
       </Routes>

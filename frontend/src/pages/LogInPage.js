@@ -6,15 +6,15 @@ import {FiAlertTriangle} from "react-icons/fi"
 import ToDoAPI from '../components/API/ToDoAPI';
 import { NavLink } from './Home/NavbarElements';
 import { useCookies } from 'react-cookie';
-import { authAtom } from '../state/atom-auth';
-import { useSetRecoilState } from 'recoil';
+// import { authAtom } from '../state/atom-auth';
+// import { useSetRecoilState } from 'recoil';
 
 const LogInPage = () => {
   const [logInError, setLogInError] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [cookies, setCookie] = useCookies(['listID']);
   const navigate = useNavigate();
-  const setAuth = useSetRecoilState(authAtom);
+  // const setAuth = useSetRecoilState(authAtom);
 
   const togglePassword = () => {
     // When the handler is invoked
@@ -38,7 +38,7 @@ const LogInPage = () => {
         const id = lists[0]._id;
         // console.log('lists and id', lists, id);
         setCookie('listID', id, { path: '/' });
-        setAuth(localStorage.getItem('user'));
+        // setAuth(localStorage.getItem('user'));
         navigate('/home');
       }
     } catch (error) {

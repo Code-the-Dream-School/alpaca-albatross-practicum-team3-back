@@ -7,8 +7,8 @@ import ToDoAPI from '../components/API/ToDoAPI';
 import { ValidationPassword } from '../middleware/ValidationPassword';
 //import SharedReducer from 'shared-reducer-hooks';
 import { useCookies } from 'react-cookie';
-import { authAtom } from '../state/atom-auth';
-import { useSetRecoilState } from 'recoil';
+// import { authAtom } from '../state/atom-auth';
+// import { useSetRecoilState } from 'recoil';
 
 function Registration() {
   const [userName, setUserName] = useState('');
@@ -16,7 +16,7 @@ function Registration() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
-  const setAuth = useSetRecoilState(authAtom);
+  // const setAuth = useSetRecoilState(authAtom);
   const navigate = useNavigate();
 
   // const initialState = {
@@ -71,7 +71,7 @@ function Registration() {
         let id = await ToDoAPI.createNewList(/*apiURL,*/ token);
         //console.log('id', id);
         setCookie('listID', id, { path: '/' });
-        setAuth(localStorage.getItem('user'));
+        // setAuth(localStorage.getItem('user'));
         // setDefaultListID(id);
         const testID = cookies.listID;
         console.log(testID, 'testID');

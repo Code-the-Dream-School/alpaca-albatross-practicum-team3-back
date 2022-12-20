@@ -7,19 +7,19 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 import { useNavigate } from 'react-router-dom';
-import { authAtom } from './../../state/atom-auth';
-import { useSetRecoilState } from 'recoil';
+// import { authAtom } from './../../state/atom-auth';
+// import { useSetRecoilState } from 'recoil';
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const setAuth = useSetRecoilState(authAtom);
+  // const setAuth = useSetRecoilState(authAtom);
 
   const submitLogOut = (e) => {
     e.preventDefault();
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    setAuth(null);
+    // setAuth(null);
     navigate('/');
   };
 
