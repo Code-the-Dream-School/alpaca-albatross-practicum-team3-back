@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {FaMicrophone, FaMicrophoneSlash} from "react-icons/fa";
-
+import {ErrorBoundary} from "react-error-boundary"
 const Speech = () => {
   const [mic, setMic] = useState("");
+
+  function ErrorFallback({error}) {
+    return (
+      <div role="alert">
+        <p>Something went wrong:</p>
+        <pre style={{ color: 'red' }}>{error.message}</pre>
+        console.log(error boundary speech.js 14)
+      </div>
+    )
+  }
 
   
   // recognized commands
@@ -54,7 +64,7 @@ const Speech = () => {
         redirectPage = <p id="transcript" className="redirectPg">Could not find page: {redirectUrl}</p>
       }
     }
-
+  
   //use boolean to change mic icon when speech command is in use 
   const toggleMic = () => {
     SpeechRecognition.startListening()
@@ -62,7 +72,8 @@ const Speech = () => {
   };
   
   return (
-      <div id="transcriptDiv">
+    <div id="transcriptDiv">
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
       <p id="transcript">{transcript}</p>
       {redirectPage}
       <button id="transcriptButton" onClick={toggleMic}>{mic ? <FaMicrophone /> : <FaMicrophoneSlash />}</button>
@@ -70,7 +81,7 @@ const Speech = () => {
           {/* {redirectPage} */}
           {/*<button id="transcriptButton" onClick={SpeechRecognition.startListening}
           ><FaMicrophoneSlash/></button> */}
-
+      </ErrorBoundary>
       </div>
   )
 };
