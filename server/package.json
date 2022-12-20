@@ -9,7 +9,7 @@
     "dev": "nodemon app.js",
     "test": "jest"
   },
-  "author": "Chung Kao",
+  "author": "Chung Kao, Dahlak Keleta",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
