@@ -45,7 +45,7 @@ const Navbar = () => {
         </NavMenu>
       </Nav>
       <NavBtn>
-        <NavBtnLink className='logoutbtn' onClick={submitLogOut}>
+        <NavBtnLink id='logoutbtn' onClick={submitLogOut}>
           Log Out
         </NavBtnLink>
       </NavBtn>

@@ -13,10 +13,10 @@ export const Nav = styled.nav`
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(5px);
-  @media screen and (max-width: 768px) {
-    width:fit-content;
-    position:fixed;
-  }
+  // @media screen and (max-width: 788px) {
+    // width:fit-content;
+    // position:fixed;
+  // }
   }
 `;
 

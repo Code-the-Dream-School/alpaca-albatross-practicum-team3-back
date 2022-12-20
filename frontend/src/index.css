@@ -32,6 +32,11 @@ body {
     #header{
         display: none;
     }
+    #logoutbtn{
+        top: 2px;
+        right: 2px;
+        position:sticky;
+    }
   }
 
 /* BUTTONS */
